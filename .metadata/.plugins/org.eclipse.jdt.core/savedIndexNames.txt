@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\org.eclipse.jdt.core
+2587507919.index
+1298852901.index
+1268440071.index
