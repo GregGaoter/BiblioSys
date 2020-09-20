@@ -1,0 +1,37 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "email"), @Index(columnList = "is_actif") })
+public class Identifiant {
+
+	//private static final long serialVersionUID = 5512930558921085439L;
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	private String email;
+	private String motDePasse;
+	private boolean isActif;
+	@ManyToMany
+	private Set<Role> roles;
+
+}

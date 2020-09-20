@@ -1,0 +1,9 @@
+# -- Data source
+#----------------------------------------------
+spring.datasource.url=jdbc:postgresql://localhost:5432/db_bibliosys
+spring.datasource.username=postgres
+spring.datasource.password=
+
+# -- Serveur ressources statiques NGINX
+#----------------------------------------------
+url.serveur.img.livres=http://localhost:80/img/books/

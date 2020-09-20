@@ -1,0 +1,7 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+public class Auteur extends AbstractEntity {
+
+	private static final long serialVersionUID = -1640095802151219908L;
+
+}

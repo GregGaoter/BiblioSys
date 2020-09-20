@@ -1,0 +1,7 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+public class Identifiant extends AbstractEntity {
+
+	private static final long serialVersionUID = 5512930558921085439L;
+
+}

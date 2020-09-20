@@ -1,0 +1,7 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+public class Genre extends AbstractEntity {
+	
+	private String nom;
+
+}

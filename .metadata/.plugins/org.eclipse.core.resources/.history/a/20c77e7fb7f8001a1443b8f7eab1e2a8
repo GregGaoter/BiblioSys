@@ -1,0 +1,7 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+public class Favoris extends AbstractEntity {
+
+	private static final long serialVersionUID = -870800565744742708L;
+
+}

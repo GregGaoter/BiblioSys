@@ -1,0 +1,30 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "lieu_id") })
+public class Adresse extends AbstractEntity {
+
+	private static final long serialVersionUID = -7131042730310255035L;
+
+	private int numeroRue;
+	private String rue;
+	@ManyToOne
+	@JoinColumn(name = "lieu_id")
+	private Lieu lieu;
+
+}

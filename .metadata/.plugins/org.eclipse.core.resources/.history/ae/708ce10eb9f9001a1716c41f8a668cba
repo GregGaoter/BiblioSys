@@ -1,0 +1,7 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import java.io.Serializable;
+
+public class Editeur implements Serializable {
+
+}

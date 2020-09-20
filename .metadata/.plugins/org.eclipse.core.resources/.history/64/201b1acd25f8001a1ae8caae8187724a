@@ -1,0 +1,11 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+public class Adresse extends AbstractEntity {
+
+	private static final long serialVersionUID = -7131042730310255035L;
+
+	private int numeroRue;
+	private String rue;
+	private int lieuId;
+
+}

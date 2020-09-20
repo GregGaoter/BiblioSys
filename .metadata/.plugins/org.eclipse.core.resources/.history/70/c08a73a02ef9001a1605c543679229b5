@@ -1,0 +1,44 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "email"), @Index(columnList = "is_actif") })
+@SequenceGenerator(name = "identifiant_sequence_generator")
+public class Identifiant implements Serializable {
+
+	private static final long serialVersionUID = 5512930558921085439L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "identifiant_sequence_generator")
+	private int id;
+	@Column(nullable = false)
+	private String email;
+	@Column(nullable = false)
+	private String motDePasse;
+	@Column(nullable = false)
+	private boolean isActif;
+	@ManyToMany
+	private Set<Role> roles;
+
+}

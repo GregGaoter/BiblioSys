@@ -1,0 +1,40 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "prenom_nom") })
+@SequenceGenerator(name = "auteur_sequence_generator")
+public class Auteur implements Serializable {
+
+	private static final long serialVersionUID = -1640095802151219908L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auteur_sequence_generator")
+	@Setter(AccessLevel.PROTECTED)
+	private int id;
+	private String prenomNom;
+	@ManyToMany
+	private Set<Livre> livres;
+
+}

@@ -1,0 +1,9 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+public class Livre extends AbstractEntity {
+
+	private static final long serialVersionUID = -4335474839502651551L;
+	
+	
+
+}

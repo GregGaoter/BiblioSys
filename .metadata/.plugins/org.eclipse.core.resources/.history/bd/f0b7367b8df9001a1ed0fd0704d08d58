@@ -1,0 +1,51 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "prenom"), @Index(columnList = "nom"), @Index(columnList = "identifiant_id"),
+		@Index(columnList = "adresse_id") })
+public class Usager implements Serializable {
+
+	private static final long serialVersionUID = -2591511804019786129L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usager_sequence_generator")
+	@Setter(AccessLevel.PROTECTED)
+	private int id;
+	@Column(nullable = false)
+	private String prenom;
+	@Column(nullable = false)
+	private String nom;
+	@Column(nullable = false)
+	private LocalDateTime dateNaissance;
+	@OneToOne
+	@JoinColumn(name = "identifiant_id", referencedColumnName = "id", nullable = false)
+	private Identifiant identifiant;
+	@ManyToOne
+	@JoinColumn(name = "adresse_id", nullable = false)
+	private Adresse adresse;
+
+}

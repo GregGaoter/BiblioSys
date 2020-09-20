@@ -1,0 +1,33 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "nom") })
+public class Editeur implements Serializable {
+
+	private static final long serialVersionUID = -1661501911067440459L;
+
+	@Id
+	@GeneratedValue
+	@Setter(AccessLevel.PROTECTED)
+	private int id;
+	private String nom;
+
+}

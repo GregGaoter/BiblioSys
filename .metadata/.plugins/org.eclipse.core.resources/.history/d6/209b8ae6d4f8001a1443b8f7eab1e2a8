@@ -1,0 +1,34 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "region"), @Index(columnList = "departement"),
+		@Index(columnList = "code_postal"), @Index(columnList = "ville") })
+public class Lieu {
+
+	//private static final long serialVersionUID = -8216083815536312424L;
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	private String region;
+	private String departement;
+	private String codePostal;
+	private String ville;
+
+}

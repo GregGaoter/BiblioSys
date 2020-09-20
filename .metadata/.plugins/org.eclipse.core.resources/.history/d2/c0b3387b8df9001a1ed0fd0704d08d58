@@ -1,0 +1,39 @@
+package com.dsi.bibliosys.biblioback.data.entity;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(indexes = { @Index(columnList = "nom") })
+public class Role implements Serializable {
+
+	private static final long serialVersionUID = 3698203793708805925L;
+
+	@Id
+	@GeneratedValue
+	@Setter(AccessLevel.PROTECTED)
+	private int id;
+	private String nom;
+	@ManyToMany(mappedBy = "roles")
+	@JoinColumn(nullable = false)
+	private Set<Identifiant> identifiants;
+
+}
