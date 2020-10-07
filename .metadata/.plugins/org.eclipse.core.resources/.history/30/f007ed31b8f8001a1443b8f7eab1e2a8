@@ -1,7 +1,0 @@
-package com.dsi.bibliosys.biblioback.data.entity;
-
-public class Pret extends AbstractEntity {
-
-	private static final long serialVersionUID = 707108419722632251L;
-
-}

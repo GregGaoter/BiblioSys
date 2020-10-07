@@ -1,0 +1,69 @@
+package com.dsi.bibliosys.biblioback.service.entity;
+
+import javax.persistence.EntityNotFoundException;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ * Interface de service fournissant les opérations CRUD pour les entités
+ * business.
+ *
+ * @param <E> Type de l'entité business.
+ * @param <I> Type de la clef primaire de l'entité business.
+ */
+public interface CrudService<E, I> {
+
+	/**
+	 * Renvoie le repository de l'entité business.
+	 * 
+	 * @return Le repository de l'entité business.
+	 */
+	public JpaRepository<E, I> getRepository();
+
+	/**
+	 * Renvoie une instance de l'entité business avec les attributs initialisés à
+	 * null.
+	 * 
+	 * @return Une instance de l'entité business avec les attributs initialisés à
+	 *         null.
+	 */
+	public E create();
+
+	/**
+	 * Enregistre une entité business et synchronise instantanément les
+	 * modifications dans la base de données..
+	 * 
+	 * @param entity L'entité business à enregistrer.
+	 * @return L'entité business enregistrée.
+	 */
+	public default E save(E entity) {
+		return getRepository().saveAndFlush(entity);
+	}
+
+	/**
+	 * Supprime de la base de données l'entité business passée en argument.
+	 * 
+	 * @param entity L'entité business à supprimer.
+	 * @throws EntityNotFoundException
+	 */
+	public default void delete(E entity) {
+		getRepository().delete(entity);
+	}
+
+	public default void deleteById(I id) {
+		delete(load(id));
+	}
+
+	public default long count() {
+		return getRepository().count();
+	}
+
+	public default E load(I id) {
+		E entity = getRepository().findById(id).orElse(null);
+		if (entity == null) {
+			throw new EntityNotFoundException();
+		}
+		return entity;
+	}
+
+}

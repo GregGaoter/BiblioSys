@@ -1,0 +1,20 @@
+package com.dsi.bibliosys.biblioback.data.entity.util;
+
+/**
+ * Classe utilitaire pour les entités business.
+ */
+public final class EntityUtil {
+
+	/**
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public static final String getName(Class<?> type) {
+		if(type==null) {
+			throw new NullPointerException("L'argument " + type + " n'est pas valide.");
+		}
+		return type.getSimpleName();
+	}
+
+}

@@ -1,8 +1,20 @@
 package com.dsi.bibliosys.biblioback.data.entity.util;
 
+import lombok.NonNull;
+
+/**
+ * Classe utilitaire pour les entités business.
+ */
 public final class EntityUtil {
 
-	public static final String getName(Class<?> type) {
+	/**
+	 * Retourne le nom simple de la classe en argument comme donné dans le code
+	 * source. Retourne un String vide si la classe en argument est anonyme.
+	 * 
+	 * @param type Classe de l'entité business.
+	 * @return Le nom simple de la classe en argument.
+	 */
+	public static final String getName(@NonNull Class<?> type) {
 		return type.getSimpleName();
 	}
 

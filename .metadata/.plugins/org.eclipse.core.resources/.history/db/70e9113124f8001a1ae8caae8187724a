@@ -1,9 +1,0 @@
-package com.dsi.bibliosys.biblioback.data.entity;
-
-public class Collection extends AbstractEntity {
-
-	private static final long serialVersionUID = 4428613563706291989L;
-
-	private String nom;
-
-}

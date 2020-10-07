@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,14 +17,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Auteur implements Serializable {
 
 	private static final long serialVersionUID = 7989996480456212650L;
 
+	public static final String ID = "id";
+	public static final String PRENOM_NOM = "prenomNom";
+	public static final String[] FIELDS = { ID, PRENOM_NOM };
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private Integer id;
 
 	private String prenomNom;
 

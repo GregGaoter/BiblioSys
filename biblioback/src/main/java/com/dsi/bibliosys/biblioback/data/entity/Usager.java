@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,14 +22,23 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Usager implements Serializable {
 
 	private static final long serialVersionUID = 173178456745033978L;
+	
+	public static final String ID = "id";
+	public static final String PRENOM = "prenom";
+	public static final String NOM = "nom";
+	public static final String DATE_NAISSANCE = "dateNaissance";
+	public static final String IDENTIFIANT = "identifiant";
+	public static final String ADRESSE = "adresse";
+	public static final String[] FIELDS = { ID, PRENOM, NOM, DATE_NAISSANCE, IDENTIFIANT, ADRESSE };
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private Integer id;
 
 	@Column(nullable = false)
 	private String prenom;

@@ -1,0 +1,26 @@
+package com.dsi.bibliosys.biblioback.app.exception;
+
+/**
+ * Classe définissant une exception utilisée pour des arguments null.
+ */
+public class NullArgumentException extends Exception {
+
+	static final long serialVersionUID = 6537038745532000566L;
+
+	/**
+	 * Constructeur
+	 */
+	public NullArgumentException() {
+		super();
+	}
+
+	/**
+	 * Constructeur.
+	 * 
+	 * @param message Message de l'exception.
+	 */
+	public NullArgumentException(String message) {
+		super(message);
+	}
+
+}

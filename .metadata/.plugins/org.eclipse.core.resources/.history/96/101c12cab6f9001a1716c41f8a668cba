@@ -1,9 +1,0 @@
-package com.dsi.bibliosys.biblioback.data.entity;
-
-import java.io.Serializable;
-
-public class Adresse implements Serializable {
-
-	private static final long serialVersionUID = 3348389607292879440L;
-
-}

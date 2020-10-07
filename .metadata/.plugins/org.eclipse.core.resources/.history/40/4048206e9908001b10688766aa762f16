@@ -1,0 +1,5 @@
+# ==============================================
+# === Exceptions
+# ==============================================
+nullargumentexception=L'argument {0} est null.
+illegalargumentexception=L'argument {0} n'est pas valide.

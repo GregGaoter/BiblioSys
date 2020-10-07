@@ -1,9 +1,0 @@
-package com.dsi.bibliosys.biblioback.data.entity;
-
-public class Genre extends AbstractEntity {
-
-	private static final long serialVersionUID = -6843250353107469473L;
-
-	private String nom;
-
-}

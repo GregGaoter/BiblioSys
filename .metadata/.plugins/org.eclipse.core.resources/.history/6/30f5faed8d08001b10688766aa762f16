@@ -1,0 +1,5 @@
+package com.dsi.bibliosys.biblioback.app.exception;
+
+public class IllegalStringArgumentException extends Exception {
+
+}

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,14 +18,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Lieu implements Serializable {
 
 	private static final long serialVersionUID = -8216083815536312424L;
 
+	public static final String ID = "id";
+	public static final String REGION = "region";
+	public static final String DEPARTEMENT = "departement";
+	public static final String CODE_POSTAL = "codePostal";
+	public static final String VILLE = "ville";
+	public static final String[] FIELDS = { ID, REGION, DEPARTEMENT, CODE_POSTAL, VILLE };
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private Integer id;
 
 	@Column(nullable = false)
 	private String region;

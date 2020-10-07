@@ -1,7 +1,0 @@
-package com.dsi.bibliosys.biblioback.data.entity;
-
-public class Role extends AbstractEntity {
-
-	private static final long serialVersionUID = 3698203793708805925L;
-
-}

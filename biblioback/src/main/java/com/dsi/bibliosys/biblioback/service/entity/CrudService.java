@@ -1,0 +1,90 @@
+package com.dsi.bibliosys.biblioback.service.entity;
+
+import javax.persistence.EntityNotFoundException;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.dsi.bibliosys.biblioback.app.HasLogger;
+
+import lombok.NonNull;
+
+/**
+ * Interface de service fournissant les opérations CRUD pour les entités
+ * business.
+ *
+ * @param <E> Type de l'entité business.
+ * @param <I> Type de la clef primaire de l'entité business.
+ */
+public interface CrudService<E, I> extends HasLogger {
+
+	/**
+	 * Renvoie le repository de l'entité business.
+	 * 
+	 * @return Le repository de l'entité business.
+	 */
+	public JpaRepository<E, I> getRepository();
+
+	/**
+	 * Renvoie une instance de l'entité business avec les attributs initialisés à
+	 * null.
+	 * 
+	 * @return Une instance de l'entité business avec les attributs initialisés à
+	 *         null.
+	 */
+	public E create();
+
+	/**
+	 * Enregistre une entité business et synchronise instantanément les
+	 * modifications dans la base de données.
+	 * 
+	 * @param entity L'entité business à enregistrer.
+	 * @return L'entité business enregistrée.
+	 */
+	public default E save(@NonNull E entity) {
+		return getRepository().saveAndFlush(entity);
+	}
+
+	/**
+	 * Supprime de la base de données l'entité business passée en argument.
+	 * 
+	 * @param entity L'entité business à supprimer.
+	 */
+	public default void delete(@NonNull E entity) {
+		getRepository().delete(entity);
+	}
+
+	/**
+	 * Supprime de la base de données l'entité business d'id passé en argument.
+	 * 
+	 * @param id L'id de l'entité business à supprimer.
+	 */
+	public default void deleteById(@NonNull I id) {
+		delete(load(id));
+	}
+
+	/**
+	 * Renvoie le nombre d'entité business.
+	 * 
+	 * @return Le nombre d'entité business.
+	 */
+	public default long count() {
+		return getRepository().count();
+	}
+
+	/**
+	 * Renvoie une entité business par son id.
+	 * 
+	 * @param id L'id de l'entité business.
+	 * @return L'entité business avec l'id donné.
+	 * @throws EntityNotFoundException si l'entité business avec l'id donné n'est
+	 *                                 pas trouvée.
+	 */
+	public default E load(@NonNull I id) {
+		E entity = getRepository().findById(id).orElse(null);
+		if (entity == null) {
+			throw new EntityNotFoundException();
+		}
+		return entity;
+	}
+
+}

@@ -1,7 +1,0 @@
-package com.dsi.bibliosys.biblioback.data.entity;
-
-import java.io.Serializable;
-
-public class EcritureLivre implements Serializable {
-
-}

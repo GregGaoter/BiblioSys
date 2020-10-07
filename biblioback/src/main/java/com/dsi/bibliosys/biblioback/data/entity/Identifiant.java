@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,14 +18,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Identifiant implements Serializable {
 
 	private static final long serialVersionUID = -4083166832802171328L;
 
+	public static final String ID = "id";
+	public static final String EMAIL = "email";
+	public static final String MOT_DE_PASSE = "motDePasse";
+	public static final String IS_ACTIF = "isActif";
+	public static final String[] FIELDS = { ID, EMAIL, MOT_DE_PASSE, IS_ACTIF };
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private Integer id;
 
 	@Column(nullable = false)
 	private String email;
@@ -33,6 +41,6 @@ public class Identifiant implements Serializable {
 	private String motDePasse;
 
 	@Column(nullable = false)
-	private boolean isActif;
+	private Boolean isActif;
 
 }

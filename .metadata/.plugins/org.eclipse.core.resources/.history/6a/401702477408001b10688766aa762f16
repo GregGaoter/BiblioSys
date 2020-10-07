@@ -1,0 +1,25 @@
+package com.dsi.bibliosys.biblioback.data.entity.util;
+
+import com.dsi.bibliosys.biblioback.app.exception.NullArgumentException;
+
+/**
+ * Classe utilitaire pour les entités business.
+ */
+public final class EntityUtil {
+
+	/**
+	 * Retourne le nom simple de la classe en argument comme donné dans le code
+	 * source. Retourne un String vide si la classe en argument est annonyme.
+	 * 
+	 * @param type
+	 * @return
+	 * @throws NullArgumentException
+	 */
+	public static final String getName(Class<?> type) throws NullArgumentException {
+		if (type == null) {
+			throw new NullArgumentException(String.format("L'argument %s n'est pas valide.", "type"));
+		}
+		return type.getSimpleName();
+	}
+
+}

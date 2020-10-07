@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,14 +21,31 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Livre implements Serializable {
 
 	private static final long serialVersionUID = -9083385557107533471L;
 
+	public static final String ID = "id";
+	public static final String BIBLIOTHEQUE = "bibliotheque";
+	public static final String GENRE = "genre";
+	public static final String NOM_IMAGE = "nomImage";
+	public static final String TITRE = "titre";
+	public static final String EDITEUR = "editeur";
+	public static final String COLLECTION = "collection";
+	public static final String DATE_PARUTION = "dateParution";
+	public static final String DIMENSION = "dimension";
+	public static final String NB_PAGES = "nbPages";
+	public static final String EAN13 = "ean13";
+	public static final String NB_EXEMPLAIRES = "nbExemplaires";
+	public static final String RESUME = "resume";
+	public static final String[] FIELDS = { ID, BIBLIOTHEQUE, GENRE, NOM_IMAGE, TITRE, EDITEUR, COLLECTION,
+			DATE_PARUTION, DIMENSION, NB_PAGES, EAN13, NB_EXEMPLAIRES, RESUME };
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private Integer id;
 
 	@ManyToOne
 	@JoinColumn(name = "bibliotheque_id", nullable = false)
@@ -54,12 +72,12 @@ public class Livre implements Serializable {
 	private String dimension;
 
 	@Column(nullable = true)
-	private int nbPages;
+	private Integer nbPages;
 
 	private String ean13;
 
 	@Column(nullable = false)
-	private int nbExemplaires;
+	private Integer nbExemplaires;
 
 	@Column(length = 10000)
 	private String resume;

@@ -1,0 +1,43 @@
+package com.dsi.bibliosys.biblioback.app;
+
+import java.util.Locale;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+
+/**
+ * Classe abstraite fournissant des méthodes statiques utilitaires pour
+ * l'application.
+ */
+public abstract class Utils {
+
+	@Autowired
+	private static MessageSource messageSource;
+
+	/**
+	 * Vérifie si le string est null, blank ou empty.
+	 * 
+	 * @param str String à vérifier
+	 * @return false si le string est null, blank ou empty. true autrement.
+	 */
+	public static final boolean stringCheck(String str) {
+		return str != null && str.strip().length() > 0;
+	}
+
+	/**
+	 * Convertit un string en lettres minuscules sans accents.
+	 * 
+	 * @param str Le string à convertir.
+	 * @return Le string en lettres minuscules sans accents.
+	 * @throws IllegalArgumentException si le string est null, blank ou empty.
+	 */
+	public static final String stringNormalize(String str) {
+		if (!stringCheck(str)) {
+			throw new IllegalArgumentException(messageSource.getMessage(MessageKey.ILLEGAL_ARGUMENT_EXCEPTION.key,
+					new String[] { "str" }, Locale.getDefault()));
+		}
+		return StringUtils.stripAccents(str.toLowerCase());
+	}
+
+}

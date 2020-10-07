@@ -1,0 +1,37 @@
+1600678912236	Rename package 'com.dsi.bibliosys.biblioback.data.form'
+1600678944458	Rename type 'InscriptionForm'
+1600724937800	Rename package 'com.dsi.bibliosys.biblioback.data.dto'
+1600724956796	Rename type 'InscriptionDto'
+1600728953226	Delete element
+1600808303149	Rename type 'Mapper'
+1600853478483	Rename type 'FormMapper'
+1600853518398	Delete element
+1600853753670	Move compilation unit
+1600859002489	Rename type 'StringCheck'
+1600860970232	Rename type 'FieldName'
+1600861318132	Delete element
+1600870510589	Delete element
+1600870524485	Delete element
+1600870529011	Delete element
+1600870533226	Delete element
+1600870537414	Delete element
+1600870541398	Delete element
+1600870545432	Delete element
+1600870552176	Delete element
+1600870556960	Delete element
+1600870560938	Delete element
+1600870565085	Delete element
+1600870569628	Delete element
+1600870574504	Delete element
+1600870578084	Delete element
+1600870582071	Delete element
+1600870587241	Delete element
+1600870592855	Delete element
+1600870625328	Rename type 'InscriptionFormToUsagerDtoMapper'
+1600870916699	Delete element
+1600870921472	Delete element
+1600875245857	Rename type 'Mapper'
+1600945680624	Rename type 'FormMapper'
+1600945737042	Rename type 'Binder'
+1601069109780	Delete element
+1601069150360	Delete element

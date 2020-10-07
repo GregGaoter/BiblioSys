@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,14 +19,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class EcritureLivre implements Serializable {
 
 	private static final long serialVersionUID = -6141243436652657915L;
 
+	public static final String ID = "id";
+	public static final String LIVRE = "livre";
+	public static final String AUTEUR = "auteur";
+	public static final String[] FIELDS = { ID, LIVRE, AUTEUR };
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private Integer id;
 
 	@ManyToOne
 	@JoinColumn(name = "livre_id", nullable = false)

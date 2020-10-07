@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,14 +20,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Bibliotheque implements Serializable {
 
 	private static final long serialVersionUID = 6689960135083120477L;
 
+	public static final String ID = "id";
+	public static final String NOM = "nom";
+	public static final String ADRESSE = "adresse";
+	public static final String[] FIELDS = { ID, NOM, ADRESSE };
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Setter(AccessLevel.NONE)
-	private int id;
+	private Integer id;
 
 	@Column(nullable = false)
 	private String nom;
