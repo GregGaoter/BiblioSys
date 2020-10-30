@@ -70,9 +70,19 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-failsafe-plugin</artifactId>
+			<version>3.0.0-M5</version>
+		</dependency>
+		<dependency>
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.4</version>
 		</dependency>
 	</dependencies>
 
@@ -82,7 +92,30 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<!-- Profile utilisé pour les tests unitaires -->
+		<profile>
+			<id>ut</id>
+		</profile>
+		<!-- Profile utilisé pour les tests d'intégration -->
+		<profile>
+			<id>it</id>
+		</profile>
+	</profiles>
 
 </project>

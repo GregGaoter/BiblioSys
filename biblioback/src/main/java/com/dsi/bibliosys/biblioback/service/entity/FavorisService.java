@@ -16,7 +16,7 @@ public class FavorisService implements CrudService<Favoris, Integer> {
 	private final FavorisRepository favorisRepository;
 
 	@Autowired
-	private FavorisService(FavorisRepository favorisRepository) {
+	public FavorisService(FavorisRepository favorisRepository) {
 		this.favorisRepository = favorisRepository;
 	}
 

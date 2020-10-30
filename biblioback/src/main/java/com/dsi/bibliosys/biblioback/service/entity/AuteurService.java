@@ -16,7 +16,7 @@ public class AuteurService implements CrudService<Auteur, Integer> {
 	private final AuteurRepository auteurRepository;
 
 	@Autowired
-	private AuteurService(AuteurRepository auteurRepository) {
+	public AuteurService(AuteurRepository auteurRepository) {
 		this.auteurRepository = auteurRepository;
 	}
 

@@ -16,7 +16,7 @@ public class PretService implements CrudService<Pret, Integer> {
 	private final PretRepository pretRepository;
 
 	@Autowired
-	private PretService(PretRepository pretRepository) {
+	public PretService(PretRepository pretRepository) {
 		this.pretRepository = pretRepository;
 	}
 

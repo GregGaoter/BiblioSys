@@ -16,7 +16,7 @@ public class EcritureLivreService implements CrudService<EcritureLivre, Integer>
 	private final EcritureLivreRepository ecritureLivreRepository;
 
 	@Autowired
-	private EcritureLivreService(EcritureLivreRepository ecritureLivreRepository) {
+	public EcritureLivreService(EcritureLivreRepository ecritureLivreRepository) {
 		this.ecritureLivreRepository = ecritureLivreRepository;
 	}
 

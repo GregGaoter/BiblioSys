@@ -16,7 +16,7 @@ public class CollectionService implements CrudService<Collection, Integer> {
 	private final CollectionRepository collectionRepository;
 
 	@Autowired
-	private CollectionService(CollectionRepository collectionRepository) {
+	public CollectionService(CollectionRepository collectionRepository) {
 		this.collectionRepository = collectionRepository;
 	}
 

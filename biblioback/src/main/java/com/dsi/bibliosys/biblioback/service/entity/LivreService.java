@@ -16,7 +16,7 @@ public class LivreService implements CrudService<Livre, Integer> {
 	private final LivreRepository livreRepository;
 
 	@Autowired
-	private LivreService(LivreRepository livreRepository) {
+	public LivreService(LivreRepository livreRepository) {
 		this.livreRepository = livreRepository;
 	}
 

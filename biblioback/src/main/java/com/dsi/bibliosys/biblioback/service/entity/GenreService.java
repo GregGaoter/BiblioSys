@@ -16,7 +16,7 @@ public class GenreService implements CrudService<Genre, Integer> {
 	private final GenreRepository genreRepository;
 
 	@Autowired
-	private GenreService(GenreRepository genreRepository) {
+	public GenreService(GenreRepository genreRepository) {
 		this.genreRepository = genreRepository;
 	}
 

@@ -16,7 +16,7 @@ public class IdentifiantService implements CrudService<Identifiant, Integer> {
 	private final IdentifiantRepository identifiantRepository;
 
 	@Autowired
-	private IdentifiantService(IdentifiantRepository identifiantRepository) {
+	public IdentifiantService(IdentifiantRepository identifiantRepository) {
 		this.identifiantRepository = identifiantRepository;
 	}
 

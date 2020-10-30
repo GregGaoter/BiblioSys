@@ -1,7 +1,0 @@
-package com.dsi.bibliosys.biblioback.app.exception;
-
-public class ArgumentException extends Exception {
-
-	private static final long serialVersionUID = -452275853180034871L;
-
-}

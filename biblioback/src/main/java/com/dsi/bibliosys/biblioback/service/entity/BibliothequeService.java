@@ -16,7 +16,7 @@ public class BibliothequeService implements CrudService<Bibliotheque, Integer> {
 	private final BibliothequeRepository bibliothequeRepository;
 
 	@Autowired
-	private BibliothequeService(BibliothequeRepository bibliothequeRepository) {
+	public BibliothequeService(BibliothequeRepository bibliothequeRepository) {
 		this.bibliothequeRepository = bibliothequeRepository;
 	}
 

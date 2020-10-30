@@ -1,5 +1,0 @@
-# ==============================================
-# === Exceptions
-# ==============================================
-nullargumentexception=Argument {0} is null.
-illegalargumentexception=Argument {0} is not valid.

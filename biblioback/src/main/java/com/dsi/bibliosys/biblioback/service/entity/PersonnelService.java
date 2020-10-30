@@ -16,7 +16,7 @@ public class PersonnelService implements CrudService<Personnel, Integer> {
 	private final PersonnelRepository personnelRepository;
 
 	@Autowired
-	private PersonnelService(PersonnelRepository personnelRepository) {
+	public PersonnelService(PersonnelRepository personnelRepository) {
 		this.personnelRepository = personnelRepository;
 	}
 

@@ -1,5 +1,0 @@
-package com.dsi.bibliosys.biblioback.service.entity;
-
-public class GenreService {
-
-}

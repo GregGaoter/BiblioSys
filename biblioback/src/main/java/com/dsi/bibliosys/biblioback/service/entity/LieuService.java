@@ -16,7 +16,7 @@ public class LieuService implements CrudService<Lieu, Integer> {
 	private final LieuRepository lieuRepository;
 
 	@Autowired
-	private LieuService(LieuRepository lieuRepository) {
+	public LieuService(LieuRepository lieuRepository) {
 		this.lieuRepository = lieuRepository;
 	}
 

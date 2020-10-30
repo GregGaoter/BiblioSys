@@ -16,7 +16,7 @@ public class RoleService implements CrudService<Role, Integer> {
 	private final RoleRepository roleRepository;
 
 	@Autowired
-	private RoleService(RoleRepository roleRepository) {
+	public RoleService(RoleRepository roleRepository) {
 		this.roleRepository = roleRepository;
 	}
 

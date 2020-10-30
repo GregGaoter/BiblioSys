@@ -16,7 +16,7 @@ public class EditeurService implements CrudService<Editeur, Integer> {
 	private final EditeurRepository editeurRepository;
 
 	@Autowired
-	private EditeurService(EditeurRepository editeurRepository) {
+	public EditeurService(EditeurRepository editeurRepository) {
 		this.editeurRepository = editeurRepository;
 	}
 

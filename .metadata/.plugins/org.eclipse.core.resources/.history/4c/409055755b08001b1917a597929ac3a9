@@ -1,5 +1,0 @@
-package com.dsi.bibliosys.biblioback.app.exception;
-
-public class NullArgumentException extends Exception {
-
-}

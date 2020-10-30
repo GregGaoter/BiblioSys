@@ -16,7 +16,7 @@ public class ProfilService implements CrudService<Profil, Integer> {
 	private final ProfilRepository profilRepository;
 
 	@Autowired
-	private ProfilService(ProfilRepository profilRepository) {
+	public ProfilService(ProfilRepository profilRepository) {
 		this.profilRepository = profilRepository;
 	}
 

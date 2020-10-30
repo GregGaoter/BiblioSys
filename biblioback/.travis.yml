@@ -1,6 +1,0 @@
-addons:
-  sonarcloud:
-    organization: "greggaoter"
-
-script:
-  - mvn clean verify sonar:sonar -Dsonar.login=a40dde2cf843704365bd4e10d3deed91c80d0092 -Dsonar.projectKey=GregGaoter_BiblioSys
