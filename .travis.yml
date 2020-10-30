@@ -3,5 +3,4 @@ language: java
 jdk: openjdk14
 
 script:
-  - cd biblioback
-  - mvn clean package
+  - cd biblioback && mvn clean package
