@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dsi.bibliosys.biblioback.data.dto.UsagerDto;
 import com.dsi.bibliosys.biblioback.data.entity.Usager;
-import com.dsi.bibliosys.biblioback.service.entity.UsagerService;
+import com.dsi.bibliosys.biblioback.mapper.UsagerMapper;
+import com.dsi.bibliosys.biblioback.service.UsagerService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -31,6 +33,12 @@ public class UsagerController {
 	 */
 	@Autowired
 	private UsagerService usagerService;
+
+	/**
+	 * Mapper entre l'entité business Usager et l'entité DTO UsagerDto.
+	 */
+	@Autowired
+	private UsagerMapper usagerMapper;
 
 	// =====================================
 	// --- GET
@@ -80,9 +88,11 @@ public class UsagerController {
 	 *         "201 Created" avec un corps de réponse null.
 	 */
 	@PostMapping
-	public ResponseEntity<Void> create(@RequestBody Usager usager) {
-		Usager usagerSaved = usagerService.save(usager);
-		return usagerSaved.getId() == null ? ResponseEntity.noContent().build() : ResponseEntity.created(null).build();
+	public ResponseEntity<Void> create(@RequestBody UsagerDto usagerDto) {
+		//Usager usager = usagerMapper.mapToEntity(usagerDto);
+		//Usager usagerSaved = usagerService.save(usager);
+		//return usagerSaved.getId() == null ? ResponseEntity.noContent().build() : ResponseEntity.created(null).build();
+		return ResponseEntity.noContent().build();
 	}
 
 	// =====================================

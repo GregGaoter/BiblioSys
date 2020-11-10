@@ -1,0 +1,44 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import java.time.LocalDateTime;
+
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+import com.dsi.bibliosys.biblioback.data.entity.Bibliotheque;
+import com.dsi.bibliosys.biblioback.data.entity.Collection;
+import com.dsi.bibliosys.biblioback.data.entity.Editeur;
+import com.dsi.bibliosys.biblioback.data.entity.Genre;
+
+@ExtendWith(SpringExtension.class)
+@Tag(TestCase.UNIT)
+public class LivreMapperTest {
+
+	private LivreMapper livreMapper;
+
+	private Integer id;
+	private Bibliotheque bibliotheque;
+	private Integer bibliothequeId;
+	private Genre genre;
+	private Integer genreId;
+	private String nomImage;
+	private String titre;
+	private Editeur editeur;
+	private Integer editeurId;
+	private Collection collection;
+	private Integer collectionId;
+	private LocalDateTime dateParution;
+	private String dimension;
+	private Integer nbPages;
+	private String ean13;
+	private Integer nbExemplaires;
+	private String resume;
+	
+	this.bibliothequeService = bibliothequeService;
+	this.genreService = genreService;
+	this.editeurService = editeurService;
+	this.collectionService = collectionService;
+
+}

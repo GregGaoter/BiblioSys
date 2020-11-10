@@ -1,0 +1,59 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+import com.dsi.bibliosys.biblioback.data.entity.Auteur;
+import com.dsi.bibliosys.biblioback.data.entity.Livre;
+import com.dsi.bibliosys.biblioback.service.AuteurService;
+import com.dsi.bibliosys.biblioback.service.LivreService;
+
+@ExtendWith(SpringExtension.class)
+@Tag(TestCase.UNIT)
+public class EcritureLivreMapperTest {
+
+	private EcritureLivreMapper ecritureLivreMapper;
+
+	private static Integer id;
+	private static Livre livre;
+	private static Integer livreId;
+	private static Auteur auteur;
+	private static Integer auteurId;
+
+	@Mock
+	private LivreService livreService;
+	@Mock
+	private AuteurService auteurService;
+
+	@BeforeAll
+	public static void setUpBeforeAll() {
+		id = 1;
+		livre = new Livre();
+		livreId = 2;
+		auteur = new Auteur();
+		auteurId = 3;
+	}
+
+	@AfterAll
+	public static void unDefAfterAll() {
+
+	}
+
+	@BeforeEach
+	public void setUpBeforeEach() {
+
+	}
+
+	@AfterEach
+	public void unDefAfterEach() {
+
+	}
+
+}

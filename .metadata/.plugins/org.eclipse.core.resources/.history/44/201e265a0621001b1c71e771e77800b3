@@ -1,0 +1,53 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+
+@ExtendWith(SpringExtension.class)
+@Tag(TestCase.UNIT)
+public class LieuMapperTest {
+
+	private LieuMapper lieuMapper;
+
+	private static Integer id;
+	private static String region;
+	private static String departement;
+	private static String codePostal;
+	private static String ville;
+
+	@BeforeAll
+	public static void setUpBeforeAll() {
+		id = 1;
+		region = "Bretagne";
+		departement = "Ille-et-Vilaine";
+		codePostal = "07000";
+		ville = "Privas";
+	}
+
+	@AfterAll
+	public static void unDefAfterAll() {
+		id = null;
+		region = null;
+		departement = null;
+		codePostal = null;
+		ville = null;
+	}
+
+	@BeforeEach
+	public void setUpBeforeEach() {
+
+	}
+
+	@AfterEach
+	public void unDefAfterEach() {
+
+	}
+
+}

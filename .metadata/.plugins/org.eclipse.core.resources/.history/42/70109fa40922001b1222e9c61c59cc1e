@@ -1,0 +1,121 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import java.time.LocalDateTime;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+import com.dsi.bibliosys.biblioback.data.entity.Bibliotheque;
+import com.dsi.bibliosys.biblioback.data.entity.Collection;
+import com.dsi.bibliosys.biblioback.data.entity.Editeur;
+import com.dsi.bibliosys.biblioback.data.entity.Genre;
+import com.dsi.bibliosys.biblioback.data.entity.Lieu;
+import com.dsi.bibliosys.biblioback.service.BibliothequeService;
+import com.dsi.bibliosys.biblioback.service.CollectionService;
+import com.dsi.bibliosys.biblioback.service.EditeurService;
+import com.dsi.bibliosys.biblioback.service.GenreService;
+
+@ExtendWith(SpringExtension.class)
+@Tag(TestCase.UNIT)
+public class LivreMapperTest {
+
+	private LivreMapper livreMapper;
+
+	private static Integer id;
+	private static Bibliotheque bibliotheque;
+	private static Integer bibliothequeId;
+	private static Genre genre;
+	private static Integer genreId;
+	private static String nomImage;
+	private static String titre;
+	private static Editeur editeur;
+	private static Integer editeurId;
+	private static Collection collection;
+	private static Integer collectionId;
+	private static LocalDateTime dateParution;
+	private static String dimension;
+	private static Integer nbPages;
+	private static String ean13;
+	private static Integer nbExemplaires;
+	private static String resume;
+	private static String mapToDtoExceptionMessage;
+	private static String mapToEntityExceptionMessage;
+
+	@Mock
+	private BibliothequeService bibliothequeService;
+	@Mock
+	private GenreService genreService;
+	@Mock
+	private EditeurService editeurService;
+	@Mock
+	private CollectionService collectionService;
+
+	@BeforeAll
+	public static void setUpBeforeAll() {
+		id = 1;
+		bibliotheque = new Bibliotheque();
+		bibliothequeId = 2;
+		ReflectionTestUtils.setField(bibliotheque, Bibliotheque.ID, bibliothequeId);
+		genre = new Genre();
+		genreId = 3;
+		ReflectionTestUtils.setField(genre, Genre.ID, genreId);
+		nomImage = "les-vies-de-papier.jpg";
+		titre = "Les vies de papier";
+		editeur = new Editeur();
+		editeurId = 4;
+		ReflectionTestUtils.setField(editeur, Editeur.ID, editeurId);
+		collection = new Collection();
+		collectionId = 5;
+		ReflectionTestUtils.setField(collection, Collection.ID, collectionId);
+		dateParution = LocalDateTime.of(2016, 8, 15, 10, 30);
+		dimension = "22.5 x 14 x 2.8 cm";
+		nbPages = 330;
+		ean13 = "9782365692069";
+		nbExemplaires = 3;
+		resume = "Aaliya, ancienne libraire de 72 ans, marginale aux cheveux bleus et personnage non conventionnel, a toujours lutté contre les carcans imposés par la société libanaise.";
+		mapToDtoExceptionMessage = "source";
+		mapToEntityExceptionMessage = "source";
+	}
+
+	@AfterAll
+	public static void unDefAfterAll() {
+		id = null;
+		bibliotheque = null;
+		bibliothequeId = null;
+		genre = null;
+		genreId = null;
+		nomImage = null;
+		titre = null;
+		editeur = null;
+		editeurId = null;
+		collection = null;
+		collectionId = null;
+		dateParution = null;
+		dimension = null;
+		nbPages = null;
+		ean13 = null;
+		nbExemplaires = null;
+		resume = null;
+		mapToDtoExceptionMessage = null;
+		mapToEntityExceptionMessage = null;
+	}
+
+	@BeforeEach
+	public void setUpBeforeEach() {
+		livreMapper = new LivreMapper(bibliothequeService, genreService, editeurService, collectionService);
+	}
+
+	@AfterEach
+	public void unDefAfterEach() {
+		livreMapper = null;
+	}
+
+}

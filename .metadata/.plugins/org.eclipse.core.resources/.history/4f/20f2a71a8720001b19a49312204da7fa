@@ -1,0 +1,13 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+
+@ExtendWith(SpringExtension.class)
+@Tag(TestCase.UNIT)
+public class RoleMapperTest {
+
+}

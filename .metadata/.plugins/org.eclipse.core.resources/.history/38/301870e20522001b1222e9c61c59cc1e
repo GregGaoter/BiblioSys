@@ -1,0 +1,67 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
+import com.dsi.bibliosys.biblioback.data.entity.Livre;
+import com.dsi.bibliosys.biblioback.data.entity.Role;
+import com.dsi.bibliosys.biblioback.service.IdentifiantService;
+import com.dsi.bibliosys.biblioback.service.RoleService;
+
+@ExtendWith(SpringExtension.class)
+@Tag(TestCase.UNIT)
+public class ProfilMapperTest {
+
+	private ProfilMapper profilMapper;
+
+	private static Integer id;
+	private static Identifiant identifiant;
+	private static Integer identifiantId;
+	private static Role role;
+	private static Integer roleId;
+
+	@Mock
+	private IdentifiantService identifiantService;
+	@Mock
+	private RoleService roleService;
+
+	@BeforeAll
+	public static void setUpBeforeAll() {
+		id = 1;
+		identifiant = new Identifiant();
+		identifiantId = 2;
+		ReflectionTestUtils.setField(identifiant, Identifiant.ID, identifiantId);
+		role = new Role();
+		roleId = 3;
+		ReflectionTestUtils.setField(role, Role.ID, roleId);
+	}
+
+	@AfterAll
+	public static void unDefAfterAll() {
+		id = null;
+		identifiant = null;
+		identifiantId = null;
+		role = null;
+		roleId = null;
+	}
+
+	@BeforeEach
+	public void setUpBeforeEach() {
+		profilMapper = new ProfilMapper(identifiantService, roleService);
+	}
+
+	@AfterEach
+	public void unDefAfterEach() {
+		profilMapper = null;
+	}
+
+}

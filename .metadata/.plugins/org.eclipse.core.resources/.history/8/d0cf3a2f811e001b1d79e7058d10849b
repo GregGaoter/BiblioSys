@@ -1,0 +1,57 @@
+package com.dsi.bibliosys.biblioback.dto;
+
+import java.time.LocalDateTime;
+
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
+import com.dsi.bibliosys.biblioback.data.entity.Usager;
+import com.googlecode.jmapper.annotations.JMap;
+import com.googlecode.jmapper.annotations.JMapConversion;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@Getter
+@Setter
+public class UsagerDto {
+
+	public static final String ID = "id";
+	public static final String PRENOM = "prenom";
+	public static final String NOM = "nom";
+	public static final String DATE_NAISSANCE = "dateNaissance";
+	public static final String IDENTIFIANT_ID = "identifiantId";
+	public static final String ADRESSE_ID = "adresseId";
+	public static final String[] FIELDS = { ID, PRENOM, NOM, DATE_NAISSANCE, IDENTIFIANT_ID, ADRESSE_ID };
+
+	@Setter(AccessLevel.NONE)
+	private Integer id;
+
+	@JMap
+	private String prenom;
+
+	@JMap
+	private String nom;
+
+	@JMap
+	private LocalDateTime dateNaissance;
+
+	@JMap(Usager.IDENTIFIANT)
+	private Integer identifiantId;
+
+	@JMap(Usager.ADRESSE)
+	private Integer adresseId;
+
+	@JMapConversion(from = { Usager.IDENTIFIANT }, to = { IDENTIFIANT_ID })
+	public Integer conversion(Identifiant identifiant) {
+		return identifiant.getId();
+	}
+
+	@JMapConversion(from = { Usager.ADRESSE }, to = { ADRESSE_ID })
+	public Integer conversion(Adresse adresse) {
+		return adresse.getId();
+	}
+
+}

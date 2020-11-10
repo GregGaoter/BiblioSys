@@ -1,0 +1,27 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.dsi.bibliosys.biblioback.data.dto.GenreDto;
+import com.dsi.bibliosys.biblioback.data.entity.Genre;
+
+import lombok.NonNull;
+
+/**
+ * Classe fournissant les opérations de mapping entre l'entité business Genre et
+ * l'entité DTO GenreDto.
+ */
+@Component
+public class GenreMapper extends AbstractMapper implements Mapper<Genre, GenreDto> {
+
+	@Override
+	public GenreDto mapToDto(@NonNull Genre source) {
+		return null;
+	}
+
+	@Override
+	public Genre mapToEntity(@NonNull GenreDto source) {
+		return null;
+	}
+
+}

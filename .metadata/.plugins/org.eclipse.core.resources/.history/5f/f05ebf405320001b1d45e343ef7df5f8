@@ -1,0 +1,27 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.dsi.bibliosys.biblioback.data.dto.CollectionDto;
+import com.dsi.bibliosys.biblioback.data.entity.Collection;
+
+import lombok.NonNull;
+
+/**
+ * Classe fournissant les opérations de mapping entre l'entité business
+ * Collection et l'entité DTO CollectionDto.
+ */
+@Component
+public class CollectionMapper extends AbstractMapper implements Mapper<Collection, CollectionDto> {
+
+	@Override
+	public CollectionDto mapToDto(@NonNull Collection source) {
+		return null;
+	}
+
+	@Override
+	public Collection mapToEntity(@NonNull CollectionDto source) {
+		return null;
+	}
+
+}

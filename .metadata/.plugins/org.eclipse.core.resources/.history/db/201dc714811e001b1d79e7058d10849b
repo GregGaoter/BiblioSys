@@ -1,0 +1,43 @@
+package com.dsi.bibliosys.biblioback.service.mapper;
+
+import static com.googlecode.jmapper.api.JMapperAPI.attribute;
+import static com.googlecode.jmapper.api.JMapperAPI.mappedClass;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
+import com.dsi.bibliosys.biblioback.data.entity.Usager;
+import com.dsi.bibliosys.biblioback.dto.UsagerDto;
+import com.dsi.bibliosys.biblioback.service.entity.UsagerService;
+import com.googlecode.jmapper.JMapper;
+import com.googlecode.jmapper.api.MappedClass;
+
+@Service
+public class UsagerMapper implements MapperService<Usager, UsagerDto> {
+
+	@Autowired
+	private UsagerService usagerService;
+
+	@Override
+	public UsagerDto mapToDto(Usager source) {
+		MappedClass mappedClass = mappedClass(UsagerDto.class);
+		mappedClass.add(attribute(UsagerDto.PRENOM).value(Usager.PRENOM));
+		mappedClass.add(attribute(UsagerDto.NOM).value(Usager.NOM));
+		mappedClass.add(attribute(UsagerDto.DATE_NAISSANCE).value(Usager.DATE_NAISSANCE));
+		mappedClass.add(attribute(UsagerDto.IDENTIFIANT_ID).value(Identifiant.ID).targetClasses(UsagerDto.class,
+				Identifiant.class));
+		mappedClass
+				.add(attribute(UsagerDto.ADRESSE_ID).value(Adresse.ID).targetClasses(UsagerDto.class, Adresse.class));
+
+		JMapper<UsagerDto, Usager> mapper = new JMapper<>(UsagerDto.class, Usager.class);
+		return mapper.getDestination(source);
+	}
+
+	@Override
+	public Usager mapToEntity(UsagerDto source) {
+		return null;
+	}
+
+}

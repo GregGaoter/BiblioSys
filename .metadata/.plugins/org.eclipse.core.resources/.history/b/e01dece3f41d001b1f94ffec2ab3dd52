@@ -1,0 +1,5 @@
+package com.dsi.bibliosys.biblioback.service.mapper;
+
+public class UsagerMapperTest {
+
+}

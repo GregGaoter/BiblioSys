@@ -1,0 +1,24 @@
+# -- Profiles
+#----------------------------------------------
+#spring.profiles.active=dev
+#spring.profiles.active=prod
+
+#spring.jpa.open-in-view=false
+
+# -- Data source
+#----------------------------------------------
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/db_bibliosys
+spring.datasource.username=ggautier
+spring.datasource.password=motdepasse
+
+# -- JPA
+#----------------------------------------------
+spring.jpa.show-sql=false
+#spring.jpa.hibernate.ddl-auto=create
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# -- Logging - Désactive les logs de Spring dans la console de Maven pendant l'exécution des tests.
+#----------------------------------------------
+logging.level.org.springframework=OFF
+logging.level.root=OFF

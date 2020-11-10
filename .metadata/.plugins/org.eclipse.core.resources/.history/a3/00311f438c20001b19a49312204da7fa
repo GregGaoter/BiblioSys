@@ -1,0 +1,38 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+import com.dsi.bibliosys.biblioback.service.AdresseService;
+
+@ExtendWith(SpringExtension.class)
+@Tag(TestCase.UNIT)
+public class BibliothequeMapperTest {
+
+	private BibliothequeMapper bibliothequeMapper;
+
+	private Integer id;
+	private String nom;
+	private Adresse adresse;
+	private Integer adresseId;
+	
+	@Mock
+	private AdresseService adresseService;
+	
+	@BeforeAll
+	public static void setUpBeforeAll() {
+
+	}
+	
+	@AfterAll
+	public static void unDefAfterAll() {
+
+	}
+
+}

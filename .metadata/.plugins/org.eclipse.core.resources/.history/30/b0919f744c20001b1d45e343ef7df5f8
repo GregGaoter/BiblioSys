@@ -1,0 +1,27 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.dsi.bibliosys.biblioback.data.dto.LivreDto;
+import com.dsi.bibliosys.biblioback.data.entity.Livre;
+
+import lombok.NonNull;
+
+/**
+ * Classe fournissant les opérations de mapping entre l'entité business Livre et
+ * l'entité DTO LivreDto.
+ */
+@Component
+public class LivreMapper implements Mapper<Livre, LivreDto> {
+
+	@Override
+	public LivreDto mapToDto(@NonNull Livre source) {
+		return null;
+	}
+
+	@Override
+	public Livre mapToEntity(@NonNull LivreDto source) {
+		return null;
+	}
+
+}

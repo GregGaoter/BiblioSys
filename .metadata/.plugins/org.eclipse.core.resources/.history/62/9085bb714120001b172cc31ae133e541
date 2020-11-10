@@ -1,0 +1,5 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+public class FavorisMapper {
+
+}

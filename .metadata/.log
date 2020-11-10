@@ -11058,3 +11058,1714 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.vaadin.designer2 1 0 2020-10-30 10:10:39.199
 !MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 14:10:08.403
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 14:10:08.412
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 14:10:08.744
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 14:10:08.745
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 14:10:08.749
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 16:28:16.759
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 16:28:16.760
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 16:28:16.761
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 16:28:16.762
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 16:28:16.763
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 16:28:16.764
+!MESSAGE Removed all models from server.
+!SESSION 2020-10-30 17:18:31.396 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-10-30 17:20:09.608
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-10-30 17:20:09.608
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@627ad446,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77feca04,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:35.291
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:35.298
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:35.915
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:35.916
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-10-30 17:20:36.245
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:36.821
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:36.825
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:36.826
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:36.834
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:36.839
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-10-30 17:20:37.737
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-10-30 17:20:37.754
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:20:38.270
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:21:05.695
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:49:19.394
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:49:19.396
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:49:19.398
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:49:19.399
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:49:19.401
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-10-30 17:49:19.402
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-02 15:32:13.853 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-02 15:33:10.119
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-02 15:33:10.119
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77feca04,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3b0d9da,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:30.638
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:30.646
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:31.321
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:31.323
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-02 15:33:31.744
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:32.207
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:32.239
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:32.240
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:32.248
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:32.552
+!MESSAGE BrowserCore initialized.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-02 15:33:33.111
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-02 15:33:33.128
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:33:33.513
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 15:34:03.913
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 16:50:20.339
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 16:50:20.340
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 16:50:20.341
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 16:50:20.341
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 16:50:20.342
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-02 16:50:20.343
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-03 06:42:24.610 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-03 06:42:35.779
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-03 06:42:35.779
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5ac35b17,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6eaf6ced,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:42:49.705
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:42:49.710
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:42:50.367
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:42:50.368
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2020-11-03 06:42:50.425
+!MESSAGE Exception while data querying operation
+!STACK 0
+java.net.UnknownHostException: vaadin.com
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:800)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:886)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1495)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1354)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1288)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:374)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.doGet(NotificationsService.java:412)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getSettingsUrl(NotificationsService.java:276)
+	at com.vaadin.integration.eclipse.notifications.jobs.GetSettingsJob.run(GetSettingsJob.java:23)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2020-11-03 06:42:50.426
+!MESSAGE Exception while data querying operation
+!STACK 0
+java.net.UnknownHostException: Hôte inconnu (vaadin.com)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:932)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1505)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:851)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1495)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1354)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1288)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:374)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.doGet(NotificationsService.java:412)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getNotifications(NotificationsService.java:397)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getAllNotifications(NotificationsService.java:142)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:64)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:42:50.457
+!MESSAGE Parse notifications
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-03 06:42:50.791
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-03 06:42:51.511
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-03 06:42:51.568
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:42:51.917
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:42:52.006
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 06:43:20.117
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 07:11:11.664
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 07:11:11.665
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 07:11:11.666
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 07:11:11.667
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 07:11:11.667
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 07:11:11.668
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-03 08:44:22.666 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-03 08:44:33.874
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-03 08:44:33.874
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@627ad446,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77feca04,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:50.980
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:50.986
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:51.568
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:51.570
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-03 08:44:51.962
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:52.297
+!MESSAGE HTTP Response code :200
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-03 08:44:52.401
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-03 08:44:52.419
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:52.599
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:52.599
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:52.604
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:53.120
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:44:53.234
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 08:45:21.773
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 12:44:53.148
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 12:44:53.150
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 12:44:53.779
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 12:44:53.780
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 12:44:53.784
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 12:44:53.976
+!MESSAGE Image https://website.vaadin.com/hubfs/subscription-change.png is downloaded
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 16:26:23.292
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 16:26:23.293
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 16:26:23.294
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 16:26:23.295
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 16:26:23.297
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 16:26:23.298
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-03 17:38:14.189 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-03 17:38:30.545
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-03 17:38:30.545
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6eaf6ced,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6f8035d6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:47.217
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:47.224
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:47.897
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:47.898
+!MESSAGE Fetching all notifications
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-03 17:38:48.262
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:48.974
+!MESSAGE HTTP Response code :200
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-03 17:38:48.978
+!MESSAGE starting IvyDE plugin
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:48.996
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:48.997
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:49.003
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-03 17:38:49.004
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:49.738
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:38:49.756
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:39:17.908
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:52:17.862
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:52:17.863
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:52:17.864
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:52:17.864
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:52:17.865
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-03 17:52:17.866
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-04 09:30:23.474 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-04 09:31:15.598
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-04 09:31:15.598
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6109366a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4ed492df,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:34.251
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:34.256
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:34.887
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:34.888
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-04 09:31:35.219
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:35.456
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:35.828
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:35.830
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:35.839
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:35.876
+!MESSAGE BrowserCore initialized.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-04 09:31:36.619
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-04 09:31:36.635
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:31:37.501
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 09:32:08.001
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 13:31:37.556
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 13:31:37.558
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 13:31:37.859
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 13:31:37.860
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 13:31:37.864
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 15:43:39.739
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 15:43:39.740
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 15:43:39.742
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 15:43:39.743
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 15:43:39.745
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-04 15:43:39.746
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-05 12:06:31.336 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-05 12:11:12.702
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-05 12:11:12.702
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@71b6edfb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2f541f60,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:33.990
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:33.998
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:34.797
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:34.797
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-05 12:11:35.320
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:35.388
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:35.446
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:35.447
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:35.455
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:36.210
+!MESSAGE BrowserCore initialized.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-05 12:11:36.966
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-05 12:11:36.989
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:11:37.300
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 12:12:07.591
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 13:07:13.275
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 13:07:13.276
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 13:07:13.277
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 13:07:13.277
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 13:07:13.279
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-05 13:07:13.280
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-06 09:38:04.367 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-06 09:38:55.324
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-06 09:38:55.324
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6eaf6ced,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6f8035d6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:14.740
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:14.749
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:15.435
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:15.437
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-06 09:39:15.819
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:16.286
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:16.320
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:16.322
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:16.329
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:16.512
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:16.584
+!MESSAGE Image https://website.vaadin.com/hubfs/image%20%282%29-1.png is downloaded
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 09:39:17.346
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 09:39:17.361
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:17.944
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 09:39:48.054
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 13:09:29.352
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 13:09:29.353
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 13:09:29.354
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 13:09:29.355
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 13:09:29.355
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 13:09:29.356
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-06 15:05:35.471 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-06 15:05:42.603
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-06 15:05:42.603
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@45775a15,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2396dc4e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:56.608
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:56.613
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:57.249
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:57.251
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-06 15:05:57.676
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:57.727
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:57.736
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:57.745
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:57.874
+!MESSAGE HTTP Response code :200
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 15:05:58.182
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 15:05:58.210
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:58.553
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:05:59.048
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 15:06:27.019
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 16:24:22.197
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 16:24:22.198
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 16:24:22.199
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 16:24:22.199
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 16:24:22.200
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 16:24:22.201
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-06 17:18:54.021 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-06 17:20:19.285
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-06 17:20:19.285
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@57fb6900,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1eda853f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:48.706
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:48.713
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:49.321
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:49.321
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-06 17:20:49.657
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:50.022
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:50.349
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:50.350
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:50.371
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:50.403
+!MESSAGE BrowserCore initialized.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 17:20:51.220
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 17:20:51.239
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:20:51.928
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 17:21:24.360
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 18:13:46.380
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 18:13:46.381
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 18:13:46.382
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 18:13:46.382
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 18:13:46.383
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 18:13:46.383
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-06 23:05:06.088 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-06 23:05:15.187
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-06 23:05:15.187
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@35bb3fea,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7f82a71f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:29.483
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:29.488
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:30.097
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:30.097
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-06 23:05:30.493
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:31.120
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:31.150
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:31.151
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:31.160
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 23:05:31.248
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-06 23:05:31.270
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:31.898
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:31.930
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-06 23:05:59.902
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 01:50:21.189
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 01:50:21.190
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 01:50:21.191
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 01:50:21.191
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 01:50:21.192
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 01:50:21.193
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-07 15:13:12.370 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-07 15:13:20.376
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-07 15:13:20.376
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@304cad3a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@628cb8e0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:42.771
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:42.777
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:43.526
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:43.527
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-07 15:13:43.888
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:44.122
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:44.455
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:44.455
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:44.460
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-07 15:13:44.601
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-07 15:13:44.628
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:45.341
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:13:45.403
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 15:14:13.110
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 16:33:59.595
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 16:33:59.596
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 16:33:59.597
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 16:33:59.597
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 16:33:59.598
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 16:33:59.599
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-07 22:43:44.714 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-07 22:43:52.168
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-07 22:43:52.168
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@30b075b9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@510e0dd2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:06.158
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:06.164
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:06.830
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:06.831
+!MESSAGE Fetching all notifications
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-07 22:44:07.230
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:07.571
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:07.577
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:07.584
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:07.747
+!MESSAGE HTTP Response code :200
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-07 22:44:07.804
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-07 22:44:07.824
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:08.392
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:08.536
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:44:36.506
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:55:53.087
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:55:53.088
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:55:53.089
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:55:53.089
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:55:53.090
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-07 22:55:53.091
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-08 21:38:48.777 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-08 21:38:56.495
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-08 21:38:56.495
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@d970881,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@153cf928,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:11.267
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:11.273
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:12.048
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:12.055
+!MESSAGE Fetching all notifications
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-08 21:39:12.600
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:12.949
+!MESSAGE HTTP Response code :200
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-08 21:39:12.954
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-08 21:39:12.972
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:12.976
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:12.977
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:12.986
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:13.522
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:13.585
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 21:39:41.722
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 22:58:06.444
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 22:58:06.445
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 22:58:06.445
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 22:58:06.446
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 22:58:06.447
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-08 22:58:06.448
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-09 11:30:42.543 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-09 11:31:57.569
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-09 11:31:57.569
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@63e4bbf9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@455cb6d9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:17.437
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:17.445
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:18.176
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:18.176
+!MESSAGE Fetching all notifications
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-09 11:32:18.510
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:19.037
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:19.069
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:19.070
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:19.076
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:19.239
+!MESSAGE BrowserCore initialized.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-09 11:32:20.079
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-09 11:32:20.099
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:20.503
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 11:32:51.056
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 15:32:20.558
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 15:32:20.573
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 15:32:21.184
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 15:32:21.185
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 15:32:21.187
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 16:26:49.535
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 16:26:49.536
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 16:26:49.538
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 16:26:49.539
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 16:26:49.540
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 16:26:49.540
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-09 17:21:12.751 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-09 17:22:52.337
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-09 17:22:52.338
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@64821706,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@8aa3013,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:19.113
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:19.119
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:19.753
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:19.754
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-09 17:23:20.021
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:20.635
+!MESSAGE BrowserCore initialized.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-09 17:23:21.583
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-09 17:23:21.601
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:21.722
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:21.730
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:21.749
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:21.883
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:22.303
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 17:23:54.638
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2020-11-09 17:48:52.736
+!MESSAGE   does not exist
+!STACK 1
+Java Model Exception: Java Model Status [  does not exist]
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:798)
+	at org.eclipse.jdt.internal.core.SourceType.newSupertypeHierarchy(SourceType.java:843)
+	at org.eclipse.jdt.internal.core.SourceType.newSupertypeHierarchy(SourceType.java:794)
+	at com.vaadin.integration.eclipse.util.VaadinPluginUtil.typeExtendsClass(VaadinPluginUtil.java:616)
+	at com.vaadin.integration.eclipse.decorators.ApplicationDecorator.decorate(ApplicationDecorator.java:57)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:247)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:105)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:360)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:346)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:386)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:362)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2020-11-09 17:48:52.738
+!MESSAGE   does not exist
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 18:15:25.734
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 18:15:25.735
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 18:15:25.736
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 18:15:25.737
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 18:15:25.738
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-09 18:15:25.738
+!MESSAGE Removed all models from server.
+!SESSION 2020-11-10 09:08:18.986 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-10 09:09:23.814
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-10 09:09:23.814
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7ab8f93,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6037748a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-10 09:09:36.446
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-11-10 09:09:36.460
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:46.111
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:46.117
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:46.681
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:46.683
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:47.247
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:47.284
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:47.285
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:47.290
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-10 09:09:47.577
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:48.008
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:09:48.773
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 09:10:26.924
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 13:09:48.830
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 13:09:48.831
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 13:09:49.359
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 13:09:49.360
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2020-11-10 13:09:49.362
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json

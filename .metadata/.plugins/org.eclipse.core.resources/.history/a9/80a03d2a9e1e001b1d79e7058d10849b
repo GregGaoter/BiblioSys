@@ -1,0 +1,24 @@
+package com.dsi.bibliosys.biblioback.app.exception;
+
+/**
+ * Classe définissant une exception utilisée pour un id de DTO non null.
+ */
+public class NotNullIdException extends Exception {
+
+	private static final long serialVersionUID = 8933827540351864865L;
+
+	/**
+	 * Constructeur.
+	 */
+	public NotNullIdException() {
+		super();
+	}
+
+	/**
+	 * Constructeur.
+	 */
+	public NotNullIdException(String message) {
+		super(message);
+	}
+
+}

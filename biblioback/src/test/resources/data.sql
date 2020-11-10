@@ -1,0 +1,11 @@
+INSERT INTO lieu (id, region, departement, code_postal, ville) VALUES (1, 'Bretagne', 'Ille-et-Vilaine', '35190', 'Saint-Domineuc');
+INSERT INTO adresse (id, numero_rue, rue, lieu_id) VALUES (1, 1, 'Rue Michel Ange', 1);
+INSERT INTO bibliotheque (id, nom, adresse_id) VALUES (1, 'Bibliothèque Mémoire', 1);
+INSERT INTO genre (id, nom) VALUES (1, 'Poésie');
+INSERT INTO editeur (id, nom) VALUES (1, 'Editions Gallimard');
+INSERT INTO collection (id, nom) VALUES (1, 'Le livre de poche');
+INSERT INTO livre (id, bibliotheque_id, genre_id, nom_image, titre, editeur_id, collection_id, date_parution, dimension, nb_pages, ean13, nb_exemplaires, resume) VALUES (1, 1, 1, 'les-fleurs-du-mal.png', 'Les fleurs du mal', 1, 1, '1997-09-15 00:00:00', '17.8 x 11.1 x 1.4 cm', 286, '9782253007104', 4, 'Avec Les Fleurs du Mal commence la poésie moderne.');
+INSERT INTO auteur (id, prenom_nom) VALUES (1, 'Charles Baudelaire');
+INSERT INTO identifiant (id, email, mot_de_passe, is_actif) VALUES (1, 'amargerison0@toplist.cz', '8Wva2JDb', TRUE);
+INSERT INTO usager (id, prenom, nom, date_naissance, identifiant_id, adresse_id) VALUES (1, 'Liliane', 'Philibert', '1965-11-13 00:00:00', 1, 1);
+INSERT INTO role (id, nom) VALUES (1, 'ADMIN');

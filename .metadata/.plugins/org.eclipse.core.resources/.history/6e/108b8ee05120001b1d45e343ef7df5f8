@@ -1,0 +1,39 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.dsi.bibliosys.biblioback.data.dto.FavorisDto;
+import com.dsi.bibliosys.biblioback.data.entity.Favoris;
+import com.dsi.bibliosys.biblioback.service.LivreService;
+import com.dsi.bibliosys.biblioback.service.UsagerService;
+
+import lombok.NonNull;
+
+/**
+ * Classe fournissant les opérations de mapping entre l'entité business Favoris
+ * et l'entité DTO FavorisDto.
+ */
+@Component
+public class FavorisMapper extends AbstractMapper implements Mapper<Favoris, FavorisDto> {
+
+	/**
+	 * Constructeur.
+	 * @param usagerService
+	 * @param livreService
+	 */
+	private FavorisMapper(UsagerService usagerService, LivreService livreService) {
+		this.usagerService = usagerService;
+		this.livreService = livreService;
+	}
+
+	@Override
+	public FavorisDto mapToDto(@NonNull Favoris source) {
+		return null;
+	}
+
+	@Override
+	public Favoris mapToEntity(@NonNull FavorisDto source) {
+		return null;
+	}
+
+}

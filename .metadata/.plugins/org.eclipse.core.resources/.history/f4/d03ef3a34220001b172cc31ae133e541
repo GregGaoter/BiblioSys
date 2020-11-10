@@ -1,0 +1,12 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.springframework.stereotype.Component;
+
+/**
+ * Classe fournissant les opérations de mapping entre l'entité business Lieu
+ * et l'entité DTO LieuDto.
+ */
+@Component
+public class LieuMapper {
+
+}

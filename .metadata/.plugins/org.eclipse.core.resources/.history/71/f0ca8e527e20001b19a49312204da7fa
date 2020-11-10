@@ -1,0 +1,30 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.dsi.bibliosys.biblioback.data.dto.EditeurDto;
+import com.dsi.bibliosys.biblioback.data.dto.RoleDto;
+import com.dsi.bibliosys.biblioback.data.entity.Role;
+
+import lombok.NonNull;
+
+/**
+ * Classe fournissant les opérations de mapping entre l'entité business Role et
+ * l'entité DTO RoleDto.
+ */
+@Component
+public class RoleMapper extends AbstractMapper implements Mapper<Role, RoleDto> {
+
+	@Override
+	public RoleDto mapToDto(@NonNull Role source) {
+		EditeurDto editeurDto = new EditeurDto();
+		return editeurDto;
+	}
+
+	@Override
+	public Role mapToEntity(@NonNull RoleDto source) {
+		EditeurDto editeurDto = new EditeurDto();
+		return editeurDto;
+	}
+
+}

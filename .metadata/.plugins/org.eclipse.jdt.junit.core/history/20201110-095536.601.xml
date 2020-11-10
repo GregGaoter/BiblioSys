@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BibliothequeMapperTest" project="biblioback" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest" time="0.184" displayname="BibliothequeMapperTest" uniqueid="[engine:junit-jupiter]/[class:com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest]">
+    <testcase name="mapToDto_source" classname="com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest" time="0.083" displayname="mapToDto_source()" uniqueid="[engine:junit-jupiter]/[class:com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest]/[method:mapToDto_source()]"/>
+    <testcase name="mapToEntity_null" classname="com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest" time="0.023" displayname="mapToEntity_null()" uniqueid="[engine:junit-jupiter]/[class:com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest]/[method:mapToEntity_null()]"/>
+    <testcase name="mapToEntity_source" classname="com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest" time="0.058" displayname="mapToEntity_source()" uniqueid="[engine:junit-jupiter]/[class:com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest]/[method:mapToEntity_source()]"/>
+    <testcase name="mapToDto_null" classname="com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest" time="0.02" displayname="mapToDto_null()" uniqueid="[engine:junit-jupiter]/[class:com.dsi.bibliosys.biblioback.mapper.BibliothequeMapperTest]/[method:mapToDto_null()]"/>
+  </testsuite>
+</testrun>

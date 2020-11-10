@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,11 +30,12 @@ import org.springframework.test.web.reactive.server.WebTestClient.ResponseSpec;
 
 import com.dsi.bibliosys.biblioback.TestCase;
 import com.dsi.bibliosys.biblioback.data.entity.Usager;
-import com.dsi.bibliosys.biblioback.service.entity.UsagerService;
+import com.dsi.bibliosys.biblioback.service.UsagerService;
 
 @ExtendWith(SpringExtension.class)
 @WebFluxTest(UsagerController.class)
 @Tag(TestCase.UNIT)
+@Disabled
 public class UsagerControllerTest {
 
 	@Autowired

@@ -8,4 +8,4 @@ addons:
 
 script:
   - cd biblioback
-  - mvn clean package sonar:sonar -Dsonar.login=4b000c15eb49e902834b2f506a789f29dc91a32f -Dsonar.projectKey=GregGaoter_BiblioSys
+  - mvn clean verify sonar:sonar -Dsonar.login=4b000c15eb49e902834b2f506a789f29dc91a32f -Dsonar.projectKey=GregGaoter_BiblioSys

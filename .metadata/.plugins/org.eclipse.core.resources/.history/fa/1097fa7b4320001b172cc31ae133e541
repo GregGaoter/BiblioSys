@@ -1,0 +1,27 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import org.springframework.stereotype.Component;
+
+import com.dsi.bibliosys.biblioback.data.dto.AdresseDto;
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+
+import lombok.NonNull;
+
+/**
+ * Classe fournissant les opérations de mapping entre l'entité business Adresse
+ * et l'entité DTO AdresseDto.
+ */
+@Component
+public class AdresseMapper implements Mapper<Adresse, AdresseDto> {
+
+	@Override
+	public AdresseDto mapToDto(@NonNull Adresse source) {
+		return null;
+	}
+
+	@Override
+	public Adresse mapToEntity(@NonNull AdresseDto source) {
+		return null;
+	}
+
+}

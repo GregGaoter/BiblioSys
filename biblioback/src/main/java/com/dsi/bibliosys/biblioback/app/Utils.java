@@ -13,6 +13,17 @@ import lombok.NonNull;
 public abstract class Utils {
 
 	/**
+	 * Retourne le nom simple de la classe en argument comme donné dans le code
+	 * source. Retourne un String vide si la classe en argument est anonyme.
+	 * 
+	 * @param type Classe.
+	 * @return Le nom simple de la classe en argument.
+	 */
+	public static final String getClassName(@NonNull Class<?> type) {
+		return type.getSimpleName();
+	}
+
+	/**
 	 * Vérifie si le string blank ou empty.
 	 * 
 	 * @param str String à vérifier

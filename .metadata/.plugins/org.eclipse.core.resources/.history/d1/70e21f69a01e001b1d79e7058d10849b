@@ -1,0 +1,90 @@
+package com.dsi.bibliosys.biblioback.mapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.BDDMockito.given;
+
+import java.time.LocalDateTime;
+
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import com.dsi.bibliosys.biblioback.TestCase;
+import com.dsi.bibliosys.biblioback.data.dto.UsagerDto;
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
+import com.dsi.bibliosys.biblioback.data.entity.Usager;
+import com.dsi.bibliosys.biblioback.service.AdresseService;
+import com.dsi.bibliosys.biblioback.service.IdentifiantService;
+
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
+@Tag(TestCase.UNIT)
+public class UsagerMapperTest {
+
+	@Autowired
+	private UsagerMapper usagerMapper;
+	@MockBean
+	private UsagerDto usagerDto;
+	@MockBean
+	private IdentifiantService identifiantService;
+	@MockBean
+	private AdresseService adresseService;
+
+	@Test
+	public void mapToDto() {
+		Identifiant identifiant = new Identifiant();
+		ReflectionTestUtils.setField(identifiant, Usager.ID, 1);
+		Adresse adresse = new Adresse();
+		ReflectionTestUtils.setField(adresse, Usager.ID, 2);
+		Usager usager = new Usager();
+		ReflectionTestUtils.setField(usager, Usager.ID, 3);
+		usager.setPrenom("Vincent");
+		usager.setNom("Senapus");
+		usager.setDateNaissance(LocalDateTime.of(1979, 6, 5, 23, 37));
+		usager.setIdentifiant(identifiant);
+		usager.setAdresse(adresse);
+
+		UsagerDto usagerDto = usagerMapper.mapToDto(usager);
+
+		assertThat(usagerDto.getId()).isEqualTo(3);
+		assertThat(usagerDto.getPrenom()).isEqualTo("Vincent");
+		assertThat(usagerDto.getNom()).isEqualTo("Senapus");
+		assertThat(usagerDto.getDateNaissance()).isEqualTo(LocalDateTime.of(1979, 6, 5, 23, 37));
+		assertThat(usagerDto.getIdentifiantId()).isEqualTo(1);
+		assertThat(usagerDto.getAdresseId()).isEqualTo(2);
+	}
+
+	@Test
+	public void mapToEntity_IdNull() {
+		Identifiant identifiant = new Identifiant();
+		ReflectionTestUtils.setField(identifiant, Usager.ID, 1);
+		Adresse adresse = new Adresse();
+		ReflectionTestUtils.setField(adresse, Usager.ID, 2);
+
+		given(identifiantService.findById(anyInt())).willReturn(identifiant);
+		given(adresseService.findById(anyInt())).willReturn(adresse);
+
+		given(usagerDto.getPrenom()).willReturn("Vincent");
+		given(usagerDto.getNom()).willReturn("Senapus");
+		given(usagerDto.getDateNaissance()).willReturn(LocalDateTime.of(1979, 6, 5, 23, 37));
+		given(usagerDto.getIdentifiantId()).willReturn(1);
+		given(usagerDto.getAdresseId()).willReturn(2);
+
+		Usager usager = usagerMapper.mapToEntity(usagerDto);
+
+		assertThat(usager.getId()).isNull();
+		assertThat(usager.getPrenom()).isEqualTo("Vincent");
+		assertThat(usager.getNom()).isEqualTo("Senapus");
+		assertThat(usager.getDateNaissance()).isEqualTo(LocalDateTime.of(1979, 6, 5, 23, 37));
+		assertThat(usager.getIdentifiant()).isEqualToComparingOnlyGivenFields(identifiant, Identifiant.ID);
+		assertThat(usager.getAdresse()).isEqualToComparingOnlyGivenFields(adresse, Adresse.ID);
+	}
+
+}

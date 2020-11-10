@@ -1,0 +1,44 @@
+package com.dsi.bibliosys.biblioback.service.entity;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
+
+import com.dsi.bibliosys.biblioback.data.entity.Usager;
+import com.dsi.bibliosys.biblioback.dto.UsagerDto;
+import com.dsi.bibliosys.biblioback.repository.UsagerRepository;
+import com.dsi.bibliosys.biblioback.service.mapper.MapperService;
+import com.googlecode.jmapper.JMapper;
+
+import lombok.NonNull;
+
+/**
+ * Classe fournissant les services de l'entité business Usager.
+ */
+@Service
+public class UsagerService implements CrudService<Usager, Integer>, MapperService<Usager, UsagerDto> {
+
+	@Autowired
+	private UsagerRepository usagerRepository;
+
+	@Override
+	public JpaRepository<Usager, Integer> getRepository() {
+		return usagerRepository;
+	}
+
+	@Override
+	public Usager create() {
+		return new Usager();
+	}
+
+	@Override
+	public UsagerDto mapToDto(Usager source) {
+		return null;
+	}
+
+	@Override
+	public Usager mapToEntity(UsagerDto source) {
+		return null;
+	}
+
+}
