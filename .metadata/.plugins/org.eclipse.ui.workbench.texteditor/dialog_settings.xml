@@ -6,7 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="role"/>
+		<item key="selection" value="usager"/>
 		<list key="findhistory">
 			<item value="xxx"/>
 			<item value="XXX"/>
@@ -21,21 +21,21 @@
 			<item value="Auteur"/>
 		</list>
 		<list key="replacehistory">
+			<item value="usager"/>
+			<item value="Usager"/>
 			<item value="role"/>
 			<item value="Role"/>
-			<item value="Profil"/>
 			<item value="profil"/>
+			<item value="Profil"/>
 			<item value="pret"/>
 			<item value="Pret"/>
-			<item value="Personnel"/>
 			<item value="personnel"/>
+			<item value="Personnel"/>
 			<item value="livre"/>
 			<item value="Livre"/>
 			<item value="lieu"/>
 			<item value="Lieu"/>
 			<item value="identifiant"/>
-			<item value="Identifiant"/>
-			<item value="genre"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

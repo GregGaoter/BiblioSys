@@ -13,8 +13,12 @@ import com.dsi.bibliosys.biblioback.repository.UsagerRepository;
 @Service
 public class UsagerService implements CrudService<Usager, Integer> {
 
+	private final UsagerRepository usagerRepository;
+
 	@Autowired
-	private UsagerRepository usagerRepository;
+	public UsagerService(UsagerRepository usagerRepository) {
+		this.usagerRepository = usagerRepository;
+	}
 
 	@Override
 	public JpaRepository<Usager, Integer> getRepository() {

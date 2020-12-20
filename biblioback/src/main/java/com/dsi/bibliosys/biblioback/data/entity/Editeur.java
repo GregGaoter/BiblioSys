@@ -1,11 +1,14 @@
 package com.dsi.bibliosys.biblioback.data.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -32,5 +35,8 @@ public class Editeur implements Serializable {
 	private Integer id;
 
 	private String nom;
+
+	@OneToMany(mappedBy = Livre.EDITEUR, cascade = CascadeType.ALL)
+	private List<Livre> livres;
 
 }

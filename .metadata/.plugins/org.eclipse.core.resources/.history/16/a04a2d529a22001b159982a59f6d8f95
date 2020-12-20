@@ -1,1 +1,0 @@
-INSERT INTO lieu (id, region, departement, code_postal, ville) VALUES (1, 'Bretagne', 'Ille-et-Vilaine', '35190', 'Saint-Domineuc');

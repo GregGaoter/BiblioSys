@@ -13,9 +13,10 @@ import com.dsi.bibliosys.biblioback.app.HasLogger;
 import lombok.NonNull;
 
 /**
- * Interface de service fournissant les opérations CRUD sur les entités DTO.
+ * Interface de service fournissant les opérations CRUD sur les entités
+ * business.
  *
- * @param <E> Type de l'entité DTO.
+ * @param <E> Type de l'entité business.
  * @param <I> Type de la clef primaire de l'entité business.
  */
 public interface CrudService<E, I> extends HasLogger {
@@ -80,7 +81,7 @@ public interface CrudService<E, I> extends HasLogger {
 	 */
 	@Transactional
 	public default void deleteById(@NonNull I id) {
-		delete(load(id));
+		getRepository().deleteById(id);
 	}
 
 	/**

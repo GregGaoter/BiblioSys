@@ -1,5 +1,0 @@
-package com.dsi.bibliosys.biblioback.data.dto;
-
-public class LieuDto {
-
-}

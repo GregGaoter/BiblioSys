@@ -2,7 +2,9 @@ package com.dsi.bibliosys.biblioback.data.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -81,5 +84,14 @@ public class Livre implements Serializable {
 
 	@Column(length = 10000)
 	private String resume;
+
+	@OneToMany(mappedBy = EcritureLivre.LIVRE, cascade = CascadeType.ALL)
+	private List<EcritureLivre> ecritureLivres;
+
+	@OneToMany(mappedBy = Pret.LIVRE, cascade = CascadeType.ALL)
+	private List<Pret> prets;
+
+	@OneToMany(mappedBy = Favoris.LIVRE, cascade = CascadeType.ALL)
+	private List<Favoris> favoris;
 
 }

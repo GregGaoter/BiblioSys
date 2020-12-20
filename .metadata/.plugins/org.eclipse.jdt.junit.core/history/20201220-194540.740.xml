@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BibliothequeServiceIT.findAll" project="biblioback" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.dsi.bibliosys.biblioback.service.BibliothequeServiceIT" time="2.156" displayname="BibliothequeServiceIT" uniqueid="[engine:junit-jupiter]/[class:com.dsi.bibliosys.biblioback.service.BibliothequeServiceIT]">
+    <testcase name="findAll" classname="com.dsi.bibliosys.biblioback.service.BibliothequeServiceIT" time="2.156" displayname="findAll()" uniqueid="[engine:junit-jupiter]/[class:com.dsi.bibliosys.biblioback.service.BibliothequeServiceIT]/[method:findAll()]"/>
+  </testsuite>
+</testrun>
