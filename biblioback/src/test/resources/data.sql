@@ -22,22 +22,30 @@ INSERT INTO bibliotheque (id, nom, adresse_id) VALUES (3, 'Bibliothèque 3', 3);
 -- ===================================================
 -- genre
 -- ===================================================
-INSERT INTO genre (id, nom) VALUES (1, 'Poésie');
+INSERT INTO genre (id, nom) VALUES (1, 'Genre 1');
+INSERT INTO genre (id, nom) VALUES (2, 'Genre 2');
+INSERT INTO genre (id, nom) VALUES (3, 'Genre 3');
 
 -- ===================================================
 -- editeur
 -- ===================================================
-INSERT INTO editeur (id, nom) VALUES (1, 'Editions Gallimard');
+INSERT INTO editeur (id, nom) VALUES (1, 'Editeur 1');
+INSERT INTO editeur (id, nom) VALUES (2, 'Editeur 2');
+INSERT INTO editeur (id, nom) VALUES (3, 'Editeur 3');
 
 -- ===================================================
 -- collection
 -- ===================================================
-INSERT INTO collection (id, nom) VALUES (1, 'Le livre de poche');
+INSERT INTO collection (id, nom) VALUES (1, 'Collection 1');
+INSERT INTO collection (id, nom) VALUES (2, 'Collection 2');
+INSERT INTO collection (id, nom) VALUES (3, 'Collection 3');
 
 -- ===================================================
 -- livre
 -- ===================================================
-INSERT INTO livre (id, bibliotheque_id, genre_id, nom_image, titre, editeur_id, collection_id, date_parution, dimension, nb_pages, ean13, nb_exemplaires, resume) VALUES (1, 1, 1, 'les-fleurs-du-mal.png', 'Les fleurs du mal', 1, 1, '1997-09-15 00:00:00', '17.8 x 11.1 x 1.4 cm', 286, '9782253007104', 4, 'Avec Les Fleurs du Mal commence la poésie moderne.');
+INSERT INTO livre (id, bibliotheque_id, genre_id, nom_image, titre, editeur_id, collection_id, date_parution, dimension, nb_pages, ean13, nb_exemplaires, resume) VALUES (1, 1, 1, 'image-1.png', 'Titre 1', 1, 1, '2000-01-01 00:00:00', '1 x 1 x 1 cm', 111, '1111111111111', 1, 'Résumé 1');
+INSERT INTO livre (id, bibliotheque_id, genre_id, nom_image, titre, editeur_id, collection_id, date_parution, dimension, nb_pages, ean13, nb_exemplaires, resume) VALUES (2, 2, 2, 'image-2.png', 'Titre 2', 2, 2, '2000-02-02 00:00:00', '2 x 2 x 2 cm', 222, '2222222222222', 2, 'Résumé 2');
+INSERT INTO livre (id, bibliotheque_id, genre_id, nom_image, titre, editeur_id, collection_id, date_parution, dimension, nb_pages, ean13, nb_exemplaires, resume) VALUES (3, 3, 3, 'image-3.png', 'Titre 3', 3, 3, '2000-03-03 00:00:00', '3 x 3 x 3 cm', 333, '3333333333333', 3, 'Résumé 3');
 
 -- ===================================================
 -- auteur
@@ -49,14 +57,27 @@ INSERT INTO auteur (id, prenom_nom) VALUES (3, 'Auteur 3');
 -- ===================================================
 -- identifiant
 -- ===================================================
-INSERT INTO identifiant (id, email, mot_de_passe, is_actif) VALUES (1, 'amargerison0@toplist.cz', '8Wva2JDb', TRUE);
+INSERT INTO identifiant (id, email, mot_de_passe, is_actif) VALUES (1, 'email1@domaine1.fr', 'mdp1', TRUE);
+INSERT INTO identifiant (id, email, mot_de_passe, is_actif) VALUES (2, 'email2@domaine2.fr', 'mdp2', FALSE);
+INSERT INTO identifiant (id, email, mot_de_passe, is_actif) VALUES (3, 'email3@domaine3.fr', 'mdp3', TRUE);
 
 -- ===================================================
 -- usager
 -- ===================================================
-INSERT INTO usager (id, prenom, nom, date_naissance, identifiant_id, adresse_id) VALUES (1, 'Liliane', 'Philibert', '1965-11-13 00:00:00', 1, 1);
+INSERT INTO usager (id, prenom, nom, date_naissance, identifiant_id, adresse_id) VALUES (1, 'Prénom 1', 'Nom 1', '2000-01-01 00:00:00', 1, 1);
+INSERT INTO usager (id, prenom, nom, date_naissance, identifiant_id, adresse_id) VALUES (2, 'Prénom 2', 'Nom 2', '2000-02-02 00:00:00', 2, 2);
+INSERT INTO usager (id, prenom, nom, date_naissance, identifiant_id, adresse_id) VALUES (3, 'Prénom 3', 'Nom 3', '2000-03-03 00:00:00', 3, 3);
 
 -- ===================================================
 -- role
 -- ===================================================
-INSERT INTO role (id, nom) VALUES (1, 'ADMIN');
+INSERT INTO role (id, nom) VALUES (1, 'ROLE1');
+INSERT INTO role (id, nom) VALUES (2, 'ROLE2');
+INSERT INTO role (id, nom) VALUES (3, 'ROLE3');
+
+-- ===================================================
+-- ecriture_livre
+-- ===================================================
+INSERT INTO ecriture_livre (id, livre_id, auteur_id) VALUES (1, 1, 1);
+INSERT INTO ecriture_livre (id, livre_id, auteur_id) VALUES (2, 2, 2);
+INSERT INTO ecriture_livre (id, livre_id, auteur_id) VALUES (3, 3, 3);
