@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -45,6 +46,12 @@ public class Identifiant implements Serializable {
 
 	@Column(nullable = false)
 	private Boolean isActif;
+
+	@OneToOne(mappedBy = "identifiant")
+	private Usager usager;
+	
+	@OneToOne(mappedBy = "identifiant")
+	private Personnel personnel;
 
 	@OneToMany(mappedBy = Profil.IDENTIFIANT, cascade = CascadeType.ALL)
 	private List<Profil> profils;

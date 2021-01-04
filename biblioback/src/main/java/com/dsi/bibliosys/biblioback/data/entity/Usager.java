@@ -52,7 +52,7 @@ public class Usager implements Serializable {
 	@Column(nullable = false)
 	private LocalDateTime dateNaissance;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "identifiant_id", referencedColumnName = "id", nullable = false)
 	private Identifiant identifiant;
 

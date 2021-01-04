@@ -81,3 +81,31 @@ INSERT INTO role (id, nom) VALUES (3, 'ROLE3');
 INSERT INTO ecriture_livre (id, livre_id, auteur_id) VALUES (1, 1, 1);
 INSERT INTO ecriture_livre (id, livre_id, auteur_id) VALUES (2, 2, 2);
 INSERT INTO ecriture_livre (id, livre_id, auteur_id) VALUES (3, 3, 3);
+
+-- ===================================================
+-- favoris
+-- ===================================================
+INSERT INTO favoris (id, usager_id, livre_id) VALUES (1, 1, 1);
+INSERT INTO favoris (id, usager_id, livre_id) VALUES (2, 2, 2);
+INSERT INTO favoris (id, usager_id, livre_id) VALUES (3, 3, 3);
+
+-- ===================================================
+-- personnel
+-- ===================================================
+INSERT INTO personnel (id, prenom, nom, date_naissance, identifiant_id, adresse_id, bibliotheque_id) VALUES (1, 'Prénom 1', 'Nom 1', '2000-01-01 00:00:00', 1, 1, 1);
+INSERT INTO personnel (id, prenom, nom, date_naissance, identifiant_id, adresse_id, bibliotheque_id) VALUES (2, 'Prénom 2', 'Nom 2', '2000-02-02 00:00:00', 2, 2, 2);
+INSERT INTO personnel (id, prenom, nom, date_naissance, identifiant_id, adresse_id, bibliotheque_id) VALUES (3, 'Prénom 3', 'Nom 3', '2000-03-03 00:00:00', 3, 3, 3);
+
+-- ===================================================
+-- profil
+-- ===================================================
+INSERT INTO profil (id, identifiant_id, role_id) VALUES (1, 1, 1);
+INSERT INTO profil (id, identifiant_id, role_id) VALUES (2, 2, 2);
+INSERT INTO profil (id, identifiant_id, role_id) VALUES (3, 3, 3);
+
+-- ===================================================
+-- pret
+-- ===================================================
+INSERT INTO pret (id, usager_id, livre_id, date_pret, nb_prolongations, nb_relances) VALUES (1, 1, 1, '2000-01-01 00:00:00', 0, 0);
+INSERT INTO pret (id, usager_id, livre_id, date_pret, nb_prolongations, nb_relances) VALUES (2, 2, 2, '2000-02-02 00:00:00', 0, 1);
+INSERT INTO pret (id, usager_id, livre_id, date_pret, nb_prolongations, nb_relances) VALUES (3, 3, 3, '2000-03-03 00:00:00', 1, 0);
