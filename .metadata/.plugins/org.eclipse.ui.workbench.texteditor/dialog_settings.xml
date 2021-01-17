@@ -6,36 +6,40 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="usager"/>
+		<item key="selection" value="identifiant"/>
 		<list key="findhistory">
-			<item value="xxx"/>
-			<item value="XXX"/>
-			<item value="yyy"/>
-			<item value="YYY"/>
-			<item value="usager"/>
-			<item value="Usager"/>
-			<item value="identifiantId"/>
-			<item value="adresse"/>
-			<item value="identifiant"/>
+			<item value="genre"/>
+			<item value="Genre"/>
+			<item value="collection"/>
+			<item value="Collection"/>
 			<item value="auteur"/>
 			<item value="Auteur"/>
-		</list>
-		<list key="replacehistory">
-			<item value="usager"/>
-			<item value="Usager"/>
-			<item value="role"/>
-			<item value="Role"/>
-			<item value="profil"/>
-			<item value="Profil"/>
-			<item value="pret"/>
-			<item value="Pret"/>
-			<item value="personnel"/>
-			<item value="Personnel"/>
-			<item value="livre"/>
-			<item value="Livre"/>
+			<item value="ecritureLivre"/>
+			<item value="EcritureLivre"/>
+			<item value="editeur"/>
+			<item value="Editeur"/>
 			<item value="lieu"/>
 			<item value="Lieu"/>
+			<item value="Adresse"/>
+			<item value="adresse"/>
+			<item value="@OneToMany"/>
+		</list>
+		<list key="replacehistory">
 			<item value="identifiant"/>
+			<item value="Iientifiant"/>
+			<item value="Identifiant"/>
+			<item value="genre"/>
+			<item value="Genre"/>
+			<item value="usager"/>
+			<item value="Usager"/>
+			<item value="favoris"/>
+			<item value="Favoris"/>
+			<item value="editeur"/>
+			<item value="Editeur"/>
+			<item value="ecritureLivre"/>
+			<item value="EcritureLivre"/>
+			<item value="collection"/>
+			<item value="Collection"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
