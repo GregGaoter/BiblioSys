@@ -6,7 +6,7 @@ const AppMenu = (props) => {
   return (
     <div className="layout-sidebar" onClick={props.onMenuClick}>
       <Link to="/" className="logo">
-        <img id="app-logo" className="logo-image" src="assets/layout/images/logo-white.svg" alt="diamond layout" />
+        <img id="app-logo" className="logo-image" src="assets/layout/images/logo-footer.png" alt="logo-layout" />
         <span className="app-name">BiblioSys</span>
       </Link>
 
