@@ -1,43 +1,42 @@
 {
-    "name": "diamond-react",
-    "version": "1.0.0",
-    "homepage": ".",
-    "private": true,
-    "dependencies": {
-        "@fullcalendar/core": "4.0.2",
-        "@fullcalendar/daygrid": "4.0.1",
-        "@fullcalendar/interaction": "4.0.2",
-        "@fullcalendar/timegrid": "4.0.1",
-        "axios": "^0.19.0",
-        "prismjs": "^1.15.0",
-        "chart.js": "2.7.3",
-        "classnames": "^2.2.6",
-        "node-sass": "^4.12.0",
-        "primeflex": "2.0.0",
-        "primeicons": "4.1.0",
-        "primereact": "5.0.1",
-        "react": "^17.0.1",
-        "react-app-polyfill": "^2.0.0",
-        "react-dom": "^17.0.1",
-        "react-router-dom": "^5.2.0",
-        "react-scripts": "4.0.0",
-        "react-transition-group": "^4.4.1"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app"
-        ]
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
+  "name": "bibliofront",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.19.15",
+    "@types/react": "^16.14.2",
+    "@types/react-dom": "^16.9.10",
+    "@types/react-redux": "^7.1.16",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-scripts": "4.0.1",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
+  }
 }
