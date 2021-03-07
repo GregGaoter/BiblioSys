@@ -1,24 +1,34 @@
+import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { Menu } from "primereact/menu";
-import { Menubar } from "primereact/menubar";
 import { TieredMenu } from "primereact/tieredmenu";
-import { Button } from "primereact/button";
 import React, { useRef } from "react";
+import { useHistory } from "react-router";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import { Accueil } from "./components/Accueil";
 import { Bibliotheques } from "./components/Bibliotheques";
 import { Livres } from "./components/Livres";
-import logo from "./ressources/images/logo-48-48.png";
-import { Switch, Route } from "react-router-dom";
+import logo32 from "./ressources/images/logo-32-32.png";
+import logo48 from "./ressources/images/logo-48-48.png";
 
-function App() {
+function App(props: any) {
   const avatarMenuRef = useRef(null);
+  const history = useHistory();
+
+  const ROOT_PATH = "/";
+  const BIBLIOTHEQUES_PATH = "/bibliotheques";
+  const LIVRES_PATH = "/livres";
 
   const routers = [
-    { path: "/", component: Accueil, exact: true },
-    { path: "/bibliotheques", component: Bibliotheques },
-    { path: "/livres", component: Livres },
+    { path: ROOT_PATH, component: Accueil, exact: true },
+    { path: BIBLIOTHEQUES_PATH, component: Bibliotheques },
+    { path: LIVRES_PATH, component: Livres },
   ];
+
+  const goToPath = (path: string): void => {
+    history.push(path);
+  };
 
   const tieredMenuItems = [
     {
@@ -28,9 +38,9 @@ function App() {
             <img
               className="p-mr-2"
               alt="logo"
-              src={logo}
+              src={logo48}
               style={{
-                width: "40px",
+                width: "48px",
                 paddingTop: "1px",
                 paddingBottom: "1px",
               }}
@@ -41,8 +51,20 @@ function App() {
       },
     },
     { separator: true },
-    { label: "Accueil", icon: "pi pi-home" },
-    { label: "Nos bibliothèques", icon: "pi pi-map" },
+    {
+      label: "Accueil",
+      icon: "pi pi-home",
+      command: () => {
+        goToPath(ROOT_PATH);
+      },
+    },
+    {
+      label: "Nos bibliothèques",
+      icon: "pi pi-map",
+      command: () => {
+        goToPath(BIBLIOTHEQUES_PATH);
+      },
+    },
     { label: "Nos Livres", icon: "pi pi-book" },
     { separator: true },
     {
@@ -165,18 +187,6 @@ function App() {
     },
   ];
 
-  const menuBarStart = (
-    <div className="p-d-inline-flex p-ai-baseline">
-      <i className="pi pi-home p-ml-4 p-mr-3"></i>
-      <i className="pi pi-chevron-right p-mr-3"></i>
-      <h5>Catégorie</h5>
-    </div>
-  ) as any;
-
-  const menuBarEnd = (
-    <Button label="GG" className="p-button-rounded" onClick={(event) => (avatarMenuRef as any).current.toggle(event)} />
-  ) as any;
-
   const avatarMenuItems = [
     { label: "Mon compte", icon: "pi pi-user" },
     { label: "Mes emprunts", icon: "pi pi-book" },
@@ -185,18 +195,48 @@ function App() {
   ];
 
   return (
-    <div className="p-d-flex">
-      <TieredMenu model={tieredMenuItems} className="p-shadow-6" />
-      <div className="p-d-flex p-flex-column">
-        <Menu model={avatarMenuItems} popup ref={avatarMenuRef} id="avatar-menu-popup" />
-        <Menubar start={menuBarStart} end={menuBarEnd} className="p-as-start p-shadow-6" style={{ width: "90vw" }} />
-        <Card className="p-shadow-6 p-ml-3 p-mr-3 p-mt-3">
-          <Switch>
-            {routers.map((route) => (
-              <Route exact={route.exact} path={route.path} component={route.component} key={route.path} />
-            ))}
-          </Switch>
-        </Card>
+    <div className="p-grid nested-grid p-nogutter">
+      <div className="p-col-fixed" style={{ width: "200px" }}>
+        <TieredMenu model={tieredMenuItems} className="p-shadow-6" />
+      </div>
+      <div className="p-col">
+        <div className="p-grid p-nogutter">
+          <div className="p-col-12">
+            <div className="p-d-flex">
+              <Button
+                icon="pi pi-user"
+                className="p-button-rounded p-shadow-6 p-ml-auto p-mr-4 p-mt-1"
+                onClick={(event) => (avatarMenuRef as any).current.toggle(event)}
+              />
+              <Menu model={avatarMenuItems} popup ref={avatarMenuRef} id="avatar-menu-popup" />
+            </div>
+          </div>
+          <div className="p-col-12">
+            <Card className="p-shadow-6 p-mx-4 p-mt-3 p-mb-4">
+              <Switch>
+                {routers.map((route) => (
+                  <Route exact={route.exact} path={route.path} component={route.component} key={route.path} />
+                ))}
+              </Switch>
+            </Card>
+          </div>
+          <div className="p-col-12">
+            <div className="p-d-flex p-mx-4 p-ai-center p-jc-between">
+              <div className="p-d-flex p-ai-center">
+                <img
+                  className="p-mr-2"
+                  alt="logo"
+                  src={logo32}
+                  style={{
+                    width: "32px",
+                  }}
+                />
+                <div>Biblillonie</div>
+              </div>
+              <div>© DSI - 2021</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
