@@ -3,6 +3,8 @@ package com.dsi.bibliosys.biblioback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.UsagerDto;
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
 import com.dsi.bibliosys.biblioback.data.entity.Usager;
 import com.dsi.bibliosys.biblioback.service.AdresseService;
 import com.dsi.bibliosys.biblioback.service.IdentifiantService;
@@ -30,12 +32,14 @@ public class UsagerMapper extends AbstractMapper implements Mapper<Usager, Usage
 	@Override
 	public UsagerDto mapToDto(@NonNull Usager source) {
 		UsagerDto usagerDto = new UsagerDto();
+		Identifiant identifiant = source.getIdentifiant();
+		Adresse adresse = source.getAdresse();
 		usagerDto.setId(source.getId());
 		usagerDto.setPrenom(source.getPrenom());
 		usagerDto.setNom(source.getNom());
 		usagerDto.setDateNaissance(source.getDateNaissance());
-		usagerDto.setIdentifiantId(source.getIdentifiant().getId());
-		usagerDto.setAdresseId(source.getAdresse().getId());
+		usagerDto.setIdentifiantId(identifiant == null ? null : identifiant.getId());
+		usagerDto.setAdresseId(adresse == null ? null : adresse.getId());
 		return usagerDto;
 	}
 

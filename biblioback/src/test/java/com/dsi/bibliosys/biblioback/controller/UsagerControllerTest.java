@@ -59,6 +59,7 @@ public class UsagerControllerTest {
 	// =====================================
 	// --- GET
 	// =====================================
+
 	@Test
 	public void read_returnUsager() {
 		given(usagerService.create()).willReturn(usagerGiven);
@@ -119,6 +120,7 @@ public class UsagerControllerTest {
 	// =====================================
 	// --- POST
 	// =====================================
+
 	private static Stream<Arguments> create_usagerGiven_returnHttpStatus() {
 		return Stream.of(Arguments.of(null, HttpStatus.NO_CONTENT), Arguments.of(1, HttpStatus.CREATED));
 	}
@@ -138,6 +140,7 @@ public class UsagerControllerTest {
 	// =====================================
 	// --- PUT
 	// =====================================
+
 	private static Stream<Arguments> update_usagerTarget_returnStatusCode() {
 		Usager usagerTarget = new Usager();
 		ReflectionTestUtils.setField(usagerTarget, Usager.ID, 1);
@@ -160,6 +163,7 @@ public class UsagerControllerTest {
 	// =====================================
 	// --- DELETE
 	// =====================================
+
 	@Test
 	public void delete_usager_returnStatusCode() {
 		ResponseSpec rs = wtc.delete().uri("/usager/1").exchange();
@@ -168,4 +172,5 @@ public class UsagerControllerTest {
 		rs.expectStatus().isOk();
 		rs.expectBody().isEmpty();
 	}
+
 }

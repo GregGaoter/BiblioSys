@@ -3,7 +3,9 @@ package com.dsi.bibliosys.biblioback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.ProfilDto;
+import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
 import com.dsi.bibliosys.biblioback.data.entity.Profil;
+import com.dsi.bibliosys.biblioback.data.entity.Role;
 import com.dsi.bibliosys.biblioback.service.IdentifiantService;
 import com.dsi.bibliosys.biblioback.service.RoleService;
 
@@ -30,9 +32,11 @@ public class ProfilMapper extends AbstractMapper implements Mapper<Profil, Profi
 	@Override
 	public ProfilDto mapToDto(@NonNull Profil source) {
 		ProfilDto profilDto = new ProfilDto();
+		Identifiant identifiant = source.getIdentifiant();
+		Role role = source.getRole();
 		profilDto.setId(source.getId());
-		profilDto.setIdentifiantId(source.getIdentifiant().getId());
-		profilDto.setRoleId(source.getRole().getId());
+		profilDto.setIdentifiantId(identifiant == null ? null : identifiant.getId());
+		profilDto.setRoleId(role == null ? null : role.getId());
 		return profilDto;
 	}
 

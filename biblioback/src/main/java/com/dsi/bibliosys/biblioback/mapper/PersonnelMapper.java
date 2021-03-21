@@ -3,6 +3,9 @@ package com.dsi.bibliosys.biblioback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.PersonnelDto;
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+import com.dsi.bibliosys.biblioback.data.entity.Bibliotheque;
+import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
 import com.dsi.bibliosys.biblioback.data.entity.Personnel;
 import com.dsi.bibliosys.biblioback.service.AdresseService;
 import com.dsi.bibliosys.biblioback.service.BibliothequeService;
@@ -33,13 +36,16 @@ public class PersonnelMapper extends AbstractMapper implements Mapper<Personnel,
 	@Override
 	public PersonnelDto mapToDto(@NonNull Personnel source) {
 		PersonnelDto personnelDto = new PersonnelDto();
+		Identifiant identifiant = source.getIdentifiant();
+		Adresse adresse = source.getAdresse();
+		Bibliotheque bibliotheque = source.getBibliotheque();
 		personnelDto.setId(source.getId());
 		personnelDto.setPrenom(source.getPrenom());
 		personnelDto.setNom(source.getNom());
 		personnelDto.setDateNaissance(source.getDateNaissance());
-		personnelDto.setIdentifiantId(source.getIdentifiant().getId());
-		personnelDto.setAdresseId(source.getAdresse().getId());
-		personnelDto.setBibliothequeId(source.getBibliotheque().getId());
+		personnelDto.setIdentifiantId(identifiant == null ? null : identifiant.getId());
+		personnelDto.setAdresseId(adresse == null ? null : adresse.getId());
+		personnelDto.setBibliothequeId(bibliotheque == null ? null : bibliotheque.getId());
 		return personnelDto;
 	}
 

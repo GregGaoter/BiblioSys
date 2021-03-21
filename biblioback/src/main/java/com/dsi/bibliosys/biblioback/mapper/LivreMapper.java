@@ -3,6 +3,10 @@ package com.dsi.bibliosys.biblioback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.LivreDto;
+import com.dsi.bibliosys.biblioback.data.entity.Bibliotheque;
+import com.dsi.bibliosys.biblioback.data.entity.Collection;
+import com.dsi.bibliosys.biblioback.data.entity.Editeur;
+import com.dsi.bibliosys.biblioback.data.entity.Genre;
 import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.service.BibliothequeService;
 import com.dsi.bibliosys.biblioback.service.CollectionService;
@@ -37,13 +41,17 @@ public class LivreMapper extends AbstractMapper implements Mapper<Livre, LivreDt
 	@Override
 	public LivreDto mapToDto(@NonNull Livre source) {
 		LivreDto livreDto = new LivreDto();
+		Bibliotheque bibliotheque = source.getBibliotheque();
+		Genre genre = source.getGenre();
+		Editeur editeur = source.getEditeur();
+		Collection collection = source.getCollection();
 		livreDto.setId(source.getId());
-		livreDto.setBibliothequeId(source.getBibliotheque().getId());
-		livreDto.setGenreId(source.getGenre().getId());
+		livreDto.setBibliothequeId(bibliotheque == null ? null : bibliotheque.getId());
+		livreDto.setGenreId(genre == null ? null : genre.getId());
 		livreDto.setNomImage(source.getNomImage());
 		livreDto.setTitre(source.getTitre());
-		livreDto.setEditeurId(source.getEditeur().getId());
-		livreDto.setCollectionId(source.getCollection().getId());
+		livreDto.setEditeurId(editeur == null ? null : editeur.getId());
+		livreDto.setCollectionId(collection == null ? null : collection.getId());
 		livreDto.setDateParution(source.getDateParution());
 		livreDto.setDimension(source.getDimension());
 		livreDto.setNbPages(source.getNbPages());

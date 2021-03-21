@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.FavorisDto;
 import com.dsi.bibliosys.biblioback.data.entity.Favoris;
+import com.dsi.bibliosys.biblioback.data.entity.Livre;
+import com.dsi.bibliosys.biblioback.data.entity.Usager;
 import com.dsi.bibliosys.biblioback.service.LivreService;
 import com.dsi.bibliosys.biblioback.service.UsagerService;
 
@@ -30,9 +32,11 @@ public class FavorisMapper extends AbstractMapper implements Mapper<Favoris, Fav
 	@Override
 	public FavorisDto mapToDto(@NonNull Favoris source) {
 		FavorisDto favorisDto = new FavorisDto();
+		Usager usager = source.getUsager();
+		Livre livre = source.getLivre();
 		favorisDto.setId(source.getId());
-		favorisDto.setUsagerId(source.getUsager().getId());
-		favorisDto.setLivreId(source.getLivre().getId());
+		favorisDto.setUsagerId(usager == null ? null : usager.getId());
+		favorisDto.setLivreId(livre == null ? null : livre.getId());
 		return favorisDto;
 	}
 

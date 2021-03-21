@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.AdresseDto;
 import com.dsi.bibliosys.biblioback.data.entity.Adresse;
+import com.dsi.bibliosys.biblioback.data.entity.Lieu;
 import com.dsi.bibliosys.biblioback.service.LieuService;
 
 import lombok.NonNull;
@@ -27,10 +28,11 @@ public class AdresseMapper extends AbstractMapper implements Mapper<Adresse, Adr
 	@Override
 	public AdresseDto mapToDto(@NonNull Adresse source) {
 		AdresseDto adresseDto = new AdresseDto();
+		Lieu lieu = source.getLieu();
 		adresseDto.setId(source.getId());
 		adresseDto.setNumeroRue(source.getNumeroRue());
 		adresseDto.setRue(source.getRue());
-		adresseDto.setLieuId(source.getLieu().getId());
+		adresseDto.setLieuId(lieu == null ? null : lieu.getId());
 		return adresseDto;
 	}
 

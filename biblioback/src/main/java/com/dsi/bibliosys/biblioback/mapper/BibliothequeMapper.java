@@ -3,6 +3,7 @@ package com.dsi.bibliosys.biblioback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.BibliothequeDto;
+import com.dsi.bibliosys.biblioback.data.entity.Adresse;
 import com.dsi.bibliosys.biblioback.data.entity.Bibliotheque;
 import com.dsi.bibliosys.biblioback.service.AdresseService;
 
@@ -27,9 +28,10 @@ public class BibliothequeMapper extends AbstractMapper implements Mapper<Bibliot
 	@Override
 	public BibliothequeDto mapToDto(@NonNull Bibliotheque source) {
 		BibliothequeDto bibliothequeDto = new BibliothequeDto();
+		Adresse adresse = source.getAdresse();
 		bibliothequeDto.setId(source.getId());
 		bibliothequeDto.setNom(source.getNom());
-		bibliothequeDto.setAdresseId(source.getAdresse().getId());
+		bibliothequeDto.setAdresseId(adresse == null ? null : adresse.getId());
 		return bibliothequeDto;
 	}
 

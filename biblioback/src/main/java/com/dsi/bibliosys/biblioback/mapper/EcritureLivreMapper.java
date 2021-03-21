@@ -3,7 +3,9 @@ package com.dsi.bibliosys.biblioback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.EcritureLivreDto;
+import com.dsi.bibliosys.biblioback.data.entity.Auteur;
 import com.dsi.bibliosys.biblioback.data.entity.EcritureLivre;
+import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.service.AuteurService;
 import com.dsi.bibliosys.biblioback.service.LivreService;
 
@@ -30,9 +32,11 @@ public class EcritureLivreMapper extends AbstractMapper implements Mapper<Ecritu
 	@Override
 	public EcritureLivreDto mapToDto(@NonNull EcritureLivre source) {
 		EcritureLivreDto ecritureLivreDto = new EcritureLivreDto();
+		Livre livre = source.getLivre();
+		Auteur auteur = source.getAuteur();
 		ecritureLivreDto.setId(source.getId());
-		ecritureLivreDto.setLivreId(source.getLivre().getId());
-		ecritureLivreDto.setAuteurId(source.getAuteur().getId());
+		ecritureLivreDto.setLivreId(livre == null ? null : livre.getId());
+		ecritureLivreDto.setAuteurId(auteur == null ? null : auteur.getId());
 		return ecritureLivreDto;
 	}
 

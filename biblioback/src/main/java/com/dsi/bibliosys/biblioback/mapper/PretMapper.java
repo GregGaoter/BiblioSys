@@ -3,7 +3,9 @@ package com.dsi.bibliosys.biblioback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.dsi.bibliosys.biblioback.data.dto.PretDto;
+import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.data.entity.Pret;
+import com.dsi.bibliosys.biblioback.data.entity.Usager;
 import com.dsi.bibliosys.biblioback.service.LivreService;
 import com.dsi.bibliosys.biblioback.service.UsagerService;
 
@@ -30,9 +32,11 @@ public class PretMapper extends AbstractMapper implements Mapper<Pret, PretDto> 
 	@Override
 	public PretDto mapToDto(@NonNull Pret source) {
 		PretDto pretDto = new PretDto();
+		Usager usager = source.getUsager();
+		Livre livre = source.getLivre();
 		pretDto.setId(source.getId());
-		pretDto.setUsagerId(source.getUsager().getId());
-		pretDto.setLivreId(source.getLivre().getId());
+		pretDto.setUsagerId(usager == null ? null : usager.getId());
+		pretDto.setLivreId(livre == null ? null : livre.getId());
 		pretDto.setDatePret(source.getDatePret());
 		pretDto.setNbProlongations(source.getNbProlongations());
 		pretDto.setNbRelances(source.getNbRelances());

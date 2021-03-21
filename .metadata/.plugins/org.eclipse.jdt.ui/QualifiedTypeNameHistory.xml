@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.UsagerService"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.LivreService"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.AdresseMapper"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.AuteurMapper"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.BibliothequeMapper"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.CollectionMapper"/>
@@ -18,7 +15,6 @@
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.ProfilMapper"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.RoleMapper"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.Mapper"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.UsagerDto"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Assertions"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
@@ -26,7 +22,6 @@
     <fullyQualifiedTypeName name="org.mockito.Mockito"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Role"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Adresse"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Lieu"/>
@@ -57,7 +52,12 @@
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.GenreRepository"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Genre"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.IdentifiantRepository"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Identifiant"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Disabled"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.UsagerDto"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collector"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Identifiant"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Adresse"/>
+    <fullyQualifiedTypeName name="java.net.URI"/>
 </qualifiedTypeNameHistroy>
