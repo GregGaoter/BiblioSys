@@ -1,0 +1,5 @@
+package com.dsi.bibliosys.biblioback.app.configuration;
+
+public class SecurityConfiguration {
+
+}

@@ -1,0 +1,16 @@
+package com.dsi.bibliosys.biblioback.data.authentification;
+
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
+public class JwtReponse implements Serializable {
+
+	private static final long serialVersionUID = 3206496032489168163L;
+
+	private final String token;
+
+}

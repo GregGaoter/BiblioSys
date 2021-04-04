@@ -191,7 +191,10 @@ function App(props: any) {
     { label: "Mon compte", icon: "pi pi-user" },
     { label: "Mes emprunts", icon: "pi pi-book" },
     { separator: true },
-    { label: "Se déconnecter", icon: "pi pi-sign-out" },
+    {
+      label: "Se déconnecter",
+      icon: "pi pi-sign-out",
+    },
   ];
 
   return (

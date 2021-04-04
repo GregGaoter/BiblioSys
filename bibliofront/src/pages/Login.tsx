@@ -1,15 +1,25 @@
+import axios from "axios";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import logo from "../ressources/images/logo-128-128.png";
 
 const Login = () => {
   const history = useHistory();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSignIn = () => {
-    history.push("/");
+    const endpoint = "http://localhost:8080/authentification";
+    const credentials = { username: email, password: password };
+
+    axios.post(endpoint, credentials).then((reponse) => {
+      localStorage.setItem("authorization", reponse.data.token);
+      history.push("/");
+    });
   };
 
   const title = <h3 className="p-d-flex p-jc-center">Bienvenue sur Biblillonie</h3>;
@@ -43,11 +53,21 @@ const Login = () => {
         <div className="p-fluid">
           <div className="p-field">
             <label htmlFor="email">E-mail</label>
-            <InputText id="email" type="email" placeholder="Entrer votre e-mail" />
+            <InputText
+              id="email"
+              type="email"
+              placeholder="Entrer votre e-mail"
+              onChange={(e) => setEmail(e.currentTarget.value)}
+            />
           </div>
           <div className="p-field">
             <label htmlFor="password">Mot de passe</label>
-            <InputText id="password" type="password" placeholder="Entrer votre mot de passe" />
+            <InputText
+              id="password"
+              type="password"
+              placeholder="Entrer votre mot de passe"
+              onChange={(e) => setPassword(e.currentTarget.value)}
+            />
           </div>
         </div>
       </Card>

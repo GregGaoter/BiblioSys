@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +29,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/livre")
 public class LivreController {
-
+	
 	/**
 	 * Service de l'entité business Livre.
 	 */
@@ -50,6 +51,8 @@ public class LivreController {
 	 * @return Un LivreDto vide
 	 */
 	@GetMapping("/nouveau")
+	@PreAuthorize("hasRole('BIBLIOTHECAIRE')")
+	// @PreAuthorize("#{}")
 	public Mono<LivreDto> create() {
 		Livre livre = livreService.create();
 		LivreDto livreDto = livreMapper.mapToDto(livre);
@@ -62,6 +65,7 @@ public class LivreController {
 	 * @return LivreDto avec l'id fournit.
 	 */
 	@GetMapping("/{id}")
+	// @PreAuthorize("hasRole('USAGER')")
 	public ResponseEntity<Mono<LivreDto>> readById(@PathVariable Integer id) {
 		Livre livre = livreService.findById(id);
 		LivreDto livreDto = livreMapper.mapToDto(livre);
@@ -74,6 +78,7 @@ public class LivreController {
 	 * @return Tous les LivreDto.
 	 */
 	@GetMapping("/all")
+	@PreAuthorize("hasRole('USAGER')")
 	public ResponseEntity<Flux<LivreDto>> readAll() {
 		List<Livre> livres = livreService.findAll();
 		List<LivreDto> livresDto = livres.stream().map(livre -> livreMapper.mapToDto(livre))
@@ -94,6 +99,7 @@ public class LivreController {
 	 *         "201 Created" avec un corps de réponse null.
 	 */
 	@PostMapping
+	@PreAuthorize("hasRole('BIBLIOTHECAIRE')")
 	public ResponseEntity<Void> create(@RequestBody LivreDto livreDto) {
 		Livre livre = livreMapper.mapToEntity(livreDto);
 		livreService.save(livre);
@@ -113,6 +119,7 @@ public class LivreController {
 	 *         renvoie le code "200 OK" avec un corps de réponse null.
 	 */
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('BIBLIOTHECAIRE')")
 	public ResponseEntity<Void> update(@RequestBody LivreDto livreDtoSource, @PathVariable Integer id) {
 		Livre livreSource = livreMapper.mapToEntity(livreDtoSource);
 		Livre livreTarget = livreService.update(livreSource, id);
@@ -130,6 +137,7 @@ public class LivreController {
 	 * @return Renvoie le code "200 OK" avec un corps de réponse null.
 	 */
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('BIBLIOTHECAIRE')")
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		livreService.deleteById(id);
 		return ResponseEntity.ok().build();

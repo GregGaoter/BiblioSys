@@ -1,0 +1,19 @@
+package com.dsi.bibliosys.biblioback.app.configuration;
+
+import java.io.Serializable;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+/**
+ * Classe utilitaire pour créer et valider le token JWT.
+ */
+@Component
+public class JwtTokenUtil implements Serializable {
+	
+	public static final long JWT_TOKEN_VALIDITY = 1000 * 3600;
+	
+	@Value("${jwt.secret}")
+	private String secret;
+
+}
