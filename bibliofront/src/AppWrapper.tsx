@@ -14,8 +14,8 @@ const AppWrapper = () => {
   }, [location]);
 
   switch (location.pathname) {
-    case "/authentification":
-      return <Route path="/authentification" component={Login} />;
+    case "/":
+      return <Route path="/" component={Login} />;
     case "/error":
       return <Route path="/error" component={Error} />;
     case "/notfound":

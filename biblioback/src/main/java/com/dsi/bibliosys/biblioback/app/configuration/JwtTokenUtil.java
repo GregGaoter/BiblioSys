@@ -35,6 +35,16 @@ public class JwtTokenUtil implements Serializable {
 	public String getUsernameFromToken(String token) {
 		return getClaimFromToken(token, Claims::getSubject);
 	}
+	
+	/**
+	 * Récupère la date de publication du token JWT.
+	 * 
+	 * @param token JWT
+	 * @return La date de publication
+	 */
+	public Date getIssuedAtDateFromToken(String token) {
+		return getClaimFromToken(token, Claims::getIssuedAt);
+	}
 
 	/**
 	 * Récupère la date d'expiration du token JWT.
@@ -71,6 +81,10 @@ public class JwtTokenUtil implements Serializable {
 		final Date expiration = getExpirationDateFromToken(token);
 		return expiration.before(new Date());
 	}
+	
+	private Boolean ignoreTokenExpiration(String token) {
+		return false;
+	}
 
 	/**
 	 * Génère le token JWT pour l'utilisateur.
@@ -88,6 +102,10 @@ public class JwtTokenUtil implements Serializable {
 		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY))
 				.signWith(SignatureAlgorithm.HS512, secret).compact();
+	}
+	
+	public Boolean canTokenBeRefreshed(String token) {
+		return (!isTokenExpired(token) || ignoreTokenExpiration(token));
 	}
 
 	/**

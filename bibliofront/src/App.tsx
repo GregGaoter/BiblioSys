@@ -4,11 +4,12 @@ import { Menu } from "primereact/menu";
 import { TieredMenu } from "primereact/tieredmenu";
 import React, { useRef } from "react";
 import { useHistory } from "react-router";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import "./App.css";
 import { Accueil } from "./components/Accueil";
 import { Bibliotheques } from "./components/Bibliotheques";
 import { Livres } from "./components/Livres";
+import { PrivateRoute } from "./PrivateRoute";
 import logo32 from "./ressources/images/logo-32-32.png";
 import logo48 from "./ressources/images/logo-48-48.png";
 
@@ -17,17 +18,23 @@ function App(props: any) {
   const history = useHistory();
 
   const ROOT_PATH = "/";
+  const ACCUEIL_PATH = "/accueil";
   const BIBLIOTHEQUES_PATH = "/bibliotheques";
   const LIVRES_PATH = "/livres";
 
   const routers = [
-    { path: ROOT_PATH, component: Accueil, exact: true },
+    { path: ACCUEIL_PATH, component: Accueil, exact: true },
     { path: BIBLIOTHEQUES_PATH, component: Bibliotheques },
     { path: LIVRES_PATH, component: Livres },
   ];
 
   const goToPath = (path: string): void => {
     history.push(path);
+  };
+
+  const logout = (): void => {
+    localStorage.clear();
+    history.push(ROOT_PATH);
   };
 
   const tieredMenuItems = [
@@ -55,7 +62,7 @@ function App(props: any) {
       label: "Accueil",
       icon: "pi pi-home",
       command: () => {
-        goToPath(ROOT_PATH);
+        goToPath(ACCUEIL_PATH);
       },
     },
     {
@@ -194,6 +201,9 @@ function App(props: any) {
     {
       label: "Se déconnecter",
       icon: "pi pi-sign-out",
+      command: () => {
+        logout();
+      },
     },
   ];
 
@@ -218,7 +228,7 @@ function App(props: any) {
             <Card className="p-shadow-6 p-mx-4 p-mt-3 p-mb-4">
               <Switch>
                 {routers.map((route) => (
-                  <Route exact={route.exact} path={route.path} component={route.component} key={route.path} />
+                  <PrivateRoute exact={route.exact} path={route.path} component={route.component} key={route.path} />
                 ))}
               </Switch>
             </Card>

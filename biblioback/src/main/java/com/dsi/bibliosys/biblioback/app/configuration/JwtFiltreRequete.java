@@ -22,7 +22,7 @@ import io.jsonwebtoken.ExpiredJwtException;
 
 /**
  * Le but de cette classe est de gérer le filtrage de la requête côté client.
- * C'est ici que toute les requêtes viendront en premier avant l'API REST. Si la
+ * C'est ici que toutes les requêtes viendront en premier avant l'API REST. Si la
  * validation du token JWT est réussie, l'API REST reçoit une requête.
  */
 @Component
@@ -36,7 +36,7 @@ public class JwtFiltreRequete extends OncePerRequestFilter implements HasLogger 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		final String requestTokenHeader = request.getHeader("authorization");
+		final String requestTokenHeader = request.getHeader("BIBLIOSYS-AUTHORIZATION");
 
 		String username = null;
 		String jwtToken = null;

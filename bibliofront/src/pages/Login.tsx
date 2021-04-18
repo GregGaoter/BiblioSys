@@ -17,8 +17,8 @@ const Login = () => {
     const credentials = { username: email, password: password };
 
     axios.post(endpoint, credentials).then((reponse) => {
-      localStorage.setItem("authorization", reponse.data.token);
-      history.push("/");
+      localStorage.setItem("BIBLIOSYS-AUTHORIZATION", reponse.data.token);
+      history.push("/accueil");
     });
   };
 

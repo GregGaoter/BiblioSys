@@ -11,8 +11,20 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "./app/store";
 import AppWrapper from "./AppWrapper";
 import "./index.css";
+import axios from "axios";
 
 PrimeReact.ripple = true;
+
+axios.interceptors.request.use(
+  (config) => {
+    const jwtToken = localStorage.getItem("BIBLIOSYS-AUTHORIZATION");
+    if (jwtToken) {
+      config.headers["BIBLIOSYS-AUTHORIZATION"] = "Bearer " + jwtToken;
+    }
+    return config;
+  },
+  (err) => Promise.reject(err)
+);
 
 ReactDOM.render(
   <React.StrictMode>
