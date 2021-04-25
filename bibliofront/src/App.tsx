@@ -1,3 +1,25 @@
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBrain,
+  faChartLine,
+  faCogs,
+  faDragon,
+  faGamepad,
+  faGlobeEurope,
+  faGraduationCap,
+  faLaptopCode,
+  faLeaf,
+  faMonument,
+  faPalette,
+  faPaw,
+  faPrayingHands,
+  faRobot,
+  faRunning,
+  faTheaterMasks,
+  faUserFriends,
+  faUtensils,
+  faYinYang,
+} from "@fortawesome/free-solid-svg-icons";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { Menu } from "primereact/menu";
@@ -12,6 +34,28 @@ import { Livres } from "./components/Livres";
 import { PrivateRoute } from "./PrivateRoute";
 import logo32 from "./ressources/images/logo-32-32.png";
 import logo48 from "./ressources/images/logo-48-48.png";
+
+library.add(
+  faTheaterMasks,
+  faRobot,
+  faDragon,
+  faLeaf,
+  faPaw,
+  faGamepad,
+  faRunning,
+  faYinYang,
+  faUtensils,
+  faGlobeEurope,
+  faPalette,
+  faMonument,
+  faPrayingHands,
+  faUserFriends,
+  faBrain,
+  faCogs,
+  faLaptopCode,
+  faChartLine,
+  faGraduationCap
+);
 
 function App(props: any) {
   const avatarMenuRef = useRef(null);
@@ -72,7 +116,13 @@ function App(props: any) {
         goToPath(BIBLIOTHEQUES_PATH);
       },
     },
-    { label: "Nos Livres", icon: "pi pi-book" },
+    {
+      label: "Nos Livres",
+      icon: "pi pi-book",
+      command: () => {
+        goToPath(LIVRES_PATH);
+      },
+    },
     { separator: true },
     {
       label: "Littérature & Fiction",
@@ -225,13 +275,13 @@ function App(props: any) {
             </div>
           </div>
           <div className="p-col-12">
-            <Card className="p-shadow-6 p-mx-4 p-mt-3 p-mb-4">
+            <div className="p-mx-4 p-mt-3 p-mb-4">
               <Switch>
                 {routers.map((route) => (
                   <PrivateRoute exact={route.exact} path={route.path} component={route.component} key={route.path} />
                 ))}
               </Switch>
-            </Card>
+            </div>
           </div>
           <div className="p-col-12">
             <div className="p-d-flex p-mx-4 p-ai-center p-jc-between">

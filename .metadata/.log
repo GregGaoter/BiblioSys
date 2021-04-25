@@ -23,3 +23,15 @@ Created Time: 2021-04-18 18:24:41.765
 
 !ENTRY com.vaadin.designer2 1 0 2021-04-18 18:24:42.510
 !MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2021-04-18 22:07:23.591
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-04-18 22:07:23.593
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2021-04-18 22:07:23.594
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-04-18 22:07:23.595
+!MESSAGE Removed all models from server.
