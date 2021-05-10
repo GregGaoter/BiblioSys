@@ -14,6 +14,7 @@ import com.dsi.bibliosys.biblioback.service.LivreService;
 import com.dsi.bibliosys.biblioback.service.PersonnelService;
 import com.dsi.bibliosys.biblioback.service.PretService;
 import com.dsi.bibliosys.biblioback.service.ProfilService;
+import com.dsi.bibliosys.biblioback.service.RayonService;
 import com.dsi.bibliosys.biblioback.service.RoleService;
 import com.dsi.bibliosys.biblioback.service.UsagerService;
 
@@ -36,6 +37,7 @@ public abstract class AbstractMapper {
 	protected PersonnelService personnelService;
 	protected PretService pretService;
 	protected ProfilService profilService;
+	protected RayonService rayonService;
 	protected RoleService roleService;
 	protected UsagerService usagerService;
 

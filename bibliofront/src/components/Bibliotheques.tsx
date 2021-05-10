@@ -1,36 +1,34 @@
-import React from "react";
+import axios from "axios";
 import { Card } from "primereact/card";
-import memory from "../ressources/images/memory.jpg";
-import reverie from "../ressources/images/reverie.jpg";
-import idea from "../ressources/images/idea.png";
+import React, { useEffect, useState } from "react";
+import { IBibliotheque } from "../app/shared/model/Bibliotheque";
+import { ILivre } from "../app/shared/model/Livre";
 
 export const Bibliotheques = () => {
+  const [livres, setLivres] = useState<ILivre[]>([]);
+  const [bibliotheques, setBibliotheques] = useState<IBibliotheque[]>([]);
+
+  useEffect(() => {
+    axios.get<ILivre[]>("http://localhost:8080/livre/all").then((res) => setLivres(res.data));
+    axios.get<IBibliotheque[]>("http://localhost:8080/bibliotheque/all").then((res) => setBibliotheques(res.data));
+  }, []);
+
   return (
     <div className="p-grid">
-      <div className="p-col">
-        <Card title="Bibliothèque Mémoire" header={<img alt="Memory" src={memory} />} footer="500 livres">
-          <p>
-            Cette bibliothèque située <strong>81 Rue des Mandarines</strong> fera travailler votre mémoire avec sa large
-            collection de revues scientifiques.
-          </p>
-        </Card>
-      </div>
-      <div className="p-col">
-        <Card title="Bibliothèque Rêverie" header={<img alt="Reverie" src={reverie} />} footer="500 livres">
-          <p>
-            Cette bibliothèque située <strong>10 Rue des Bijoux</strong> vous fera rêver avec sa large collection de
-            romans sentimentaux.
-          </p>
-        </Card>
-      </div>
-      <div className="p-col">
-        <Card title="Bibliothèque Idée" header={<img alt="Idea" src={idea} />} footer="500 livres">
-          <p>
-            Cette bibliothèque située <strong>49 Rue de Lavande</strong> ne vous laissera pas à court d'idée avec sa
-            large collection de revues techniques et de bricolage.
-          </p>
-        </Card>
-      </div>
+      {bibliotheques.map((bibliotheque) => {
+        const { id, nom, description, imageFileName } = bibliotheque;
+        return (
+          <div className="p-col" key={id}>
+            <Card
+              title={nom}
+              header={<img alt={nom} src={`/images/${imageFileName}`} />}
+              footer={`${livres.filter((livre) => livre.bibliothequeId === id).length} livres`}
+            >
+              <p>{description}</p>
+            </Card>
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -6,25 +6,29 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Role"/>
+		<item key="selection" value="genre"/>
 		<list key="findhistory">
+			<item value="livre"/>
+			<item value="Livre"/>
+			<item value="genre"/>
+			<item value="Genre"/>
 			<item value="Profil"/>
 			<item value="profil"/>
 			<item value="Pret"/>
 			<item value="pret"/>
 			<item value="Personnel"/>
 			<item value="personnel"/>
-			<item value="Livre"/>
-			<item value="livre"/>
 			<item value="Lieu"/>
 			<item value="lieu"/>
 			<item value="Identifiant"/>
 			<item value="identifiant"/>
-			<item value="Genre"/>
-			<item value="genre"/>
 			<item value="Favoris"/>
 		</list>
 		<list key="replacehistory">
+			<item value="genre"/>
+			<item value="Genre"/>
+			<item value="rayon"/>
+			<item value="Rayon"/>
 			<item value="Role"/>
 			<item value="role"/>
 			<item value="Profil"/>
@@ -36,10 +40,6 @@
 			<item value="Livre"/>
 			<item value="livre"/>
 			<item value="Lieu"/>
-			<item value="lieu"/>
-			<item value="Identifiant"/>
-			<item value="identifiant"/>
-			<item value="Genre"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

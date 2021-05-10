@@ -31,7 +31,9 @@ public class Bibliotheque implements Serializable {
 	public static final String ID = "id";
 	public static final String NOM = "nom";
 	public static final String ADRESSE = "adresse";
-	public static final String[] FIELDS = { ID, NOM, ADRESSE };
+	public static final String DESCRIPTION = "description";
+	public static final String IMAGE_FILE_NAME = "imageFileName";
+	public static final String[] FIELDS = { ID, NOM, ADRESSE, DESCRIPTION, IMAGE_FILE_NAME };
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +46,10 @@ public class Bibliotheque implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "adresse_id", nullable = false)
 	private Adresse adresse;
+	
+	private String description;
+	
+	private String imageFileName;
 
 	@OneToMany(mappedBy = Personnel.BIBLIOTHEQUE, cascade = CascadeType.ALL)
 	private List<Personnel> personnels;

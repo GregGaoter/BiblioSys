@@ -15,16 +15,23 @@ INSERT INTO adresse (id, numero_rue, rue, lieu_id) VALUES (3, 3, 'Rue 3', 3);
 -- ===================================================
 -- bibliotheque
 -- ===================================================
-INSERT INTO bibliotheque (id, nom, adresse_id) VALUES (1, 'Bibliothèque 1', 1);
-INSERT INTO bibliotheque (id, nom, adresse_id) VALUES (2, 'Bibliothèque 2', 2);
-INSERT INTO bibliotheque (id, nom, adresse_id) VALUES (3, 'Bibliothèque 3', 3);
+INSERT INTO bibliotheque (id, nom, adresse_id, description, image_file_name) VALUES (1, 'Bibliothèque 1', 1, 'Description 1', 'image1.jpg');
+INSERT INTO bibliotheque (id, nom, adresse_id, description, image_file_name) VALUES (2, 'Bibliothèque 2', 2, 'Description 2', 'image2.jpg');
+INSERT INTO bibliotheque (id, nom, adresse_id, description, image_file_name) VALUES (3, 'Bibliothèque 3', 3, 'Description 3', 'image3.jpg');
+
+-- ===================================================
+-- rayon
+-- ===================================================
+INSERT INTO public.rayon (id, nom) VALUES (1, 'Rayon 1');
+INSERT INTO public.rayon (id, nom) VALUES (2, 'Rayon 2');
+INSERT INTO public.rayon (id, nom) VALUES (3, 'Rayon 3');
 
 -- ===================================================
 -- genre
 -- ===================================================
-INSERT INTO genre (id, nom) VALUES (1, 'Genre 1');
-INSERT INTO genre (id, nom) VALUES (2, 'Genre 2');
-INSERT INTO genre (id, nom) VALUES (3, 'Genre 3');
+INSERT INTO genre (id, nom, rayon_id) VALUES (1, 'Genre 1', 1);
+INSERT INTO genre (id, nom, rayon_id) VALUES (2, 'Genre 2', 2);
+INSERT INTO genre (id, nom, rayon_id) VALUES (3, 'Genre 3', 3);
 
 -- ===================================================
 -- editeur

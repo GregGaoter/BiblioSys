@@ -18,10 +18,9 @@ import {
   faTheaterMasks,
   faUserFriends,
   faUtensils,
-  faYinYang,
+  faYinYang
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "primereact/button";
-import { Card } from "primereact/card";
 import { Menu } from "primereact/menu";
 import { TieredMenu } from "primereact/tieredmenu";
 import React, { useRef } from "react";

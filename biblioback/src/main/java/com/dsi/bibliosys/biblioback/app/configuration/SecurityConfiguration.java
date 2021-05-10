@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.reactive.config.CorsRegistry;
 
 import com.dsi.bibliosys.biblioback.service.DetailsUtilisateurService;
 
@@ -44,15 +43,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return new NoOpPasswordEncoder();
 	}
 
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("*").allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE")
-				.allowedHeaders("*");
-	}
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors();
-		http.csrf().disable().headers().frameOptions().deny();
+		http.csrf().disable();
 		http.authorizeRequests().antMatchers("/authentification").permitAll().anyRequest().authenticated();
 		http.exceptionHandling().authenticationEntryPoint(jwtPointEntreeAuthentification);
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

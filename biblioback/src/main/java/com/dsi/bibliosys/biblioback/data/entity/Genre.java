@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.AccessLevel;
@@ -28,7 +30,8 @@ public class Genre implements Serializable {
 
 	public static final String ID = "id";
 	public static final String NOM = "nom";
-	public static final String[] FIELDS = { ID, NOM };
+	public static final String RAYON = "rayon";
+	public static final String[] FIELDS = { ID, NOM, RAYON };
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +40,10 @@ public class Genre implements Serializable {
 
 	@Column(nullable = false)
 	private String nom;
+	
+	@ManyToOne
+	@JoinColumn(name = "rayon_id", nullable = false)
+	private Rayon rayon;
 
 	@OneToMany(mappedBy = Livre.GENRE, cascade = CascadeType.ALL)
 	private List<Livre> livres;

@@ -32,6 +32,8 @@ public class BibliothequeMapper extends AbstractMapper implements Mapper<Bibliot
 		bibliothequeDto.setId(source.getId());
 		bibliothequeDto.setNom(source.getNom());
 		bibliothequeDto.setAdresseId(adresse == null ? null : adresse.getId());
+		bibliothequeDto.setDescription(source.getDescription());
+		bibliothequeDto.setImageFileName(source.getImageFileName());
 		return bibliothequeDto;
 	}
 
@@ -40,6 +42,8 @@ public class BibliothequeMapper extends AbstractMapper implements Mapper<Bibliot
 		Bibliotheque bibliotheque = new Bibliotheque();
 		bibliotheque.setNom(source.getNom());
 		bibliotheque.setAdresse(adresseService.findById(source.getAdresseId()));
+		bibliotheque.setDescription(source.getDescription());
+		bibliotheque.setImageFileName(source.getImageFileName());
 		return bibliotheque;
 	}
 

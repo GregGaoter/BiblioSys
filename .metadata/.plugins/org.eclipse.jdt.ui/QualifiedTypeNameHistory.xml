@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Collection"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Genre"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Adresse"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Bibliotheque"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Usager"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Livre"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Role"/>
     <fullyQualifiedTypeName name="springfox.documentation.swagger2.annotations.EnableSwagger2"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.IdentifiantRepository"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Identifiant"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.IdentifiantSpecification"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.ProfilRepository"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Profil"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.ProfilSpecification"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.User"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.authority.AuthorityUtils"/>
-    <fullyQualifiedTypeName name="org.springframework.security.access.prepost.PreAuthorize"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.Role"/>
     <fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
@@ -50,14 +39,25 @@
     <fullyQualifiedTypeName name="org.springframework.security.authentication.UsernamePasswordAuthenticationToken"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.DisabledException"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.BadCredentialsException"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.app.HasLogger"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetails"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="lombok.NonNull"/>
     <fullyQualifiedTypeName name="org.springframework.web.reactive.config.CorsRegistry"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
     <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
     <fullyQualifiedTypeName name="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.RayonDto"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.RayonRepository"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.RayonService"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Rayon"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.domain.Specification"/>
+    <fullyQualifiedTypeName name="org.springframework.security.access.prepost.PreAuthorize"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.app.HasLogger"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.EnableWebMvc"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Profil"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.ProfilSpecification"/>
 </qualifiedTypeNameHistroy>
