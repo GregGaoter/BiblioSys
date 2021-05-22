@@ -13,3 +13,5 @@ export interface ILivre {
   nbExemplaires?: number;
   resume?: string;
 }
+
+export const defaultValue: Readonly<ILivre> = {};

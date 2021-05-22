@@ -1,3 +1,4 @@
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "primeflex/primeflex.css";
 import "primeicons/primeicons.css";
@@ -8,15 +9,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { store } from "./app/store";
+import { store } from "./app/store/store";
 import AppWrapper from "./AppWrapper";
 import "./index.css";
-import axios from "axios";
 
 PrimeReact.ripple = true;
 
+// export const api = axios.create({
+//   baseURL: 'http://localhost:8080',
+//   headers:{
+//     'Content-Type': 'application/json'
+//   }
+// });
+
 axios.interceptors.request.use(
   (config) => {
+    config.baseURL = 'http://localhost:8080';
+    config.headers['Content-Type'] = 'application/json';
     const jwtToken = localStorage.getItem("BIBLIOSYS-AUTHORIZATION");
     if (jwtToken) {
       config.headers["BIBLIOSYS-AUTHORIZATION"] = "Bearer " + jwtToken;

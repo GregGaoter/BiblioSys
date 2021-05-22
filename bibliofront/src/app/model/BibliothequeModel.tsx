@@ -5,3 +5,5 @@ export interface IBibliotheque {
   description?: string;
   imageFileName?: string;
 }
+
+export const defaultValue: Readonly<IBibliotheque> = {};
