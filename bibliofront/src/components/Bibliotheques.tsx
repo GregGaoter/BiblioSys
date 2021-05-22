@@ -5,7 +5,7 @@ import { ILivre } from "../app/model/LivreModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
 import {
   getEntities as getBibliothequeEntities,
-  selectEntities as selectBibliothequeEntities,
+  entities as selectBibliothequeEntities,
 } from "../app/store/slice/BibliothequeSlice";
 
 export const Bibliotheques = () => {

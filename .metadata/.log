@@ -449,3 +449,95 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.vaadin.designer2 1 0 2021-05-13 01:12:18.527
 !MESSAGE Removed all models from server.
+!SESSION 2021-05-23 01:28:24.464 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2021-05-23 01:28:32.662
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-05-23 01:28:32.662
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@30b075b9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@510e0dd2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:46.022
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:46.027
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:46.638
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:46.638
+!MESSAGE Fetching all notifications
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-05-23 01:28:47.016
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:47.498
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:47.511
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:47.512
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:47.517
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2021-05-23 01:28:47.583
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2021-05-23 01:28:47.601
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:47.830
+!MESSAGE Image https://website.vaadin.com/hubfs/PWA-Builder@2x.png is downloaded
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:47.911
+!MESSAGE Image https://website.vaadin.com/hubfs/Your%20paragraph%20text.png is downloaded
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:48.277
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:28:48.451
+!MESSAGE BrowserCore initialized.
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:29:16.182
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:53:43.105
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:53:43.106
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:53:43.108
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 01:53:43.109
+!MESSAGE Removed all models from server.
