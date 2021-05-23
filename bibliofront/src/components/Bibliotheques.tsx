@@ -1,40 +1,58 @@
-import axios from "axios";
 import { Card } from "primereact/card";
-import React, { useEffect, useRef, useState } from "react";
+import { ProgressSpinner } from "primereact/progressspinner";
+import React, { FC, useEffect, useRef } from "react";
+import { IBibliotheque } from "../app/model/BibliothequeModel";
 import { ILivre } from "../app/model/LivreModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
 import {
+  entities as bibliothequeEntities,
   getEntities as getBibliothequeEntities,
-  entities as selectBibliothequeEntities,
 } from "../app/store/slice/BibliothequeSlice";
+import {
+  entities as livreEntities,
+  getEntities as getLivreEntities,
+  loading as livreLoading,
+} from "../app/store/slice/LivreSlice";
 
 export const Bibliotheques = () => {
-  const [livres, setLivres] = useState<ILivre[]>([]);
-  const bibliotheques = useAppSelector(selectBibliothequeEntities);
-  const hasBibliotheques = useRef(false);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    axios.get<ILivre[]>("/livre/all").then((res) => setLivres(res.data));
-  }, []);
+  const hasLivres = useRef(false);
+  const hasBibliotheques = useRef(false);
 
   useEffect(() => {
+    if (!hasLivres.current) {
+      dispatch(getLivreEntities());
+      hasLivres.current = true;
+    }
     if (!hasBibliotheques.current) {
       dispatch(getBibliothequeEntities());
+      hasBibliotheques.current = true;
     }
   }, [dispatch]);
 
+  const Header: FC<Pick<IBibliotheque, "imageFileName">> = ({ imageFileName }) => (
+    <img alt={imageFileName} src={`/images/${imageFileName}`} />
+  );
+
+  const Footer: FC<Pick<ILivre, "bibliothequeId">> = ({ bibliothequeId }) => {
+    const nbLivres = useAppSelector(livreEntities).filter((livre) => livre.bibliothequeId === bibliothequeId).length;
+    return <div>{useAppSelector(livreLoading) ? <ProgressSpinner /> : <FooterWithLivres nbLivres={nbLivres} />}</div>;
+  };
+
+  interface FooterWithLivresProps {
+    nbLivres: number;
+  }
+
+  const FooterWithLivres: FC<FooterWithLivresProps> = ({ nbLivres }) => <div>{`${nbLivres} livres`}</div>;
+
   return (
     <div className="p-grid">
-      {bibliotheques.map((bibliotheque) => {
+      {useAppSelector(bibliothequeEntities).map((bibliotheque) => {
         const { id, nom, description, imageFileName } = bibliotheque;
         return (
           <div className="p-col" key={id}>
-            <Card
-              title={nom}
-              header={<img alt={nom} src={`/images/${imageFileName}`} />}
-              footer={`${livres.filter((livre) => livre.bibliothequeId === id).length} livres`}
-            >
+            <Card title={nom} header={<Header imageFileName={imageFileName} />} footer={<Footer bibliothequeId={id} />}>
               <p>{description}</p>
             </Card>
           </div>

@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { defaultValue, IBibliotheque } from "../../model/BibliothequeModel";
+import { defaultValue, ILivre } from "../../model/LivreModel";
 import type { AppThunk, RootState } from "../store";
 
-interface BibliothequeState {
-  entity: IBibliotheque;
-  entities: ReadonlyArray<IBibliotheque>;
+interface LivreState {
+  entity: ILivre;
+  entities: ReadonlyArray<ILivre>;
   loading: boolean;
   updating: boolean;
   updateSuccess: boolean;
   errorMessage: string | undefined;
 }
 
-const initialState: Readonly<BibliothequeState> = {
+const initialState: Readonly<LivreState> = {
   entity: defaultValue,
   entities: [],
   loading: false,
@@ -23,8 +23,8 @@ const initialState: Readonly<BibliothequeState> = {
 
 // Reducer
 
-const bibliothequeSlice = createSlice({
-  name: "bibliotheque",
+const livreSlice = createSlice({
+  name: "livre",
   initialState,
   reducers: {
     requestGetEntityEntities: (state) => {
@@ -72,7 +72,7 @@ const bibliothequeSlice = createSlice({
   },
 });
 
-export const baseUrl = "/bibliotheque";
+export const baseUrl = "/livre";
 
 const {
   requestGetEntityEntities,
@@ -83,7 +83,7 @@ const {
   successCreateUpdateEntity,
   successDeleteEntity,
   resetState,
-} = bibliothequeSlice.actions;
+} = livreSlice.actions;
 
 // Actions
 
@@ -92,7 +92,7 @@ export const getEntity =
   async (dispatch: any) => {
     dispatch(requestGetEntityEntities);
     try {
-      await axios.get<IBibliotheque>(`${baseUrl}/${id}`).then((response) => dispatch(successGetEntity(response)));
+      await axios.get<ILivre>(`${baseUrl}/${id}`).then((response) => dispatch(successGetEntity(response)));
     } catch (e) {
       dispatch(failure(e.message));
     }
@@ -101,18 +101,18 @@ export const getEntity =
 export const getEntities = (): AppThunk => async (dispatch: any) => {
   dispatch(requestGetEntityEntities);
   try {
-    await axios.get<IBibliotheque>(`${baseUrl}/all`).then((response) => dispatch(successGetEntities(response)));
+    await axios.get<ILivre>(`${baseUrl}/all`).then((response) => dispatch(successGetEntities(response)));
   } catch (e) {
     dispatch(failure(e.message));
   }
 };
 
 export const createEntity =
-  (entity: IBibliotheque): AppThunk =>
+  (entity: ILivre): AppThunk =>
   async (dispatch: any) => {
     dispatch(requestCreateUpdateDeleteEntity);
     try {
-      const response = await axios.post<IBibliotheque>(`${baseUrl}`, entity);
+      const response = await axios.post<ILivre>(`${baseUrl}`, entity);
       dispatch(successCreateUpdateEntity(response));
       await dispatch(getEntities());
       return response;
@@ -122,12 +122,12 @@ export const createEntity =
   };
 
 export const updateEntity =
-  (id: number, entity: IBibliotheque): AppThunk =>
+  (id: number, entity: ILivre): AppThunk =>
   async (dispatch: any) => {
     dispatch(requestCreateUpdateDeleteEntity);
     try {
       await axios
-        .put<IBibliotheque>(`${baseUrl}/${id}`, entity)
+        .put<ILivre>(`${baseUrl}/${id}`, entity)
         .then((response) => dispatch(successCreateUpdateEntity(response)));
     } catch (e) {
       dispatch(failure(e.message));
@@ -139,7 +139,7 @@ export const deleteEntity =
   async (dispatch: any) => {
     dispatch(requestCreateUpdateDeleteEntity);
     try {
-      const response = await axios.delete<IBibliotheque>(`${baseUrl}`);
+      const response = await axios.delete<ILivre>(`${baseUrl}`);
       dispatch(successDeleteEntity);
       await dispatch(getEntities());
       return response;
@@ -154,11 +154,11 @@ export const reset = () => (dispatch: any) => {
 
 // Selectors
 
-export const entity = (state: RootState) => state.bibliotheque.entity;
-export const entities = (state: RootState) => state.bibliotheque.entities;
-export const loading = (state: RootState) => state.bibliotheque.loading;
-export const updating = (state: RootState) => state.bibliotheque.updating;
-export const updateSuccess = (state: RootState) => state.bibliotheque.updateSuccess;
-export const errorMessage = (state: RootState) => state.bibliotheque.errorMessage;
+export const entity = (state: RootState) => state.livre.entity;
+export const entities = (state: RootState) => state.livre.entities;
+export const loading = (state: RootState) => state.livre.loading;
+export const updating = (state: RootState) => state.livre.updating;
+export const updateSuccess = (state: RootState) => state.livre.updateSuccess;
+export const errorMessage = (state: RootState) => state.livre.errorMessage;
 
-export default bibliothequeSlice.reducer;
+export default livreSlice.reducer;
