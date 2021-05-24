@@ -148,9 +148,9 @@ public class LivreController {
 	// --- SPECIFICS ENDPOINTS
 	// =====================================
 	/**
-	 * Méthode exécutée à l'appel de l'URI GET "/livre/rayon/{id}".
+	 * Méthode exécutée à l'appel de l'URI GET "/livre/all".
 	 * 
-	 * @return Tous les LivreDto du rayon spécifié.
+	 * @return Tous les LivreDto.
 	 */
 	@GetMapping("/rayon/{id}")
 	public ResponseEntity<Flux<LivreDto>> readByRayonId(@PathVariable Integer id) {

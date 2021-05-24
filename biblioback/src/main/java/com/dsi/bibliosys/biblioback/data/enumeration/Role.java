@@ -1,4 +1,4 @@
-package com.dsi.bibliosys.biblioback.data;
+package com.dsi.bibliosys.biblioback.data.enumeration;
 
 /**
  * Enumération des rôles de l'application.

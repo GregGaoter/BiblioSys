@@ -10,6 +10,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "./app/store/store";
+import appConfig from "./appconfig.json";
 import AppWrapper from "./AppWrapper";
 import "./index.css";
 
@@ -17,8 +18,8 @@ PrimeReact.ripple = true;
 
 axios.interceptors.request.use(
   (config) => {
-    config.baseURL = 'http://localhost:8080';
-    config.headers['Content-Type'] = 'application/json';
+    config.baseURL = appConfig.API_URL;
+    config.headers["Content-Type"] = "application/json";
     const jwtToken = localStorage.getItem("BIBLIOSYS-AUTHORIZATION");
     if (jwtToken) {
       config.headers["BIBLIOSYS-AUTHORIZATION"] = "Bearer " + jwtToken;

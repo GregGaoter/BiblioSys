@@ -630,3 +630,45 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.vaadin.designer2 1 0 2021-05-23 17:35:29.056
 !MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 21:35:28.216
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 21:35:28.216
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 21:35:29.202
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 21:35:29.203
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-23 21:35:29.205
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 01:35:28.222
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 01:35:28.223
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 01:35:28.996
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 01:35:28.996
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 01:35:28.999
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 02:35:18.550
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 02:35:18.551
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 02:35:18.552
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-05-24 02:35:18.552
+!MESSAGE Removed all models from server.
