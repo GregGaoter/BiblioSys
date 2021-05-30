@@ -55,9 +55,9 @@
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Livre"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.domain.Specification"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.GenreRepository"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.GenreSpecification"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Genre"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.LivreSpecification"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.GenreRepository"/>
 </qualifiedTypeNameHistroy>

@@ -155,7 +155,8 @@ public class LivreController {
 	@GetMapping("/rayon/{id}")
 	public ResponseEntity<Flux<LivreDto>> readByRayonId(@PathVariable Integer id) {
 		List<Livre> livres = livreService.findByRayonId(id);
-		List<LivreDto> livresDto = livres.stream().map(livreMapper::mapToDto).collect(Collectors.toList());
+		List<LivreDto> livresDto = livres.stream().map(livre -> livreMapper.mapToDto(livre))
+				.collect(Collectors.toList());
 		return livresDto == null || livresDto.isEmpty() ? ResponseEntity.notFound().build()
 				: ResponseEntity.ok(Flux.fromIterable(livresDto));
 	}

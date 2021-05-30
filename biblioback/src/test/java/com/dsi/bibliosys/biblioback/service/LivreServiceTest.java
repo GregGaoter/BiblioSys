@@ -31,6 +31,7 @@ import com.dsi.bibliosys.biblioback.data.entity.Collection;
 import com.dsi.bibliosys.biblioback.data.entity.Editeur;
 import com.dsi.bibliosys.biblioback.data.entity.Genre;
 import com.dsi.bibliosys.biblioback.data.entity.Livre;
+import com.dsi.bibliosys.biblioback.repository.GenreRepository;
 import com.dsi.bibliosys.biblioback.repository.LivreRepository;
 
 @ExtendWith(SpringExtension.class)
@@ -41,10 +42,12 @@ public class LivreServiceTest {
 
 	@Mock
 	private LivreRepository livreRepository;
+	@Mock
+	private GenreRepository genreRepository;
 
 	@BeforeEach
 	public void setUpBeforeEach() {
-		livreService = new LivreService(livreRepository);
+		livreService = new LivreService(livreRepository, genreRepository);
 	}
 
 	@AfterEach

@@ -30,6 +30,7 @@ import "./App.css";
 import { Accueil } from "./components/Accueil";
 import { Bibliotheques } from "./components/Bibliotheques";
 import { Livres } from "./components/Livres";
+import { LivresResultat } from "./components/LivresResultat";
 import { PrivateRoute } from "./PrivateRoute";
 import logo32 from "./ressources/images/logo-32-32.png";
 import logo48 from "./ressources/images/logo-48-48.png";
@@ -64,11 +65,13 @@ function App(props: any) {
   const ACCUEIL_PATH = "/accueil";
   const BIBLIOTHEQUES_PATH = "/bibliotheques";
   const LIVRES_PATH = "/livres";
+  const LIVRES_RESULTAT_PATH = "/livres/resultat";
 
   const routers = [
     { path: ACCUEIL_PATH, component: Accueil, exact: true },
     { path: BIBLIOTHEQUES_PATH, component: Bibliotheques },
     { path: LIVRES_PATH, component: Livres },
+    { path: LIVRES_RESULTAT_PATH, component: LivresResultat },
   ];
 
   const goToPath = (path: string): void => {

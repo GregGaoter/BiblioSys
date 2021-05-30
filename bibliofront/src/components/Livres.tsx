@@ -1,9 +1,19 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import React, { FC } from "react";
-import { Icon } from "../app/Icon";
 import { Dropdown } from "primereact/dropdown";
+import React, { FC, useEffect, useRef } from "react";
+import { Icon } from "../app/Icon";
+import { IRayon } from "../app/model/RayonModel";
+import { useAppDispatch, useAppSelector } from "../app/store/hooks";
+import { entities as rayonEntities, getEntities as getRayonEntities } from "../app/store/slice/RayonSlice";
+import {
+  entities as livresEntities,
+  getEntitiesByRayonId as getLivreEntitiesByRayonId,
+  loading as livreLoading,
+} from "../app/store/slice/LivreSlice";
+import { useHistory } from "react-router-dom";
 
 interface RayonItemProps {
   icon: IconProp;
@@ -63,34 +73,66 @@ const genreOptions = [
   { label: "Récit de voyage", value: "Récit de voyage" },
 ];
 
-export const Livres = () => (
-  <div className="p-grid">
-    <div className="p-col-12">
-      <Card title="Rayons">
-        <div className="p-grid">
-          {rayonItems.map((item) => (
-            <RayonItem icon={item.icon} title={item.title} key={item.title} />
-          ))}
-        </div>
-      </Card>
+export const Livres = () => {
+  const dispatch = useAppDispatch();
+  const hasRayons = useRef(false);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!hasRayons.current) {
+      dispatch(getRayonEntities());
+      hasRayons.current = true;
+    }
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   if(useAppSelector(livreLoading)){
+
+  //   }
+  //   history.push('/livres/resultat');
+  // }, [rayonEntities]);
+
+  const handleSelectedRayon = (rayon: IRayon): void => {
+    dispatch(getLivreEntitiesByRayonId(rayon.id as number));
+    history.push('/livres/resultat');
+  };
+
+  return (
+    <div className="p-grid">
+      <div className="p-col-12">
+        <Card title="Rayons">
+          <div className="p-grid p-nogutter">
+            {useAppSelector(rayonEntities).map((rayon) => (
+              <div className="p-col-4" key={rayon.id}>
+                <Button
+                  className="p-button-secondary"
+                  label={rayon.nom}
+                  style={{ display: "block", height: "100%", width: "100%" }}
+                  onClick={() => handleSelectedRayon(rayon)}
+                />
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+      <div className="p-col-12">
+        <Card title="Recherche avancée">
+          <div className="p-fluid p-formgrid p-grid">
+            <div className="p-field p-col-4">
+              <label htmlFor="bibliotheque">Bibliothèque</label>
+              <Dropdown value="memoire" options={bibliothequeOptions} onChange={(e) => ""} />
+            </div>
+            <div className="p-field p-col-4">
+              <label htmlFor="rayon">Rayon</label>
+              <Dropdown value="Littérature & Fiction" options={rayonOptions} onChange={(e) => ""} />
+            </div>
+            <div className="p-field p-col-4">
+              <label htmlFor="genre">Genre</label>
+              <Dropdown value="Poésie" options={genreOptions} onChange={(e) => ""} />
+            </div>
+          </div>
+        </Card>
+      </div>
     </div>
-    <div className="p-col-12">
-      <Card title="Recherche avancée">
-        <div className="p-fluid p-formgrid p-grid">
-          <div className="p-field p-col-4">
-            <label htmlFor="bibliotheque">Bibliothèque</label>
-            <Dropdown value="memoire" options={bibliothequeOptions} onChange={(e) => ""} />
-          </div>
-          <div className="p-field p-col-4">
-            <label htmlFor="rayon">Rayon</label>
-            <Dropdown value="Littérature & Fiction" options={rayonOptions} onChange={(e) => ""} />
-          </div>
-          <div className="p-field p-col-4">
-            <label htmlFor="genre">Genre</label>
-            <Dropdown value="Poésie" options={genreOptions} onChange={(e) => ""} />
-          </div>
-        </div>
-      </Card>
-    </div>
-  </div>
-);
+  );
+};
