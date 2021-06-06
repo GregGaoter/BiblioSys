@@ -14,6 +14,7 @@ import {
   loading as livreLoading,
 } from "../app/store/slice/LivreSlice";
 import { useHistory } from "react-router-dom";
+import { LIVRES_RESULTAT_PATH } from "../App";
 
 interface RayonItemProps {
   icon: IconProp;
@@ -94,7 +95,7 @@ export const Livres = () => {
 
   const handleSelectedRayon = (rayon: IRayon): void => {
     dispatch(getLivreEntitiesByRayonId(rayon.id as number));
-    history.push('/livres/resultat');
+    history.push(LIVRES_RESULTAT_PATH);
   };
 
   return (
@@ -105,7 +106,7 @@ export const Livres = () => {
             {useAppSelector(rayonEntities).map((rayon) => (
               <div className="p-col-4" key={rayon.id}>
                 <Button
-                  className="p-button-secondary"
+                  className="p-button-text p-button-plain"
                   label={rayon.nom}
                   style={{ display: "block", height: "100%", width: "100%" }}
                   onClick={() => handleSelectedRayon(rayon)}
