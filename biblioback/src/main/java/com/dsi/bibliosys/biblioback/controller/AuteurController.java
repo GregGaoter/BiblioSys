@@ -134,4 +134,18 @@ public class AuteurController {
 		auteurService.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
+
+	// =====================================
+	// --- SPECIFICS ENDPOINTS
+	// =====================================
+	/**
+	 * Méthode exécutée à l'appel de l'URI GET "/auteur/livre/{id}".
+	 * 
+	 * @return L'auteur du livre spécifié
+	 */
+	@GetMapping("/livre/{id}")
+	public ResponseEntity<Mono<AuteurDto>> readByLivreId(@PathVariable Integer id) {
+		AuteurDto auteurDto = auteurMapper.mapToDto(auteurService.findByLivreId(id));
+		return auteurDto == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(Mono.just(auteurDto));
+	}
 }

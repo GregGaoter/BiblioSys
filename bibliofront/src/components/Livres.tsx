@@ -4,17 +4,13 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import { Dropdown } from "primereact/dropdown";
 import React, { FC, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
+import { LIVRES_RESULTAT_PATH } from "../App";
 import { Icon } from "../app/Icon";
 import { IRayon } from "../app/model/RayonModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
+import { getEntitiesByRayonId as getLivreResultatEntitiesByRayonId } from "../app/store/slice/LivreResultatSlice";
 import { entities as rayonEntities, getEntities as getRayonEntities } from "../app/store/slice/RayonSlice";
-import {
-  entities as livresEntities,
-  getEntitiesByRayonId as getLivreEntitiesByRayonId,
-  loading as livreLoading,
-} from "../app/store/slice/LivreSlice";
-import { useHistory } from "react-router-dom";
-import { LIVRES_RESULTAT_PATH } from "../App";
 
 interface RayonItemProps {
   icon: IconProp;
@@ -86,15 +82,8 @@ export const Livres = () => {
     }
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if(useAppSelector(livreLoading)){
-
-  //   }
-  //   history.push('/livres/resultat');
-  // }, [rayonEntities]);
-
   const handleSelectedRayon = (rayon: IRayon): void => {
-    dispatch(getLivreEntitiesByRayonId(rayon.id as number));
+    dispatch(getLivreResultatEntitiesByRayonId(rayon.id as number));
     history.push(LIVRES_RESULTAT_PATH);
   };
 

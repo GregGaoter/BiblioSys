@@ -3,6 +3,8 @@ import bibliothequeReducer from "../store/slice/BibliothequeSlice";
 import livreReducer from "../store/slice/LivreSlice";
 import rayonReducer from "../store/slice/RayonSlice";
 import genreReducer from "../store/slice/GenreSlice";
+import auteurReducer from "../store/slice/AuteurSlice";
+import livreResultatReducer from "../store/slice/LivreResultatSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +12,8 @@ export const store = configureStore({
     livre: livreReducer,
     rayon: rayonReducer,
     genre: genreReducer,
+    auteur: auteurReducer,
+    livreResultat: livreResultatReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 });

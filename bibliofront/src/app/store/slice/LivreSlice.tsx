@@ -118,6 +118,17 @@ export const getEntitiesByRayonId =
     }
   };
 
+export const getEntitiesByGenreId =
+  (id: number): AppThunk =>
+  async (dispatch: any) => {
+    dispatch(requestGetEntityEntities);
+    try {
+      await axios.get<ILivre>(`${baseUrl}/genre/${id}`).then((response) => dispatch(successGetEntities(response)));
+    } catch (e) {
+      dispatch(failure(e.message));
+    }
+  };
+
 export const createEntity =
   (entity: ILivre): AppThunk =>
   async (dispatch: any) => {
