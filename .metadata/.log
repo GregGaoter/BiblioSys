@@ -1652,3 +1652,159 @@ org.eclipse.swt.SWTException: Unsupported or unrecognized format
 	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
 	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 06:14:47.959
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 06:14:47.961
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 06:14:48.654
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 06:14:48.656
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 06:14:48.658
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-13 06:14:48.666
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-13 06:14:49.780
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:661)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 17:38:47.656
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 17:38:47.679
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-13 17:38:47.680
+!MESSAGE Exception while data querying operation
+!STACK 0
+java.net.UnknownHostException: Hôte inconnu (vaadin.com)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:932)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1505)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:851)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1495)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1354)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1288)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:374)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.doGet(NotificationsService.java:412)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getNotifications(NotificationsService.java:397)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getAllNotifications(NotificationsService.java:142)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:64)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 17:38:47.724
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-13 17:38:47.733
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-13 17:38:47.739
+!MESSAGE Exception while data querying operation
+!STACK 0
+java.net.UnknownHostException: Hôte inconnu (website.vaadin.com)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:932)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1505)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:851)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1495)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1354)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1288)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:374)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:658)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-06-13 17:38:47.764
+!MESSAGE An internal error occurred during: "Fetch new notifications".
+!STACK 0
+java.lang.NullPointerException
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.cacheImage(NotificationsService.java:626)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:613)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

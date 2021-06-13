@@ -1,28 +1,35 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "primereact/button";
+import { Calendar } from "primereact/calendar";
 import { Card } from "primereact/card";
 import { Dropdown } from "primereact/dropdown";
-import React, { FC, useEffect, useRef } from "react";
+import { InputText } from "primereact/inputtext";
+import React, { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { LIVRES_RESULTAT_PATH } from "../App";
-import { Icon } from "../app/Icon";
 import { IRayon } from "../app/model/RayonModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
-import { getEntitiesByRayonId as getLivreResultatEntitiesByRayonId } from "../app/store/slice/LivreResultatSlice";
+import { entities as auteurEntities, getEntities as getAuteurEntities } from "../app/store/slice/AuteurSlice";
 import {
   entities as bibliothequeEntities,
   getEntities as getBibliothequeEntities,
 } from "../app/store/slice/BibliothequeSlice";
-import { entities as rayonEntities, getEntities as getRayonEntities } from "../app/store/slice/RayonSlice";
 import { entities as genreEntities, getEntities as getGenreEntities } from "../app/store/slice/GenreSlice";
-import { entities as auteurEntities, getEntities as getAuteurEntities } from "../app/store/slice/AuteurSlice";
-import { InputText } from "primereact/inputtext";
-import { Calendar } from 'primereact/calendar';
+import { getEntitiesByRayonId as getLivreResultatEntitiesByRayonId } from "../app/store/slice/LivreResultatSlice";
+import { entities as rayonEntities, getEntities as getRayonEntities } from "../app/store/slice/RayonSlice";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 interface Option {
   label: string;
   value: string;
+}
+
+interface Form {
+  bibliothequeNom: string;
+  rayonNom: string;
+  genreNom: string;
+  livreTitre: string;
+  livreAuteur: string;
+  livreDateParution: string;
 }
 
 export const Livres = () => {
@@ -32,6 +39,8 @@ export const Livres = () => {
   const hasGenres = useRef(false);
   const hasAuteurs = useRef(false);
   const history = useHistory();
+
+  const { register, handleSubmit, control } = useForm<Form>();
 
   useEffect(() => {
     if (!hasBibliotheques.current) {
@@ -52,12 +61,15 @@ export const Livres = () => {
     }
   }, [dispatch]);
 
-  const bibliothequeOptions = useAppSelector(bibliothequeEntities).map(
-    (bibliotheque): Option => ({
-      label: bibliotheque.nom as string,
-      value: bibliotheque.nom as string,
-    })
-  );
+  const bibliothequeOptions = [
+    "",
+    ...useAppSelector(bibliothequeEntities).map(
+      (bibliotheque): Option => ({
+        label: bibliotheque.nom as string,
+        value: bibliotheque.nom as string,
+      })
+    ),
+  ];
   const rayonOptions = useAppSelector(rayonEntities).map(
     (rayon): Option => ({
       label: rayon.nom as string,
@@ -81,6 +93,8 @@ export const Livres = () => {
     history.push(LIVRES_RESULTAT_PATH);
   };
 
+  const onSubmit: SubmitHandler<Form> = (data) => console.log(data);
+
   return (
     <div className="p-grid">
       <div className="p-col-12">
@@ -101,53 +115,61 @@ export const Livres = () => {
       </div>
       <div className="p-col-12">
         <Card title="Recherche avancée">
-          <div className="p-fluid p-formgrid p-grid">
-            <div className="p-field p-col-4">
-              <label htmlFor="bibliotheque">Bibliothèque</label>
-              <Dropdown options={bibliothequeOptions} optionLabel="label" placeholder="Tous" onChange={(e) => ""} />
-            </div>
-            <div className="p-field p-col-4">
-              <label htmlFor="rayon">Rayon</label>
-              <Dropdown
-                options={rayonOptions}
-                filter
-                showClear
-                filterBy="label"
-                placeholder="Tous"
-                onChange={(e) => ""}
-              />
-            </div>
-            <div className="p-field p-col-4">
-              <label htmlFor="genre">Genre</label>
-              <Dropdown
-                options={genreOptions}
-                filter
-                showClear
-                filterBy="label"
-                placeholder="Tous"
-                onChange={(e) => ""}
-              />
-            </div>
-            <div className="p-field p-col-4">
-              <label htmlFor="titre">Titre</label>
-              <InputText />
-            </div>
-            <div className="p-field p-col-4">
-              <label htmlFor="rayon">Auteur</label>
-              <Dropdown
-                options={auteurOptions}
-                filter
-                showClear
-                filterBy="label"
-                placeholder="Tous"
-                onChange={(e) => ""}
-              />
-            </div>
-            <div className="p-field p-col-4">
-              <label htmlFor="genre">Date de parution</label>
-              <Calendar id="range" onChange={(e) => ""} selectionMode="range" readOnlyInput />
-            </div>
-          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="p-fluid p-formgrid p-grid">
+                <div className="p-field p-col-4">
+                  <label htmlFor="bibliothequeNom">Bibliothèque</label>
+                  <Controller
+                    name="bibliothequeNom"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => <Dropdown {...field} options={bibliothequeOptions} optionLabel="label" />}
+                  />
+                </div>
+                <div className="p-field p-col-4">
+                  <label htmlFor="rayon">Rayon</label>
+                  <Dropdown
+                    options={rayonOptions}
+                    filter
+                    showClear
+                    filterBy="label"
+                    placeholder="Tous"
+                    onChange={(e) => ""}
+                  />
+                </div>
+                <div className="p-field p-col-4">
+                  <label htmlFor="genre">Genre</label>
+                  <Dropdown
+                    options={genreOptions}
+                    filter
+                    showClear
+                    filterBy="label"
+                    placeholder="Tous"
+                    onChange={(e) => ""}
+                  />
+                </div>
+                <div className="p-field p-col-4">
+                  <label htmlFor="titre">Titre</label>
+                  <InputText />
+                </div>
+                <div className="p-field p-col-4">
+                  <label htmlFor="rayon">Auteur</label>
+                  <Dropdown
+                    options={auteurOptions}
+                    filter
+                    showClear
+                    filterBy="label"
+                    placeholder="Tous"
+                    onChange={(e) => ""}
+                  />
+                </div>
+                <div className="p-field p-col-4">
+                  <label htmlFor="genre">Date de parution</label>
+                  <Calendar id="range" onChange={(e) => ""} selectionMode="range" readOnlyInput />
+                </div>
+              </div>
+              <Button className="p-mt-2" type="submit" icon="pi pi-search" label="Rechercher" />
+          </form>
         </Card>
       </div>
     </div>
