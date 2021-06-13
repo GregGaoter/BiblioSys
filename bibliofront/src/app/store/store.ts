@@ -5,6 +5,7 @@ import rayonReducer from "../store/slice/RayonSlice";
 import genreReducer from "../store/slice/GenreSlice";
 import auteurReducer from "../store/slice/AuteurSlice";
 import livreResultatReducer from "../store/slice/LivreResultatSlice";
+import collectionReducer from "../store/slice/CollectionSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     genre: genreReducer,
     auteur: auteurReducer,
     livreResultat: livreResultatReducer,
+    collection: collectionReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 });

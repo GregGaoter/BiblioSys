@@ -8,16 +8,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LivreResultatDto {
-
+	
 	public static final String LIVRE = "livre";
 	public static final String AUTEUR = "auteur";
-	public static final String EDITEUR = "editeur";
-	public static final String[] FIELDS = { LIVRE, AUTEUR, EDITEUR };
+	public static final String[] FIELDS = { LIVRE, AUTEUR };
 
 	private LivreDto livre;
 
 	private AuteurDto auteur;
-
-	private EditeurDto editeur;
 
 }

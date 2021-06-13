@@ -19,6 +19,7 @@ import {
   faUserFriends,
   faUtensils,
   faYinYang,
+  faEye,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
@@ -30,7 +31,6 @@ import "./App.css";
 import { IGenre } from "./app/model/GenreModel";
 import { useAppDispatch, useAppSelector } from "./app/store/hooks";
 import { entities as genreEntities, getEntities as getGenreEntities } from "./app/store/slice/GenreSlice";
-import { getEntitiesByGenreId as getLivreEntitiesByGenreId } from "./app/store/slice/LivreSlice";
 import { entities as rayonEntities, getEntities as getRayonEntities } from "./app/store/slice/RayonSlice";
 import { Accueil } from "./components/Accueil";
 import { Bibliotheques } from "./components/Bibliotheques";
@@ -39,6 +39,7 @@ import { LivresResultat } from "./components/LivresResultat";
 import { PrivateRoute } from "./PrivateRoute";
 import logo32 from "./ressources/images/logo-32-32.png";
 import logo48 from "./ressources/images/logo-48-48.png";
+import { getEntitiesByGenreId as getLivreResultatEntitiesByGenreId } from "./app/store/slice/LivreResultatSlice";
 
 library.add(
   faTheaterMasks,
@@ -59,7 +60,8 @@ library.add(
   faCogs,
   faLaptopCode,
   faChartLine,
-  faGraduationCap
+  faGraduationCap,
+  faEye,
 );
 
 export const ROOT_PATH = "/";
@@ -113,7 +115,7 @@ function App() {
   }));
 
   const handleSelectedGenre = (genre: IGenre): void => {
-    dispatch(getLivreEntitiesByGenreId(genre.id as number));
+    dispatch(getLivreResultatEntitiesByGenreId(genre.id as number));
     history.push(LIVRES_RESULTAT_PATH);
   };
 

@@ -1,9 +1,13 @@
 package com.dsi.bibliosys.biblioback.service;
 
+import static com.dsi.bibliosys.biblioback.repository.specification.EcritureLivreSpecification.livreIdEqual;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import com.dsi.bibliosys.biblioback.data.entity.Auteur;
+import com.dsi.bibliosys.biblioback.data.entity.EcritureLivre;
 import com.dsi.bibliosys.biblioback.data.entity.Editeur;
 import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.repository.EditeurRepository;
@@ -16,11 +20,11 @@ import com.dsi.bibliosys.biblioback.repository.LivreRepository;
 public class EditeurService implements CrudService<Editeur, Integer> {
 
 	private final EditeurRepository editeurRepository;
-
+	
 	private final LivreRepository livreRepository;
 
 	@Autowired
-	public EditeurService(EditeurRepository editeurRepository, LivreRepository livreRepository) {
+	public EditeurService(EditeurRepository editeurRepository,LivreRepository livreRepository) {
 		this.editeurRepository = editeurRepository;
 		this.livreRepository = livreRepository;
 	}
@@ -34,7 +38,7 @@ public class EditeurService implements CrudService<Editeur, Integer> {
 	public Editeur create() {
 		return new Editeur();
 	}
-
+	
 	public Editeur findByLivreId(Integer id) {
 		Livre livre = livreRepository.findById(id).orElseThrow();
 		return livre.getEditeur();

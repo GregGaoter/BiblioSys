@@ -1,98 +1,102 @@
+import { Badge } from "primereact/badge";
 import { Button } from "primereact/button";
+import { Card } from "primereact/card";
 import { DataView, DataViewLayoutOptions } from "primereact/dataview";
+import { Dialog } from "primereact/dialog";
 import { Dropdown } from "primereact/dropdown";
-import React, { useEffect, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import { ILivre } from "../app/model/LivreModel";
 import { ILivreResultat } from "../app/model/LivreResultatModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
 import { entities as livreResultatEntities } from "../app/store/slice/LivreResultatSlice";
 import { CreateMutable } from "../app/type";
-// import "../ressources/css/livres-resultat.css";
+import { dateToMonthNameYear } from "../app/Utils";
 
 export const LivresResultat = () => {
   const dispatch = useAppDispatch();
 
   const [layout, setLayout] = useState("grid");
-  const [sortKey, setSortKey] = useState(null);
-  const [sortOrder, setSortOrder] = useState(null);
-  const [sortField, setSortField] = useState(null);
+  const [sortKey, setSortKey] = useState(undefined);
+  const [sortOrder, setSortOrder] = useState(undefined);
+  const [sortField, setSortField] = useState(undefined);
+  const [showResume, setShowResume] = useState<boolean>(false);
+  const [showUnavailableFeature, setShowUnavailableFeature] = useState<boolean>(false);
+  const [resume, setResume] = useState<string | undefined>(undefined);
+
   const sortOptions = [
-    { label: "Croissant", value: "livre" },
-    { label: "Décroissant", value: "!livre" },
+    { label: "Croissant", value: "titre" },
+    { label: "Décroissant", value: "!titre" },
   ];
 
-  const renderListItem = (data: ILivreResultat) => {
-    return (
-      <div className="p-col-12">
-        <div className="p-d-flex">
-          <img
-            className="p-mr-2"
-            src={`http://localhost:80/img/books/${data.livre?.nomImage}`}
-            onError={(e) => (e.currentTarget.src = "http://localhost:80/img/books/couverture-non-disponible.jpg")}
-            alt={data.livre?.nomImage}
-          />
-          <div className="p-d-flex p-flex-column">
-            <h4 className="p-mb-2">{data.livre?.titre}</h4>
-            <h5 className="p-mb-2">{data.auteur?.prenomNom}</h5>
-          </div>
+  const renderListItem = (data: ILivreResultat) => (
+    <div className="p-col-12">
+      <div className="p-d-flex p-m-3">
+        <img
+          className="p-mr-4 p-shadow-6"
+          src={`http://localhost:80/img/livres/${data.livre?.nomImage}`}
+          onError={(e) => (e.currentTarget.src = "http://localhost:80/img/livres/couverture-non-disponible.jpg")}
+          alt={data.livre?.nomImage}
+          style={{
+            width: "135px",
+            height: "195px",
+          }}
+        />
+        <div className="p-d-flex p-flex-column">
+          <h4 className="p-mb-2">{data.livre?.titre}</h4>
+          <h5 className="p-mb-2">{data.auteur?.prenomNom}</h5>
+          <h6>{data.editeur?.nom}</h6>
+          <div className="p-mt-auto">{`EAN13 : ${data.livre?.ean13}`}</div>
+          <div>{`Parution : ${dateToMonthNameYear(data.livre?.dateParution)}`}</div>
+          <div>{`${data.livre?.nbPages} pages`}</div>
+        </div>
+        <div className="p-d-flex p-flex-column p-ai-center p-jc-between p-ml-auto">
+          <CBadge nbExemplaires={data.livre?.nbExemplaires}></CBadge>
+          <Button className="p-button-rounded p-button-help" onClick={() => handleShowResume(data.livre?.resume)}>
+            <i className="pi pi-eye" style={{ fontSize: "1.5em" }} />
+          </Button>
+          <Button icon="pi pi-book" label="Emprunter" disabled={data.livre?.nbExemplaires === 0} />
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
-  // const renderListItem = (data: ILivre) => {
-  //   return (
-  //     <div className="p-col-12">
-  //       <div className="product-list-item">
-  //         <img
-  //           src={`http://localhost:80/img/books/${data.nomImage}`}
-  //           onError={(e) => (e.currentTarget.src = "http://localhost:80/img/books/couverture-non-disponible.jpg")}
-  //           alt={data.nomImage}
-  //         />
-  //         <div className="product-list-detail">
-  //           <div className="product-name">{data.titre}</div>
-  //           <div className="product-description">{data.ean13}</div>
-  //           <i className="pi pi-tag product-category-icon"></i>
-  //           <span className="product-category">{data.dimension}</span>
-  //         </div>
-  //         <div className="product-list-action">
-  //           <span className="product-price">${data.nbPages}</span>
-  //           <Button icon="pi pi-shopping-cart" label="Emprunter" disabled={data.nbExemplaires === 0}></Button>
-  //           <span className={`product-badge status-${data.nbExemplaires}`}>{data.nbExemplaires}</span>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
-  const renderGridItem = (data: ILivreResultat) => {
-    return (
-      <div className="p-col-12 p-md-4">
-        <div className="product-grid-item card">
-          <div className="product-grid-item-top">
-            <div>
-              <i className="pi pi-tag product-category-icon"></i>
-              <span className="product-category">{data.livre?.dimension}</span>
+  const renderGridItem = (data: ILivreResultat) => (
+    <div className="p-col-4">
+      <Card className="p-m-2">
+        <div className="p-d-flex p-flex-column">
+          <div className="p-d-flex p-jc-between p-mb-4">
+            <div className="p-d-flex p-flex-column">
+              <div className="p-mt-auto">{`EAN13 : ${data.livre?.ean13}`}</div>
+              <div>{`Parution : ${dateToMonthNameYear(data.livre?.dateParution)}`}</div>
             </div>
-            <span className={`product-badge status-${data.livre?.nbExemplaires}`}>{data.livre?.nbExemplaires}</span>
+            <div className="p-d-flex p-flex-column p-ai-end">
+              <CBadge nbExemplaires={data.livre?.nbExemplaires}></CBadge>
+              <div>{`${data.livre?.nbPages} pages`}</div>
+            </div>
           </div>
-          <div className="product-grid-item-content">
-            <img
-              src={`http://localhost:80/img/books/${data.livre?.nomImage}`}
-              onError={(e) => (e.currentTarget.src = "http://localhost:80/img/books/couverture-non-disponible.jpg")}
-              alt={data.livre?.nomImage}
-            />
-            <div className="product-name">{data.livre?.titre}</div>
-            <div className="product-description">{data.livre?.ean13}</div>
-          </div>
-          <div className="product-grid-item-bottom">
-            <span className="product-price">${data.livre?.nbPages}</span>
-            <Button icon="pi pi-shopping-cart" label="Add to Cart" disabled={data.livre?.nbExemplaires === 0}></Button>
+          <img
+            className="p-shadow-6 p-as-center p-mb-3"
+            src={`http://localhost:80/img/livres/${data.livre?.nomImage}`}
+            onError={(e) => (e.currentTarget.src = "http://localhost:80/img/livres/couverture-non-disponible.jpg")}
+            alt={data.livre?.nomImage}
+            style={{
+              width: "135px",
+              height: "195px",
+            }}
+          />
+          <h4 className="p-mb-2 p-as-center">{data.livre?.titre}</h4>
+          <h5 className="p-mb-2 p-as-center">{data.auteur?.prenomNom}</h5>
+          <h6 className="p-mb-4 p-as-center">{data.editeur?.nom}</h6>
+          <div className="p-d-flex p-jc-between">
+            <Button className="p-button-rounded p-button-help" onClick={() => handleShowResume(data.livre?.resume)}>
+              <i className="pi pi-eye" style={{ fontSize: "1.5em" }} />
+            </Button>
+            <Button icon="pi pi-book" label="Emprunter" disabled={data.livre?.nbExemplaires === 0} />
           </div>
         </div>
-      </div>
-    );
-  };
+      </Card>
+    </div>
+  );
 
   const itemTemplate = (livreResultat: ILivreResultat, layout: "list" | "grid") => {
     if (!livreResultat) {
@@ -106,13 +110,7 @@ export const LivresResultat = () => {
     return (
       <div className="p-grid p-nogutter">
         <div className="p-col-6" style={{ textAlign: "left" }}>
-          <Dropdown
-            options={sortOptions}
-            value={sortKey}
-            optionLabel="label"
-            placeholder="Trier par titre"
-            onChange={onSortChange}
-          />
+          <Dropdown options={sortOptions} value={sortKey} placeholder="Trier par titre" onChange={onSortChange} />
         </div>
         <div className="p-col-6" style={{ textAlign: "right" }}>
           <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} />
@@ -121,24 +119,72 @@ export const LivresResultat = () => {
     );
   };
 
-  const onSortChange = () => {};
+  const onSortChange = (event: any) => {
+    setShowUnavailableFeature(true);
+  };
+
+  const handleShowResume = (resume: string | undefined): void => {
+    setResume(resume);
+    setShowResume(true);
+  };
+
+  const closeResume = (): void => {
+    setShowResume(false);
+  };
+
+  const closeUnavailableFeature = (): void => {
+    setShowUnavailableFeature(false);
+  };
 
   const header = renderHeader();
 
   return (
-    <div className="dataview-demo">
+    <>
       <div className="card">
         <DataView
-          value={useAppSelector(livreResultatEntities).slice(0, 9) as CreateMutable<ILivre[]>}
+          value={useAppSelector(livreResultatEntities) as CreateMutable<ILivre[]>}
           layout={layout}
           header={header}
           itemTemplate={itemTemplate}
           paginator
-          rows={5}
-          // sortOrder={sortOrder}
-          // sortField={sortField}
+          rows={6}
+          sortOrder={sortOrder}
+          sortField={sortField}
         />
       </div>
-    </div>
+      <Dialog
+        header="Résumé"
+        visible={showResume}
+        footer={<Button label="Fermer" icon="pi pi-times" onClick={closeResume} />}
+        onHide={closeResume}
+        style={{ width: "50vw" }}
+      >
+        <p>{resume}</p>
+      </Dialog>
+      <Dialog
+        header="Non disponible"
+        visible={showUnavailableFeature}
+        footer={<Button label="Fermer" icon="pi pi-times" onClick={closeUnavailableFeature} />}
+        onHide={closeUnavailableFeature}
+        style={{ width: "50vw" }}
+      >
+        <p>Cette fonctionnalité sera bientôt disponible.</p>
+      </Dialog>
+    </>
   );
+};
+
+interface ICBadge {
+  nbExemplaires: number | undefined;
+}
+
+const CBadge: FC<ICBadge> = ({ nbExemplaires }) => {
+  switch (nbExemplaires) {
+    case 0:
+      return <Badge value="Indisponible" severity="danger"></Badge>;
+    case 1:
+      return <Badge value="1 exemplaire" severity="warning"></Badge>;
+    default:
+      return <Badge value="Disponible" severity="success"></Badge>;
+  }
 };

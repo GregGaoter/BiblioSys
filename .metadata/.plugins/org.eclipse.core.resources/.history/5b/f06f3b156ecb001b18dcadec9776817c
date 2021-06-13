@@ -12,13 +12,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import com.dsi.bibliosys.biblioback.data.dto.AuteurDto;
-import com.dsi.bibliosys.biblioback.data.dto.EditeurDto;
 import com.dsi.bibliosys.biblioback.data.dto.LivreDto;
 import com.dsi.bibliosys.biblioback.data.dto.LivreResultatDto;
 import com.dsi.bibliosys.biblioback.data.entity.Genre;
 import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.mapper.AuteurMapper;
-import com.dsi.bibliosys.biblioback.mapper.EditeurMapper;
 import com.dsi.bibliosys.biblioback.repository.GenreRepository;
 import com.dsi.bibliosys.biblioback.repository.LivreRepository;
 
@@ -35,13 +33,7 @@ public class LivreService implements CrudService<Livre, Integer> {
 	private AuteurService auteurService;
 
 	@Autowired
-	private EditeurService editeurService;
-
-	@Autowired
 	private AuteurMapper auteurMapper;
-
-	@Autowired
-	private EditeurMapper editeurMapper;
 
 	@Autowired
 	public LivreService(LivreRepository livreRepository, GenreRepository genreRepository) {
@@ -75,16 +67,20 @@ public class LivreService implements CrudService<Livre, Integer> {
 
 	public LivreResultatDto getLivreResultatDto(LivreDto livreDto) {
 		AuteurDto auteurDto = auteurMapper.mapToDto(auteurService.findByLivreId(livreDto.getId()));
-		EditeurDto editeurDto = editeurMapper.mapToDto(editeurService.findByLivreId(livreDto.getId()));
 		LivreResultatDto livreResultatDto = new LivreResultatDto();
 		livreResultatDto.setLivre(livreDto);
 		livreResultatDto.setAuteur(auteurDto);
-		livreResultatDto.setEditeur(editeurDto);
 		return livreResultatDto;
 	}
-
+	
 	public List<LivreResultatDto> getLivreResultatsDto(List<LivreDto> livresDto) {
-		return livresDto.stream().map(livreDto -> getLivreResultatDto(livreDto)).collect(Collectors.toList());
+		return livresDto.stream().map(livreDto -> {
+			AuteurDto auteurDto = auteurMapper.mapToDto(auteurService.findByLivreId(livreDto.getId()));
+			LivreResultatDto livreResultatDto = new LivreResultatDto();
+			livreResultatDto.setLivre(livreDto);
+			livreResultatDto.setAuteur(auteurDto);
+			return livreResultatDto;
+		}).collect(Collectors.toList());
 	}
 
 }

@@ -39,7 +39,7 @@ public class EditeurServiceTest {
 
 	@BeforeEach
 	public void setUpBeforeEach() {
-		editeurService = new EditeurService(editeurRepository, null);
+		editeurService = new EditeurService(editeurRepository);
 	}
 
 	@AfterEach

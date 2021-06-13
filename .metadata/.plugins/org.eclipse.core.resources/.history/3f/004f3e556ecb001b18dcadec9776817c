@@ -42,7 +42,7 @@ public class AuteurServiceIT {
 
 	@BeforeEach
 	public void setUpBeforeEach() {
-		auteurService = new AuteurService(auteurRepository, null);
+		auteurService = new AuteurService(auteurRepository);
 	}
 
 	@AfterEach

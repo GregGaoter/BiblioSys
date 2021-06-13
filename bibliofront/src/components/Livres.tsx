@@ -10,78 +10,72 @@ import { Icon } from "../app/Icon";
 import { IRayon } from "../app/model/RayonModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
 import { getEntitiesByRayonId as getLivreResultatEntitiesByRayonId } from "../app/store/slice/LivreResultatSlice";
+import {
+  entities as bibliothequeEntities,
+  getEntities as getBibliothequeEntities,
+} from "../app/store/slice/BibliothequeSlice";
 import { entities as rayonEntities, getEntities as getRayonEntities } from "../app/store/slice/RayonSlice";
+import { entities as genreEntities, getEntities as getGenreEntities } from "../app/store/slice/GenreSlice";
+import { entities as auteurEntities, getEntities as getAuteurEntities } from "../app/store/slice/AuteurSlice";
+import { InputText } from "primereact/inputtext";
+import { Calendar } from 'primereact/calendar';
 
-interface RayonItemProps {
-  icon: IconProp;
-  title: string;
+interface Option {
+  label: string;
+  value: string;
 }
-
-const RayonItem: FC<RayonItemProps> = (props) => (
-  <div className="p-col-2" style={{ cursor: "pointer" }} onClick={findRayon}>
-    <div className="p-d-flex p-flex-column p-ai-center">
-      <FontAwesomeIcon icon={props.icon} className="p-mb-2" size="6x" />
-      <div className="p-text-center">{props.title}</div>
-    </div>
-  </div>
-);
-
-const rayonItems: RayonItemProps[] = [
-  { icon: Icon.THEATER_MASKS, title: "Littérature & Fiction" },
-  { icon: Icon.ROBOT, title: "Policier & Science-Fiction" },
-  { icon: Icon.DRAGON, title: "Bandes dessinées, comics & mangas, humour" },
-  { icon: Icon.LEAF, title: "Développement durable & Écologie" },
-  { icon: Icon.PAW, title: "Nature, animaux" },
-  { icon: Icon.GAMEPAD, title: "Loisirs, jeux" },
-  { icon: Icon.RUNNING, title: "Santé, diététique, sport" },
-  { icon: Icon.YIN_YANG, title: "Bien-être, dans sa tête et dans son corps" },
-  { icon: Icon.UTENSILS, title: "Cuisine, vins & boissons" },
-  { icon: Icon.GLOBE_EUROPE, title: "Tourisme, voyages, géographie" },
-  { icon: Icon.PALETTE, title: "Arts & spectacles" },
-  { icon: Icon.MONUMENT, title: "Histoire, actualité" },
-  { icon: Icon.PRAYING_HANDS, title: "Religions, spiritualité, ésotérisme" },
-  { icon: Icon.USER_FRIENDS, title: "Sciences humaines et sociales" },
-  { icon: Icon.BRAIN, title: "Psychologie, psychanalyse, pédagogie" },
-  { icon: Icon.COGS, title: "Sciences, techniques, médecine" },
-  { icon: Icon.LAPTOP_CODE, title: "Informatique & multimédia" },
-  { icon: Icon.CHART_LINE, title: "Droit, économie, gestion, comptabilité" },
-  { icon: Icon.GRADUATION_CAP, title: "Scolaire, parascolaire" },
-];
-
-const findRayon = () => {
-  alert("Click");
-};
-
-const bibliothequeOptions = [
-  { label: "Mémoire", value: "memoire" },
-  { label: "Rêverie", value: "reverie" },
-  { label: "Idée", value: "idee" },
-];
-
-const rayonOptions = [
-  { label: "Littérature & Fiction", value: "Littérature & Fiction" },
-  { label: "Policier & Science-Fiction", value: "Policier & Science-Fiction" },
-  { label: "Bandes dessinées, comics & mangas, humour", value: "Bandes dessinées, comics & mangas, humour" },
-];
-
-const genreOptions = [
-  { label: "Poésie", value: "Poésie" },
-  { label: "Théatre", value: "Théatre" },
-  { label: "Récit de voyage", value: "Récit de voyage" },
-];
 
 export const Livres = () => {
   const dispatch = useAppDispatch();
+  const hasBibliotheques = useRef(false);
   const hasRayons = useRef(false);
+  const hasGenres = useRef(false);
+  const hasAuteurs = useRef(false);
   const history = useHistory();
 
   useEffect(() => {
+    if (!hasBibliotheques.current) {
+      dispatch(getBibliothequeEntities());
+      hasBibliotheques.current = true;
+    }
     if (!hasRayons.current) {
       dispatch(getRayonEntities());
       hasRayons.current = true;
     }
+    if (!hasGenres.current) {
+      dispatch(getGenreEntities());
+      hasGenres.current = true;
+    }
+    if (!hasAuteurs.current) {
+      dispatch(getAuteurEntities());
+      hasAuteurs.current = true;
+    }
   }, [dispatch]);
 
+  const bibliothequeOptions = useAppSelector(bibliothequeEntities).map(
+    (bibliotheque): Option => ({
+      label: bibliotheque.nom as string,
+      value: bibliotheque.nom as string,
+    })
+  );
+  const rayonOptions = useAppSelector(rayonEntities).map(
+    (rayon): Option => ({
+      label: rayon.nom as string,
+      value: rayon.nom as string,
+    })
+  );
+  const genreOptions = useAppSelector(genreEntities).map(
+    (genre): Option => ({
+      label: genre.nom as string,
+      value: genre.nom as string,
+    })
+  );
+  const auteurOptions = useAppSelector(auteurEntities).map(
+    (auteur): Option => ({
+      label: auteur.prenomNom as string,
+      value: auteur.prenomNom as string,
+    })
+  );
   const handleSelectedRayon = (rayon: IRayon): void => {
     dispatch(getLivreResultatEntitiesByRayonId(rayon.id as number));
     history.push(LIVRES_RESULTAT_PATH);
@@ -110,15 +104,48 @@ export const Livres = () => {
           <div className="p-fluid p-formgrid p-grid">
             <div className="p-field p-col-4">
               <label htmlFor="bibliotheque">Bibliothèque</label>
-              <Dropdown value="memoire" options={bibliothequeOptions} onChange={(e) => ""} />
+              <Dropdown options={bibliothequeOptions} optionLabel="label" placeholder="Tous" onChange={(e) => ""} />
             </div>
             <div className="p-field p-col-4">
               <label htmlFor="rayon">Rayon</label>
-              <Dropdown value="Littérature & Fiction" options={rayonOptions} onChange={(e) => ""} />
+              <Dropdown
+                options={rayonOptions}
+                filter
+                showClear
+                filterBy="label"
+                placeholder="Tous"
+                onChange={(e) => ""}
+              />
             </div>
             <div className="p-field p-col-4">
               <label htmlFor="genre">Genre</label>
-              <Dropdown value="Poésie" options={genreOptions} onChange={(e) => ""} />
+              <Dropdown
+                options={genreOptions}
+                filter
+                showClear
+                filterBy="label"
+                placeholder="Tous"
+                onChange={(e) => ""}
+              />
+            </div>
+            <div className="p-field p-col-4">
+              <label htmlFor="titre">Titre</label>
+              <InputText />
+            </div>
+            <div className="p-field p-col-4">
+              <label htmlFor="rayon">Auteur</label>
+              <Dropdown
+                options={auteurOptions}
+                filter
+                showClear
+                filterBy="label"
+                placeholder="Tous"
+                onChange={(e) => ""}
+              />
+            </div>
+            <div className="p-field p-col-4">
+              <label htmlFor="genre">Date de parution</label>
+              <Calendar id="range" onChange={(e) => ""} selectionMode="range" readOnlyInput />
             </div>
           </div>
         </Card>

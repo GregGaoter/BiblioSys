@@ -1328,3 +1328,327 @@ org.eclipse.swt.SWTException: Unsupported or unrecognized format
 	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
 	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 06:14:47.520
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 06:14:47.523
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 06:14:48.241
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 06:14:48.242
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 06:14:48.248
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 06:14:48.254
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 06:14:49.331
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:661)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 10:14:47.596
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 10:14:47.598
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 10:14:48.322
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 10:14:48.323
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 10:14:48.327
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 10:14:48.333
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 10:14:49.442
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:661)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 14:14:47.621
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 14:14:47.622
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 14:14:48.319
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 14:14:48.321
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 14:14:48.328
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 14:14:48.337
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 14:14:49.287
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:661)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 18:14:47.720
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 18:14:47.724
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 18:14:48.231
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 18:14:48.236
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 18:14:48.245
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 18:14:48.260
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 18:14:49.940
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:661)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 22:14:47.748
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 22:14:47.749
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 22:14:48.458
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 22:14:48.460
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-12 22:14:48.466
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 22:14:48.477
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-12 22:14:49.581
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:661)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 02:14:47.887
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 02:14:47.890
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 02:14:48.598
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 02:14:48.602
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-06-13 02:14:48.610
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-13 02:14:48.623
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:597)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.integration.eclipse 4 0 2021-06-13 02:14:49.759
+!MESSAGE Exception while data querying operation
+!STACK 0
+org.eclipse.swt.SWTException: Unsupported or unrecognized format
+	at org.eclipse.swt.SWT.error(SWT.java:4723)
+	at org.eclipse.swt.SWT.error(SWT.java:4638)
+	at org.eclipse.swt.SWT.error(SWT.java:4609)
+	at org.eclipse.swt.internal.image.FileFormat.load(FileFormat.java:88)
+	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:155)
+	at org.eclipse.swt.graphics.ImageDataLoader.load(ImageDataLoader.java:25)
+	at org.eclipse.swt.graphics.ImageData.<init>(ImageData.java:335)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImage(NotificationsService.java:661)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.getImage(NotificationsService.java:612)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.registerImage(NotificationsService.java:570)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.ensureImageRegistered(NotificationsService.java:563)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:549)
+	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
+	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

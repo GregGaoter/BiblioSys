@@ -1,15 +1,16 @@
 package com.dsi.bibliosys.biblioback.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.groups.Tuple.tuple;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
-import javax.persistence.EntityNotFoundException;
-
-import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -18,31 +19,27 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.Mock;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import com.dsi.bibliosys.biblioback.TestCase;
 import com.dsi.bibliosys.biblioback.data.entity.Auteur;
 import com.dsi.bibliosys.biblioback.repository.AuteurRepository;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
-@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
-@Tag(TestCase.INTEGRATION)
-public class AuteurServiceIT {
+@Tag(TestCase.UNIT)
+public class AuteurServiceTest {
 
 	private AuteurService auteurService;
 
-	@Autowired
+	@Mock
 	private AuteurRepository auteurRepository;
 
 	@BeforeEach
 	public void setUpBeforeEach() {
-		auteurService = new AuteurService(auteurRepository, null);
+		auteurService = new AuteurService(auteurRepository);
 	}
 
 	@AfterEach
@@ -66,13 +63,14 @@ public class AuteurServiceIT {
 
 	@Test
 	public void save() {
-		final Auteur auteurExcpected = new Auteur();
-		auteurExcpected.setPrenomNom("Prénom Nom");
+		final Auteur auteur = new Auteur();
 
-		final Auteur auteurSaved = auteurService.save(auteurExcpected);
-		final Auteur auteurFind = auteurService.findById(auteurSaved.getId());
+		given(auteurRepository.saveAndFlush(auteur)).willAnswer(invocation -> invocation.getArgument(0));
 
-		assertThat(auteurFind.getPrenomNom()).isEqualTo(auteurExcpected.getPrenomNom());
+		final Auteur auteurSaved = auteurService.save(auteur);
+
+		verify(auteurRepository).saveAndFlush(auteur);
+		assertThat(auteurSaved).isNotNull();
 	}
 
 	@Test
@@ -85,14 +83,22 @@ public class AuteurServiceIT {
 	@Test
 	public void update() {
 		final Auteur auteurSource = new Auteur();
-		auteurSource.setPrenomNom("Prénom Nom");
+		auteurSource.setPrenomNom("prenomNom");
 
 		final Integer idTarget = 1;
 
+		final Optional<Auteur> auteurTargetOptional = Optional.of(new Auteur());
+		ReflectionTestUtils.setField(auteurTargetOptional.get(), Auteur.ID, idTarget);
+
+		given(auteurRepository.findById(idTarget)).willReturn(auteurTargetOptional);
+		given(auteurRepository.saveAndFlush(any(Auteur.class))).willAnswer(invocation -> invocation.getArgument(0));
+
 		final Auteur auteurUpdated = auteurService.update(auteurSource, idTarget);
 
-		assertThat(auteurUpdated).extracting(Auteur::getId, Auteur::getPrenomNom).containsExactly(auteurUpdated.getId(),
-				auteurSource.getPrenomNom());
+		verify(auteurRepository).findById(idTarget);
+		verify(auteurRepository).saveAndFlush(any(Auteur.class));
+		assertThat(auteurUpdated.getId()).isEqualTo(idTarget);
+		assertThat(auteurUpdated).isEqualToIgnoringGivenFields(auteurSource, Auteur.ID);
 	}
 
 	private static Stream<Arguments> update_null() {
@@ -110,12 +116,11 @@ public class AuteurServiceIT {
 
 	@Test
 	public void delete() {
-		final Integer id = 1;
-		final Auteur auteur = auteurService.findById(id);
+		final Auteur auteur = new Auteur();
 
 		auteurService.delete(auteur);
 
-		assertThrows(EntityNotFoundException.class, () -> auteurService.findById(id));
+		verify(auteurRepository).delete(auteur);
 	}
 
 	@Test
@@ -129,9 +134,14 @@ public class AuteurServiceIT {
 	public void deleteById() {
 		final Integer id = 1;
 
-		auteurService.deleteById(id);
+		final Optional<Auteur> auteurOptional = Optional.of(new Auteur());
+		ReflectionTestUtils.setField(auteurOptional.get(), Auteur.ID, id);
 
-		assertThrows(EntityNotFoundException.class, () -> auteurService.findById(id));
+		given(auteurRepository.findById(id)).willReturn(auteurOptional);
+
+		auteurService.deleteById(1);
+
+		verify(auteurRepository).deleteById(auteurOptional.get().getId());
 	}
 
 	@Test
@@ -143,20 +153,29 @@ public class AuteurServiceIT {
 
 	@Test
 	public void count() {
-		final long nbExpected = 3L;
+		final long nbExpected = 1L;
+
+		given(auteurRepository.count()).willReturn(nbExpected);
 
 		final long nbActual = auteurService.count();
 
+		verify(auteurRepository).count();
 		assertThat(nbActual).isEqualTo(nbExpected);
 	}
 
 	@Test
 	public void findById() {
-		final Integer auteurId = 1;
+		final Integer id = 1;
 
-		final Auteur auteurActual = auteurService.findById(auteurId);
+		final Optional<Auteur> auteurOptional = Optional.of(new Auteur());
+		ReflectionTestUtils.setField(auteurOptional.get(), Auteur.ID, id);
 
-		assertThat(auteurActual).extracting(Auteur::getId, Auteur::getPrenomNom).containsExactly(auteurId, "Auteur 1");
+		given(auteurRepository.findById(id)).willReturn(auteurOptional);
+
+		final Auteur auteurActual = auteurService.findById(id);
+
+		verify(auteurRepository).findById(id);
+		assertThat(auteurActual).isEqualToComparingFieldByField(auteurOptional.get());
 	}
 
 	@Test
@@ -168,14 +187,23 @@ public class AuteurServiceIT {
 
 	@Test
 	public void findAll() {
-		final Tuple tupleAuteur1 = tuple(1, "Auteur 1");
-		final Tuple tupleAuteur2 = tuple(2, "Auteur 2");
-		final Tuple tupleAuteur3 = tuple(3, "Auteur 3");
+		final Auteur auteur1 = new Auteur();
+		ReflectionTestUtils.setField(auteur1, Auteur.ID, 1);
+		final Auteur auteur2 = new Auteur();
+		ReflectionTestUtils.setField(auteur2, Auteur.ID, 2);
+		final Auteur auteur3 = new Auteur();
+		ReflectionTestUtils.setField(auteur3, Auteur.ID, 3);
+
+		final List<Auteur> auteursExpected = new ArrayList<>(3);
+		auteursExpected.add(auteur1);
+		auteursExpected.add(auteur2);
+		auteursExpected.add(auteur3);
+
+		given(auteurRepository.findAll()).willReturn(auteursExpected);
 
 		final List<Auteur> auteursActual = auteurService.findAll();
 
-		assertThat(auteursActual).extracting(Auteur::getId, Auteur::getPrenomNom).containsOnly(tupleAuteur1,
-				tupleAuteur2, tupleAuteur3);
+		verify(auteurRepository).findAll();
+		assertThat(auteursActual).containsExactlyInAnyOrderElementsOf(auteursExpected);
 	}
-
 }

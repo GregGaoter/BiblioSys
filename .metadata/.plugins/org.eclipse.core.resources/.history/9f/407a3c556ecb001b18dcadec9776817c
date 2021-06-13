@@ -1,16 +1,15 @@
 package com.dsi.bibliosys.biblioback.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.groups.Tuple.tuple;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Stream;
 
+import javax.persistence.EntityNotFoundException;
+
+import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -19,27 +18,31 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import com.dsi.bibliosys.biblioback.TestCase;
 import com.dsi.bibliosys.biblioback.data.entity.Editeur;
 import com.dsi.bibliosys.biblioback.repository.EditeurRepository;
 
 @ExtendWith(SpringExtension.class)
-@Tag(TestCase.UNIT)
-public class EditeurServiceTest {
+@SpringBootTest
+@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
+@Tag(TestCase.INTEGRATION)
+public class EditeurServiceIT {
 
 	private EditeurService editeurService;
 
-	@Mock
+	@Autowired
 	private EditeurRepository editeurRepository;
 
 	@BeforeEach
 	public void setUpBeforeEach() {
-		editeurService = new EditeurService(editeurRepository, null);
+		editeurService = new EditeurService(editeurRepository);
 	}
 
 	@AfterEach
@@ -63,14 +66,13 @@ public class EditeurServiceTest {
 
 	@Test
 	public void save() {
-		final Editeur editeur = new Editeur();
+		final Editeur editeurExcpected = new Editeur();
+		editeurExcpected.setNom("Nom");
 
-		given(editeurRepository.saveAndFlush(editeur)).willAnswer(invocation -> invocation.getArgument(0));
+		final Editeur editeurSaved = editeurService.save(editeurExcpected);
+		final Editeur editeurFind = editeurService.findById(editeurSaved.getId());
 
-		final Editeur editeurSaved = editeurService.save(editeur);
-
-		verify(editeurRepository).saveAndFlush(editeur);
-		assertThat(editeurSaved).isNotNull();
+		assertThat(editeurFind.getNom()).isEqualTo(editeurExcpected.getNom());
 	}
 
 	@Test
@@ -83,22 +85,14 @@ public class EditeurServiceTest {
 	@Test
 	public void update() {
 		final Editeur editeurSource = new Editeur();
-		editeurSource.setNom("nom");
+		editeurSource.setNom("Nom");
 
 		final Integer idTarget = 1;
 
-		final Optional<Editeur> editeurTargetOptional = Optional.of(new Editeur());
-		ReflectionTestUtils.setField(editeurTargetOptional.get(), Editeur.ID, idTarget);
-
-		given(editeurRepository.findById(idTarget)).willReturn(editeurTargetOptional);
-		given(editeurRepository.saveAndFlush(any(Editeur.class))).willAnswer(invocation -> invocation.getArgument(0));
-
 		final Editeur editeurUpdated = editeurService.update(editeurSource, idTarget);
 
-		verify(editeurRepository).findById(idTarget);
-		verify(editeurRepository).saveAndFlush(any(Editeur.class));
-		assertThat(editeurUpdated.getId()).isEqualTo(idTarget);
-		assertThat(editeurUpdated).isEqualToIgnoringGivenFields(editeurSource, Editeur.ID);
+		assertThat(editeurUpdated).extracting(Editeur::getId, Editeur::getNom).containsExactly(editeurUpdated.getId(),
+				editeurSource.getNom());
 	}
 
 	private static Stream<Arguments> update_null() {
@@ -116,11 +110,12 @@ public class EditeurServiceTest {
 
 	@Test
 	public void delete() {
-		final Editeur editeur = new Editeur();
+		final Integer id = 1;
+		final Editeur editeur = editeurService.findById(id);
 
 		editeurService.delete(editeur);
 
-		verify(editeurRepository).delete(editeur);
+		assertThrows(EntityNotFoundException.class, () -> editeurService.findById(id));
 	}
 
 	@Test
@@ -134,14 +129,9 @@ public class EditeurServiceTest {
 	public void deleteById() {
 		final Integer id = 1;
 
-		final Optional<Editeur> editeurOptional = Optional.of(new Editeur());
-		ReflectionTestUtils.setField(editeurOptional.get(), Editeur.ID, id);
+		editeurService.deleteById(id);
 
-		given(editeurRepository.findById(id)).willReturn(editeurOptional);
-
-		editeurService.deleteById(1);
-
-		verify(editeurRepository).deleteById(editeurOptional.get().getId());
+		assertThrows(EntityNotFoundException.class, () -> editeurService.findById(id));
 	}
 
 	@Test
@@ -153,29 +143,20 @@ public class EditeurServiceTest {
 
 	@Test
 	public void count() {
-		final long nbExpected = 1L;
-
-		given(editeurRepository.count()).willReturn(nbExpected);
+		final long nbExpected = 3L;
 
 		final long nbActual = editeurService.count();
 
-		verify(editeurRepository).count();
 		assertThat(nbActual).isEqualTo(nbExpected);
 	}
 
 	@Test
 	public void findById() {
-		final Integer id = 1;
+		final Integer editeurId = 1;
 
-		final Optional<Editeur> editeurOptional = Optional.of(new Editeur());
-		ReflectionTestUtils.setField(editeurOptional.get(), Editeur.ID, id);
+		final Editeur editeurActual = editeurService.findById(editeurId);
 
-		given(editeurRepository.findById(id)).willReturn(editeurOptional);
-
-		final Editeur editeurActual = editeurService.findById(id);
-
-		verify(editeurRepository).findById(id);
-		assertThat(editeurActual).isEqualToComparingFieldByField(editeurOptional.get());
+		assertThat(editeurActual).extracting(Editeur::getId, Editeur::getNom).containsExactly(editeurId, "Editeur 1");
 	}
 
 	@Test
@@ -187,24 +168,14 @@ public class EditeurServiceTest {
 
 	@Test
 	public void findAll() {
-		final Editeur editeur1 = new Editeur();
-		ReflectionTestUtils.setField(editeur1, Editeur.ID, 1);
-		final Editeur editeur2 = new Editeur();
-		ReflectionTestUtils.setField(editeur2, Editeur.ID, 2);
-		final Editeur editeur3 = new Editeur();
-		ReflectionTestUtils.setField(editeur3, Editeur.ID, 3);
-
-		final List<Editeur> editeursExpected = new ArrayList<>(3);
-		editeursExpected.add(editeur1);
-		editeursExpected.add(editeur2);
-		editeursExpected.add(editeur3);
-
-		given(editeurRepository.findAll()).willReturn(editeursExpected);
+		final Tuple tupleEditeur1 = tuple(1, "Editeur 1");
+		final Tuple tupleEditeur2 = tuple(2, "Editeur 2");
+		final Tuple tupleEditeur3 = tuple(3, "Editeur 3");
 
 		final List<Editeur> editeursActual = editeurService.findAll();
 
-		verify(editeurRepository).findAll();
-		assertThat(editeursActual).containsExactlyInAnyOrderElementsOf(editeursExpected);
+		assertThat(editeursActual).extracting(Editeur::getId, Editeur::getNom).containsOnly(tupleEditeur1,
+				tupleEditeur2, tupleEditeur3);
 	}
 
 }
