@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import Constants from "../../Constants";
+import { LivreResultatFilter } from "../../model/enumeration/LivreResultatFilter";
 import { defaultValue, ILivreResultat } from "../../model/LivreResultatModel";
 import type { AppThunk, RootState } from "../store";
 
@@ -10,6 +12,9 @@ interface LivreResultatState {
   updating: boolean;
   updateSuccess: boolean;
   errorMessage: string | undefined;
+  totalItems: number;
+  filter: LivreResultatFilter | undefined;
+  filterId: number | undefined;
 }
 
 const initialState: Readonly<LivreResultatState> = {
@@ -19,6 +24,9 @@ const initialState: Readonly<LivreResultatState> = {
   updating: false,
   updateSuccess: false,
   errorMessage: undefined,
+  totalItems: 0,
+  filter: undefined,
+  filterId: undefined,
 };
 
 // Reducer
@@ -45,6 +53,23 @@ const livreResultatSlice = createSlice({
     successGetEntities: (state, action) => {
       state.entities = action.payload.data;
       state.loading = false;
+      state.totalItems = parseInt(action.payload.headers[Constants.TOTAL_COUNT_HEADER], 10);
+      state.filter = undefined;
+      state.filterId = undefined;
+    },
+    successGetEntitiesByRayonId: (state, action) => {
+      state.entities = action.payload.data;
+      state.loading = false;
+      state.totalItems = parseInt(action.payload.headers[Constants.TOTAL_COUNT_HEADER], 10);
+      state.filter = LivreResultatFilter.BY_RAYON_ID;
+      state.filterId = parseInt(action.payload.headers[Constants.FILTER_ID_HEADER], 10);
+    },
+    successGetEntitiesByGenreId: (state, action) => {
+      state.entities = action.payload.data;
+      state.loading = false;
+      state.totalItems = parseInt(action.payload.headers[Constants.TOTAL_COUNT_HEADER], 10);
+      state.filter = LivreResultatFilter.BY_GENRE_ID;
+      state.filterId = parseInt(action.payload.headers[Constants.FILTER_ID_HEADER], 10);
     },
     resetState: (state) => {
       state.entity = defaultValue;
@@ -59,8 +84,15 @@ const livreResultatSlice = createSlice({
 
 export const baseUrl = "/livre/resultat";
 
-const { requestGetEntityEntities, failure, successGetEntity, successGetEntities, resetState } =
-  livreResultatSlice.actions;
+const {
+  requestGetEntityEntities,
+  failure,
+  successGetEntity,
+  successGetEntities,
+  successGetEntitiesByRayonId,
+  successGetEntitiesByGenreId,
+  resetState,
+} = livreResultatSlice.actions;
 
 // Actions
 
@@ -85,26 +117,26 @@ export const getEntities = (): AppThunk => async (dispatch: any) => {
 };
 
 export const getEntitiesByRayonId =
-  (id: number): AppThunk =>
+  (id: number, first: number, size: number): AppThunk =>
   async (dispatch: any) => {
     dispatch(requestGetEntityEntities);
     try {
       await axios
-        .get<ILivreResultat>(`${baseUrl}/rayon/${id}`)
-        .then((response) => dispatch(successGetEntities(response)));
+        .get<ILivreResultat>(`${baseUrl}/rayon/${id}?first=${first}&size=${size}`)
+        .then((response) => dispatch(successGetEntitiesByRayonId(response)));
     } catch (e) {
       dispatch(failure(e.message));
     }
   };
 
 export const getEntitiesByGenreId =
-  (id: number): AppThunk =>
+  (id: number, first: number, size: number): AppThunk =>
   async (dispatch: any) => {
     dispatch(requestGetEntityEntities);
     try {
       await axios
-        .get<ILivreResultat>(`${baseUrl}/genre/${id}`)
-        .then((response) => dispatch(successGetEntities(response)));
+        .get<ILivreResultat>(`${baseUrl}/genre/${id}?first=${first}&size=${size}`)
+        .then((response) => dispatch(successGetEntitiesByGenreId(response)));
     } catch (e) {
       dispatch(failure(e.message));
     }
@@ -122,5 +154,8 @@ export const loading = (state: RootState) => state.livreResultat.loading;
 export const updating = (state: RootState) => state.livreResultat.updating;
 export const updateSuccess = (state: RootState) => state.livreResultat.updateSuccess;
 export const errorMessage = (state: RootState) => state.livreResultat.errorMessage;
+export const totalItems = (state: RootState) => state.livreResultat.totalItems;
+export const filter = (state: RootState) => state.livreResultat.filter;
+export const filterId = (state: RootState) => state.livreResultat.filterId;
 
 export default livreResultatSlice.reducer;

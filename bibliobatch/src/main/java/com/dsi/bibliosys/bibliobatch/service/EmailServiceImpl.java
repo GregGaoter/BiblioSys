@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailService {
 		return message;
 	}
 	
-	@Scheduled(fixedRate = 1000)
+	@Scheduled(fixedRate = 2000)
 	public void scheduleFixedRateTask() {
 		sendSimpleMessage("someone@localhost", "Test email", "Texte de l'email");
 	}

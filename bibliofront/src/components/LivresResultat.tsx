@@ -5,10 +5,19 @@ import { DataView, DataViewLayoutOptions } from "primereact/dataview";
 import { Dialog } from "primereact/dialog";
 import { Dropdown } from "primereact/dropdown";
 import React, { FC, useState } from "react";
+import Constants from "../app/Constants";
+import { LivreResultatFilter } from "../app/model/enumeration/LivreResultatFilter";
 import { ILivre } from "../app/model/LivreModel";
 import { ILivreResultat } from "../app/model/LivreResultatModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
-import { entities as livreResultatEntities } from "../app/store/slice/LivreResultatSlice";
+import {
+  entities as livreResultatEntities,
+  filter as livreResultatFilter,
+  filterId as livreResultatFilterId,
+  getEntitiesByRayonId as getLivreResultatEntitiesByRayonId,
+  getEntitiesByGenreId as getLivreResultatEntitiesByGenreId,
+  totalItems as livreResultatTotalItems,
+} from "../app/store/slice/LivreResultatSlice";
 import { CreateMutable } from "../app/type";
 import { dateToMonthNameYear } from "../app/Utils";
 
@@ -22,6 +31,7 @@ export const LivresResultat = () => {
   const [showResume, setShowResume] = useState<boolean>(false);
   const [showUnavailableFeature, setShowUnavailableFeature] = useState<boolean>(false);
   const [resume, setResume] = useState<string | undefined>(undefined);
+  const [first, setFirst] = useState<number>(0);
 
   const sortOptions = [
     { label: "Croissant", value: "titre" },
@@ -119,6 +129,25 @@ export const LivresResultat = () => {
     );
   };
 
+  const filter = useAppSelector(livreResultatFilter);
+  const filterId = useAppSelector(livreResultatFilterId);
+
+  const handlePage = (event: any) => {
+    // setFirst(event.first);
+    switch (filter) {
+      case LivreResultatFilter.BY_RAYON_ID:
+        dispatch(
+          getLivreResultatEntitiesByRayonId(filterId as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
+        );
+        break;
+      case LivreResultatFilter.BY_GENRE_ID:
+        dispatch(
+          getLivreResultatEntitiesByGenreId(filterId as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
+        );
+        break;
+    }
+  };
+
   const onSortChange = (event: any) => {
     setShowUnavailableFeature(true);
   };
@@ -141,16 +170,22 @@ export const LivresResultat = () => {
   return (
     <>
       <div className="card">
-        <DataView
-          value={useAppSelector(livreResultatEntities) as CreateMutable<ILivre[]>}
-          layout={layout}
-          header={header}
-          itemTemplate={itemTemplate}
-          paginator
-          rows={6}
-          sortOrder={sortOrder}
-          sortField={sortField}
-        />
+        <div className="p-d-flex p-flex-column">
+          <DataView
+            className="p-mb-2"
+            value={useAppSelector(livreResultatEntities) as CreateMutable<ILivre[]>}
+            layout={layout}
+            header={header}
+            itemTemplate={itemTemplate}
+            paginator
+            rows={Constants.LIVRES_RESULTAT_PAGE_SIZE}
+            // first={first}
+            totalRecords={useAppSelector(livreResultatTotalItems)}
+            onPage={handlePage}
+            sortOrder={sortOrder}
+            sortField={sortField}
+          />
+        </div>
       </div>
       <Dialog
         header="Résumé"

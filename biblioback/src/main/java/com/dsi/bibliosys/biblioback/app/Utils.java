@@ -1,6 +1,7 @@
 package com.dsi.bibliosys.biblioback.app;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpHeaders;
 
 import com.dsi.bibliosys.biblioback.app.exception.IllegalStringArgumentException;
 
@@ -44,6 +45,20 @@ public abstract class Utils {
 	 */
 	public static final String stringNormalize(@NonNull String str) {
 		return StringUtils.stripAccents(str.toLowerCase());
+	}
+
+	/**
+	 * Fournit le header "x-total-count"
+	 * 
+	 * @param totalCount
+	 * @return Le header "x-total-count"
+	 */
+	public static final HttpHeaders getTotalCountHeader(int totalCount, int filterId) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Access-Control-Expose-Headers", "x-total-count, x-filter-id");
+		headers.add("x-total-count", String.valueOf(totalCount));
+		headers.add("x-filter-id", String.valueOf(filterId));
+		return headers;
 	}
 
 }

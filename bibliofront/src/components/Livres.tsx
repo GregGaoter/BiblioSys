@@ -17,6 +17,7 @@ import { entities as genreEntities, getEntities as getGenreEntities } from "../a
 import { getEntitiesByRayonId as getLivreResultatEntitiesByRayonId } from "../app/store/slice/LivreResultatSlice";
 import { entities as rayonEntities, getEntities as getRayonEntities } from "../app/store/slice/RayonSlice";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import Constants from "../app/Constants";
 
 interface Option {
   label: string;
@@ -89,7 +90,7 @@ export const Livres = () => {
     })
   );
   const handleSelectedRayon = (rayon: IRayon): void => {
-    dispatch(getLivreResultatEntitiesByRayonId(rayon.id as number));
+    dispatch(getLivreResultatEntitiesByRayonId(rayon.id as number, 0, Constants.LIVRES_RESULTAT_PAGE_SIZE));
     history.push(LIVRES_RESULTAT_PATH);
   };
 

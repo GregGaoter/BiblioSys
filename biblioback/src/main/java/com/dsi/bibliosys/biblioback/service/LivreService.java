@@ -64,8 +64,8 @@ public class LivreService implements CrudService<Livre, Integer> {
 	}
 
 	public List<Livre> findByRayonId(Integer id) {
-		List<Genre> genres = genreRepository.findAll(rayonIdEqual(id));
-		return genres.stream().flatMap(genre -> findAll(genreIdEqual(genre.getId())).stream())
+		List<Genre> pageGenre = genreRepository.findAll(rayonIdEqual(id));
+		return pageGenre.stream().flatMap(genre -> findAll(genreIdEqual(genre.getId())).stream())
 				.collect(Collectors.toList());
 	}
 

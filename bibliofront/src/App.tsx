@@ -40,6 +40,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import logo32 from "./ressources/images/logo-32-32.png";
 import logo48 from "./ressources/images/logo-48-48.png";
 import { getEntitiesByGenreId as getLivreResultatEntitiesByGenreId } from "./app/store/slice/LivreResultatSlice";
+import Constants from "./app/Constants";
 
 library.add(
   faTheaterMasks,
@@ -115,7 +116,7 @@ function App() {
   }));
 
   const handleSelectedGenre = (genre: IGenre): void => {
-    dispatch(getLivreResultatEntitiesByGenreId(genre.id as number));
+    dispatch(getLivreResultatEntitiesByGenreId(genre.id as number, 0, Constants.LIVRES_RESULTAT_PAGE_SIZE));
     history.push(LIVRES_RESULTAT_PATH);
   };
 
