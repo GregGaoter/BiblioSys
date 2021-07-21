@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import Constants from "../../Constants";
 import { LivreResultatFilter } from "../../model/enumeration/LivreResultatFilter";
+import { ILivreCriteresRecherche } from "../../model/LivreCriteresRechercheModel";
 import { defaultValue, ILivreResultat } from "../../model/LivreResultatModel";
 import type { AppThunk, RootState } from "../store";
 
@@ -14,7 +15,7 @@ interface LivreResultatState {
   errorMessage: string | undefined;
   totalItems: number;
   filter: LivreResultatFilter | undefined;
-  filterId: number | undefined;
+  filterData: number | ILivreCriteresRecherche | undefined;
 }
 
 const initialState: Readonly<LivreResultatState> = {
@@ -26,7 +27,7 @@ const initialState: Readonly<LivreResultatState> = {
   errorMessage: undefined,
   totalItems: 0,
   filter: undefined,
-  filterId: undefined,
+  filterData: undefined,
 };
 
 // Reducer
@@ -55,21 +56,38 @@ const livreResultatSlice = createSlice({
       state.loading = false;
       state.totalItems = parseInt(action.payload.headers[Constants.TOTAL_COUNT_HEADER], 10);
       state.filter = undefined;
-      state.filterId = undefined;
+      state.filterData = undefined;
     },
     successGetEntitiesByRayonId: (state, action) => {
       state.entities = action.payload.data;
       state.loading = false;
       state.totalItems = parseInt(action.payload.headers[Constants.TOTAL_COUNT_HEADER], 10);
       state.filter = LivreResultatFilter.BY_RAYON_ID;
-      state.filterId = parseInt(action.payload.headers[Constants.FILTER_ID_HEADER], 10);
+      state.filterData = parseInt(action.payload.headers[Constants.FILTER_ID_HEADER], 10);
     },
     successGetEntitiesByGenreId: (state, action) => {
       state.entities = action.payload.data;
       state.loading = false;
       state.totalItems = parseInt(action.payload.headers[Constants.TOTAL_COUNT_HEADER], 10);
       state.filter = LivreResultatFilter.BY_GENRE_ID;
-      state.filterId = parseInt(action.payload.headers[Constants.FILTER_ID_HEADER], 10);
+      state.filterData = parseInt(action.payload.headers[Constants.FILTER_ID_HEADER], 10);
+    },
+    successGetEntitiesBySearchCriterias: (state, action) => {
+      state.entities = action.payload.data;
+      state.loading = false;
+      state.totalItems = parseInt(action.payload.headers[Constants.TOTAL_COUNT_HEADER], 10);
+      state.filter = LivreResultatFilter.BY_SEARCH_CRITERIAS;
+      state.filterData = {
+        bibliothequeNom: action.payload.headers[Constants.BIBLIOTHEQUE_NOM],
+        rayonNom: action.payload.headers[Constants.RAYON_NOM],
+        genreNom: action.payload.headers[Constants.GENRE_NOM],
+        livreTitre: action.payload.headers[Constants.LIVRE_TITRE],
+        livreAuteur: action.payload.headers[Constants.LIVRE_AUTEUR],
+        livreDateParution: [
+          action.payload.headers[Constants.LIVRE_DATE_PARUTION_START],
+          action.payload.headers[Constants.LIVRE_DATE_PARUTION_END],
+        ],
+      };
     },
     resetState: (state) => {
       state.entity = defaultValue;
@@ -91,6 +109,7 @@ const {
   successGetEntities,
   successGetEntitiesByRayonId,
   successGetEntitiesByGenreId,
+  successGetEntitiesBySearchCriterias,
   resetState,
 } = livreResultatSlice.actions;
 
@@ -142,6 +161,19 @@ export const getEntitiesByGenreId =
     }
   };
 
+export const getEntitiesBySearchCriterias =
+  (data: ILivreCriteresRecherche, first: number, size: number): AppThunk =>
+  async (dispatch: any) => {
+    dispatch(requestGetEntityEntities);
+    try {
+      await axios
+        .post<ILivreResultat>(`${baseUrl}/search-criterias?first=${first}&size=${size}`, data)
+        .then((response) => dispatch(successGetEntitiesBySearchCriterias(response)));
+    } catch (e) {
+      dispatch(failure(e.message));
+    }
+  };
+
 export const reset = () => (dispatch: any) => {
   dispatch(resetState);
 };
@@ -156,6 +188,6 @@ export const updateSuccess = (state: RootState) => state.livreResultat.updateSuc
 export const errorMessage = (state: RootState) => state.livreResultat.errorMessage;
 export const totalItems = (state: RootState) => state.livreResultat.totalItems;
 export const filter = (state: RootState) => state.livreResultat.filter;
-export const filterId = (state: RootState) => state.livreResultat.filterId;
+export const filterData = (state: RootState) => state.livreResultat.filterData;
 
 export default livreResultatSlice.reducer;

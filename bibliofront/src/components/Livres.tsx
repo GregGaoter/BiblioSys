@@ -3,9 +3,12 @@ import { Calendar } from "primereact/calendar";
 import { Card } from "primereact/card";
 import { Dropdown } from "primereact/dropdown";
 import { InputText } from "primereact/inputtext";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { LIVRES_RESULTAT_PATH } from "../App";
+import Constants from "../app/Constants";
+import { ILivreCriteresRecherche } from "../app/model/LivreCriteresRechercheModel";
 import { IRayon } from "../app/model/RayonModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
 import { entities as auteurEntities, getEntities as getAuteurEntities } from "../app/store/slice/AuteurSlice";
@@ -14,34 +17,27 @@ import {
   getEntities as getBibliothequeEntities,
 } from "../app/store/slice/BibliothequeSlice";
 import { entities as genreEntities, getEntities as getGenreEntities } from "../app/store/slice/GenreSlice";
-import { getEntitiesByRayonId as getLivreResultatEntitiesByRayonId } from "../app/store/slice/LivreResultatSlice";
+import {
+  getEntitiesByRayonId as getLivreResultatEntitiesByRayonId,
+  getEntitiesBySearchCriterias as getLivreResultatEntitiesBySearchCriterias,
+} from "../app/store/slice/LivreResultatSlice";
 import { entities as rayonEntities, getEntities as getRayonEntities } from "../app/store/slice/RayonSlice";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import Constants from "../app/Constants";
 
 interface Option {
   label: string;
   value: string;
 }
 
-interface Form {
-  bibliothequeNom: string;
-  rayonNom: string;
-  genreNom: string;
-  livreTitre: string;
-  livreAuteur: string;
-  livreDateParution: string;
-}
-
 export const Livres = () => {
   const dispatch = useAppDispatch();
+  const [livreDateParution, setLivreDateParution] = useState<Date | Date[] | undefined>(undefined);
   const hasBibliotheques = useRef(false);
   const hasRayons = useRef(false);
   const hasGenres = useRef(false);
   const hasAuteurs = useRef(false);
   const history = useHistory();
 
-  const { register, handleSubmit, control } = useForm<Form>();
+  const { handleSubmit, control } = useForm<ILivreCriteresRecherche>();
 
   useEffect(() => {
     if (!hasBibliotheques.current) {
@@ -94,7 +90,25 @@ export const Livres = () => {
     history.push(LIVRES_RESULTAT_PATH);
   };
 
-  const onSubmit: SubmitHandler<Form> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<ILivreCriteresRecherche> = (data) => {
+    let critereDateParution: string[];
+    if (!livreDateParution) {
+      critereDateParution = [];
+    } else if (livreDateParution && !Array.isArray(livreDateParution)) {
+      critereDateParution = [livreDateParution.toISOString(), livreDateParution.toISOString()];
+    } else {
+      critereDateParution = livreDateParution.map((date) => date.toISOString());
+    }
+
+    dispatch(
+      getLivreResultatEntitiesBySearchCriterias(
+        { ...data, livreDateParution: critereDateParution },
+        0,
+        Constants.LIVRES_RESULTAT_PAGE_SIZE
+      )
+    );
+    history.push(LIVRES_RESULTAT_PATH);
+  };
 
   return (
     <div className="p-grid">
@@ -117,59 +131,75 @@ export const Livres = () => {
       <div className="p-col-12">
         <Card title="Recherche avancée">
           <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="p-fluid p-formgrid p-grid">
-                <div className="p-field p-col-4">
-                  <label htmlFor="bibliothequeNom">Bibliothèque</label>
-                  <Controller
-                    name="bibliothequeNom"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => <Dropdown {...field} options={bibliothequeOptions} optionLabel="label" />}
-                  />
-                </div>
-                <div className="p-field p-col-4">
-                  <label htmlFor="rayon">Rayon</label>
-                  <Dropdown
-                    options={rayonOptions}
-                    filter
-                    showClear
-                    filterBy="label"
-                    placeholder="Tous"
-                    onChange={(e) => ""}
-                  />
-                </div>
-                <div className="p-field p-col-4">
-                  <label htmlFor="genre">Genre</label>
-                  <Dropdown
-                    options={genreOptions}
-                    filter
-                    showClear
-                    filterBy="label"
-                    placeholder="Tous"
-                    onChange={(e) => ""}
-                  />
-                </div>
-                <div className="p-field p-col-4">
-                  <label htmlFor="titre">Titre</label>
-                  <InputText />
-                </div>
-                <div className="p-field p-col-4">
-                  <label htmlFor="rayon">Auteur</label>
-                  <Dropdown
-                    options={auteurOptions}
-                    filter
-                    showClear
-                    filterBy="label"
-                    placeholder="Tous"
-                    onChange={(e) => ""}
-                  />
-                </div>
-                <div className="p-field p-col-4">
-                  <label htmlFor="genre">Date de parution</label>
-                  <Calendar id="range" onChange={(e) => ""} selectionMode="range" readOnlyInput />
-                </div>
+            <div className="p-fluid p-formgrid p-grid">
+              <div className="p-field p-col-4">
+                <label htmlFor="bibliothequeNom">Bibliothèque</label>
+                <Controller
+                  name="bibliothequeNom"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => <Dropdown {...field} options={bibliothequeOptions} optionLabel="label" />}
+                />
               </div>
-              <Button className="p-mt-2" type="submit" icon="pi pi-search" label="Rechercher" />
+              <div className="p-field p-col-4">
+                <label htmlFor="rayon">Rayon</label>
+                <Controller
+                  name="rayonNom"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <Dropdown {...field} options={rayonOptions} filter showClear filterBy="label" placeholder="Tous" />
+                  )}
+                />
+              </div>
+              <div className="p-field p-col-4">
+                <label htmlFor="genre">Genre</label>
+                <Controller
+                  name="genreNom"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <Dropdown {...field} options={genreOptions} filter showClear filterBy="label" placeholder="Tous" />
+                  )}
+                />
+              </div>
+              <div className="p-field p-col-4">
+                <label htmlFor="titre">Titre</label>
+                <Controller
+                  name="livreTitre"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => <InputText {...field} />}
+                />
+              </div>
+              <div className="p-field p-col-4">
+                <label htmlFor="rayon">Auteur</label>
+                <Controller
+                  name="livreAuteur"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <Dropdown {...field} options={auteurOptions} filter showClear filterBy="label" placeholder="Tous" />
+                  )}
+                />
+              </div>
+              <div className="p-field p-col-4">
+                <label htmlFor="genre">Date de parution</label>
+                <Calendar
+                  id="livreDateParution"
+                  value={livreDateParution}
+                  onChange={(e) => setLivreDateParution(e.value)}
+                  selectionMode="range"
+                  dateFormat="dd/mm/yy"
+                  monthNavigator
+                  yearNavigator
+                  yearRange={`1900:${new Date().getFullYear()}`}
+                  showButtonBar
+                  readOnlyInput
+                />
+              </div>
+            </div>
+            <Button className="p-mt-2" type="submit" icon="pi pi-search" label="Rechercher" />
           </form>
         </Card>
       </div>

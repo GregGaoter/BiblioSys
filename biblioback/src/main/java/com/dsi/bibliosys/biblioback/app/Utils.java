@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 
 import com.dsi.bibliosys.biblioback.app.exception.IllegalStringArgumentException;
+import com.dsi.bibliosys.biblioback.data.dto.LivreSearchCriteriasDto;
 
 import lombok.NonNull;
 
@@ -25,7 +26,7 @@ public abstract class Utils {
 	}
 
 	/**
-	 * Vérifie si le string blank ou empty.
+	 * Vérifie si le string est blank ou empty.
 	 * 
 	 * @param str String à vérifier
 	 * @throws IllegalStringArgumentException si le string est blank ou empty.
@@ -53,11 +54,29 @@ public abstract class Utils {
 	 * @param totalCount
 	 * @return Le header "x-total-count"
 	 */
-	public static final HttpHeaders getTotalCountHeader(int totalCount, int filterId) {
+	public static final HttpHeaders getTotalCountFilterIdHeaders(int totalCount, int filterId) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Access-Control-Expose-Headers", "x-total-count, x-filter-id");
 		headers.add("x-total-count", String.valueOf(totalCount));
 		headers.add("x-filter-id", String.valueOf(filterId));
+		return headers;
+	}
+
+	public static final HttpHeaders getSearchCriteriasHeaders(int totalCount,
+			LivreSearchCriteriasDto livreSearchCriteriasDto) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Access-Control-Expose-Headers",
+				"x-total-count,x-bibliotheque-nom,x-rayon-nom,x-genre-nom,x-livre-titre,x-livre-auteur,x-livre-date-parution-start,x-livre-date-parution-end");
+		headers.add("x-total-count", String.valueOf(totalCount));
+		headers.add("x-bibliotheque-nom", String.valueOf(livreSearchCriteriasDto.getBibliothequeNom()));
+		headers.add("x-rayon-nom", String.valueOf(livreSearchCriteriasDto.getRayonNom()));
+		headers.add("x-genre-nom", String.valueOf(livreSearchCriteriasDto.getGenreNom()));
+		headers.add("x-livre-titre", String.valueOf(livreSearchCriteriasDto.getLivreTitre()));
+		headers.add("x-livre-auteur", String.valueOf(livreSearchCriteriasDto.getLivreAuteur()));
+		headers.add("x-livre-date-parution-start", livreSearchCriteriasDto.getLivreDateParution().length == 0 ? null
+				: String.valueOf(livreSearchCriteriasDto.getLivreDateParution()[0]));
+		headers.add("x-livre-date-parution-end", livreSearchCriteriasDto.getLivreDateParution().length == 0 ? null
+				: String.valueOf(livreSearchCriteriasDto.getLivreDateParution()[1]));
 		return headers;
 	}
 

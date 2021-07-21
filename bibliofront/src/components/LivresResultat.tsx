@@ -7,15 +7,17 @@ import { Dropdown } from "primereact/dropdown";
 import React, { FC, useState } from "react";
 import Constants from "../app/Constants";
 import { LivreResultatFilter } from "../app/model/enumeration/LivreResultatFilter";
+import { ILivreCriteresRecherche } from "../app/model/LivreCriteresRechercheModel";
 import { ILivre } from "../app/model/LivreModel";
 import { ILivreResultat } from "../app/model/LivreResultatModel";
 import { useAppDispatch, useAppSelector } from "../app/store/hooks";
 import {
   entities as livreResultatEntities,
   filter as livreResultatFilter,
-  filterId as livreResultatFilterId,
-  getEntitiesByRayonId as getLivreResultatEntitiesByRayonId,
+  filterData as livreResultatFilterData,
   getEntitiesByGenreId as getLivreResultatEntitiesByGenreId,
+  getEntitiesByRayonId as getLivreResultatEntitiesByRayonId,
+  getEntitiesBySearchCriterias as getLivreResultatEntitiesBySearchCriterias,
   totalItems as livreResultatTotalItems,
 } from "../app/store/slice/LivreResultatSlice";
 import { CreateMutable } from "../app/type";
@@ -31,7 +33,6 @@ export const LivresResultat = () => {
   const [showResume, setShowResume] = useState<boolean>(false);
   const [showUnavailableFeature, setShowUnavailableFeature] = useState<boolean>(false);
   const [resume, setResume] = useState<string | undefined>(undefined);
-  const [first, setFirst] = useState<number>(0);
 
   const sortOptions = [
     { label: "Croissant", value: "titre" },
@@ -130,19 +131,28 @@ export const LivresResultat = () => {
   };
 
   const filter = useAppSelector(livreResultatFilter);
-  const filterId = useAppSelector(livreResultatFilterId);
+  const filterData = useAppSelector(livreResultatFilterData);
 
   const handlePage = (event: any) => {
     // setFirst(event.first);
     switch (filter) {
       case LivreResultatFilter.BY_RAYON_ID:
         dispatch(
-          getLivreResultatEntitiesByRayonId(filterId as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
+          getLivreResultatEntitiesByRayonId(filterData as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
         );
         break;
       case LivreResultatFilter.BY_GENRE_ID:
         dispatch(
-          getLivreResultatEntitiesByGenreId(filterId as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
+          getLivreResultatEntitiesByGenreId(filterData as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
+        );
+        break;
+      case LivreResultatFilter.BY_SEARCH_CRITERIAS:
+        dispatch(
+          getLivreResultatEntitiesBySearchCriterias(
+            filterData as ILivreCriteresRecherche,
+            event.first,
+            Constants.LIVRES_RESULTAT_PAGE_SIZE
+          )
         );
         break;
     }

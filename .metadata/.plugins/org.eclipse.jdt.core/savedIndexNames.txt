@@ -37,7 +37,6 @@ INDEX VERSION 1.131+C:\Users\gregg\Documents\openclassrooms\developpeur_applicat
 3919384771.index
 811650.index
 486959003.index
-2587507919.index
 2426039403.index
 3155194075.index
 2718515691.index

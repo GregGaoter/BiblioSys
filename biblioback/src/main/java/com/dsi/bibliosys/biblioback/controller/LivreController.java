@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dsi.bibliosys.biblioback.app.Utils;
 import com.dsi.bibliosys.biblioback.data.dto.LivreDto;
 import com.dsi.bibliosys.biblioback.data.dto.LivreResultatDto;
+import com.dsi.bibliosys.biblioback.data.dto.LivreSearchCriteriasDto;
 import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.mapper.LivreMapper;
+import com.dsi.bibliosys.biblioback.repository.specification.LivreSpecification;
 import com.dsi.bibliosys.biblioback.service.LivreService;
 
 import reactor.core.publisher.Flux;
@@ -201,8 +203,10 @@ public class LivreController {
 				.collect(Collectors.toList());
 		List<LivreResultatDto> livreResultatsDto = livreService.getLivreResultatsDto(livresDto);
 		return livreResultatsDto == null || livreResultatsDto.isEmpty() ? ResponseEntity.notFound().build()
-				: ResponseEntity.ok().headers(Utils.getTotalCountHeader(livreResultatsDto.size(), id))
-						.body(Flux.fromIterable(livreResultatsDto.subList(first, first + size)));
+				: ResponseEntity.ok().headers(Utils.getTotalCountFilterIdHeaders(livreResultatsDto.size(), id))
+						.body(Flux.fromIterable(livreResultatsDto.subList(first,
+								first + size > livreResultatsDto.size() - 1 ? livreResultatsDto.size() - 1
+										: first + size)));
 	}
 
 	/**
@@ -230,7 +234,30 @@ public class LivreController {
 				.collect(Collectors.toList());
 		List<LivreResultatDto> livreResultatsDto = livreService.getLivreResultatsDto(livresDto);
 		return livreResultatsDto == null || livreResultatsDto.isEmpty() ? ResponseEntity.notFound().build()
-				: ResponseEntity.ok().headers(Utils.getTotalCountHeader(livreResultatsDto.size(), id))
-						.body(Flux.fromIterable(livreResultatsDto.subList(first, first + size)));
+				: ResponseEntity.ok().headers(Utils.getTotalCountFilterIdHeaders(livreResultatsDto.size(), id))
+						.body(Flux.fromIterable(livreResultatsDto.subList(first,
+								first + size > livreResultatsDto.size() - 1 ? livreResultatsDto.size() - 1
+										: first + size)));
+	}
+
+	/**
+	 * Méthode exécutée à l'appel de l'URI POST "/livre/resultat/search-criterias".
+	 * 
+	 * @return Tous les LivreResultatDto selon les critères de recherche.
+	 */
+	@PostMapping("/resultat/search-criterias")
+	public ResponseEntity<Flux<LivreResultatDto>> readResultBySearchCriterias(
+			@RequestBody LivreSearchCriteriasDto livreSearchCriteriasDto, @RequestParam Integer first,
+			@RequestParam Integer size) {
+		List<LivreDto> livresDto = livreService
+				.findAll(LivreSpecification.searchCriteriasEqual(livreSearchCriteriasDto)).stream()
+				.map(livreMapper::mapToDto).collect(Collectors.toList());
+		List<LivreResultatDto> livreResultatsDto = livreService.getLivreResultatsDto(livresDto);
+		return livreResultatsDto == null || livreResultatsDto.isEmpty() ? ResponseEntity.notFound().build()
+				: ResponseEntity.ok()
+						.headers(Utils.getSearchCriteriasHeaders(livreResultatsDto.size(), livreSearchCriteriasDto))
+						.body(Flux.fromIterable(livreResultatsDto.subList(first,
+								first + size > livreResultatsDto.size() - 1 ? livreResultatsDto.size() - 1
+										: first + size)));
 	}
 }
