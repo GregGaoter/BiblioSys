@@ -1,7 +1,6 @@
 package com.dsi.bibliosys.biblioback.repository.specification;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -163,7 +162,6 @@ public class LivreSpecification {
 	}
 
 	public static Specification<Livre> searchCriteriasEqual(LivreSearchCriteriasDto criterias) {
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		List<LocalDateTime> datesParution = criterias.getLivreDateParution().length == 0 ? Arrays.asList(null, null)
 				: Arrays.stream(criterias.getLivreDateParution())
 						.map(date -> LocalDateTime.parse(date.replace("Z", ""))).sorted().collect(Collectors.toList());

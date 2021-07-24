@@ -7,6 +7,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dsi.bibliosys.biblioback.app.configuration.JwtTokenUtil;
 import com.dsi.bibliosys.biblioback.data.authentification.JwtReponse;
 import com.dsi.bibliosys.biblioback.data.authentification.JwtRequete;
+import com.dsi.bibliosys.biblioback.data.dto.UsagerDto;
+import com.dsi.bibliosys.biblioback.mapper.UsagerMapper;
 import com.dsi.bibliosys.biblioback.service.DetailsUtilisateurService;
+import com.dsi.bibliosys.biblioback.service.UsagerService;
 
 import lombok.NonNull;
+import reactor.core.publisher.Mono;
 
 /**
  * Cette classe contient l'API REST de l'authentification qui reçoit le nom
@@ -32,6 +37,10 @@ public class AuthentificationController {
 	private JwtTokenUtil jwtTokenUtil;
 	@Autowired
 	private DetailsUtilisateurService detailsUtilisateurService;
+	@Autowired
+	private UsagerService usagerService;
+	@Autowired
+	private UsagerMapper usagerMapper;
 
 	@PostMapping("/authentification")
 	public ResponseEntity<?> creerTokenAuthentification(@RequestBody JwtRequete requeteAuthentification)
@@ -51,6 +60,11 @@ public class AuthentificationController {
 		} catch (BadCredentialsException e) {
 			throw new Exception("Identifiants invalides", e);
 		}
+	}
+
+	@GetMapping("/authentification/usager")
+	public ResponseEntity<Mono<UsagerDto>> getAuthenticateUsager() {
+		return ResponseEntity.ok(Mono.just(usagerMapper.mapToDto(usagerService.findAuthenticateUsager())));
 	}
 
 }

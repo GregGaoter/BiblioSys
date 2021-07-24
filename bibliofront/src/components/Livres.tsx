@@ -197,6 +197,7 @@ export const Livres = () => {
                   showButtonBar
                   readOnlyInput
                 />
+                <small>Sélectionnez une plage de dates.</small>
               </div>
             </div>
             <Button className="p-mt-2" type="submit" icon="pi pi-search" label="Rechercher" />

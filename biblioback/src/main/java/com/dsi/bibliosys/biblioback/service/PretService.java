@@ -1,6 +1,9 @@
 package com.dsi.bibliosys.biblioback.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +31,10 @@ public class PretService implements CrudService<Pret, Integer> {
 	@Override
 	public Pret create() {
 		return new Pret();
+	}
+
+	public List<Pret> findAll(Specification<Pret> spec) {
+		return pretRepository.findAll(spec);
 	}
 
 }

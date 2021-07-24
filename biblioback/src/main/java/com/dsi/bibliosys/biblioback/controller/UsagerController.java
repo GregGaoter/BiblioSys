@@ -1,5 +1,6 @@
 package com.dsi.bibliosys.biblioback.controller;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,9 +15,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dsi.bibliosys.biblioback.data.dto.AdresseDto;
+import com.dsi.bibliosys.biblioback.data.dto.CurrentUsagerDto;
+import com.dsi.bibliosys.biblioback.data.dto.EmpruntsResultatDto;
+import com.dsi.bibliosys.biblioback.data.dto.IdentifiantDto;
+import com.dsi.bibliosys.biblioback.data.dto.LieuDto;
 import com.dsi.bibliosys.biblioback.data.dto.UsagerDto;
+import com.dsi.bibliosys.biblioback.data.entity.Pret;
 import com.dsi.bibliosys.biblioback.data.entity.Usager;
+import com.dsi.bibliosys.biblioback.mapper.AdresseMapper;
+import com.dsi.bibliosys.biblioback.mapper.IdentifiantMapper;
+import com.dsi.bibliosys.biblioback.mapper.LieuMapper;
 import com.dsi.bibliosys.biblioback.mapper.UsagerMapper;
+import com.dsi.bibliosys.biblioback.repository.specification.EcritureLivreSpecification;
+import com.dsi.bibliosys.biblioback.repository.specification.PretSpecification;
+import com.dsi.bibliosys.biblioback.service.AdresseService;
+import com.dsi.bibliosys.biblioback.service.EcritureLivreService;
+import com.dsi.bibliosys.biblioback.service.IdentifiantService;
+import com.dsi.bibliosys.biblioback.service.LieuService;
+import com.dsi.bibliosys.biblioback.service.PretService;
 import com.dsi.bibliosys.biblioback.service.UsagerService;
 
 import reactor.core.publisher.Flux;
@@ -36,10 +53,58 @@ public class UsagerController {
 	private UsagerService usagerService;
 
 	/**
+	 * Service de l'entité business Usager.
+	 */
+	@Autowired
+	private PretService pretService;
+
+	/**
+	 * Service de l'entité business Identifiant.
+	 */
+	@Autowired
+	private IdentifiantService identifiantService;
+
+	/**
+	 * Service de l'entité business Adresse.
+	 */
+	@Autowired
+	private AdresseService adresseService;
+
+	/**
+	 * Service de l'entité business Lieu.
+	 */
+	@Autowired
+	private LieuService lieuService;
+
+	/**
+	 * Service de l'entité business EcritureLivre.
+	 */
+	@Autowired
+	private EcritureLivreService ecritureLivreService;
+
+	/**
 	 * Mapper entre l'entité business Usager et l'entité DTO UsagerDto.
 	 */
 	@Autowired
 	private UsagerMapper usagerMapper;
+
+	/**
+	 * Mapper entre l'entité business Identifiant et l'entité DTO IdentifiantDto.
+	 */
+	@Autowired
+	private IdentifiantMapper identifiantMapper;
+
+	/**
+	 * Mapper entre l'entité business Adresse et l'entité DTO AdresseDto.
+	 */
+	@Autowired
+	private AdresseMapper adresseMapper;
+
+	/**
+	 * Mapper entre l'entité business Lieu et l'entité DTO LieuDto.
+	 */
+	@Autowired
+	private LieuMapper lieuMapper;
 
 	// =====================================
 	// --- GET
@@ -133,5 +198,65 @@ public class UsagerController {
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		usagerService.deleteById(id);
 		return ResponseEntity.ok().build();
+	}
+
+	/**
+	 * Méthode exécutée à l'appel de l'URI GET "/usager/emprunts".
+	 * 
+	 * @return Tous les EmpruntsResultatDto.
+	 */
+	@GetMapping("/emprunts")
+	public ResponseEntity<Flux<EmpruntsResultatDto>> readEmprunts() {
+		Usager usager = usagerService.findAuthenticateUsager();
+		List<Pret> prets = pretService.findAll(PretSpecification.usagerEqual(usager));
+		List<EmpruntsResultatDto> emprunts = prets.stream().map(pret -> {
+			List<String> auteursPrenomNom = ecritureLivreService
+					.findAll(EcritureLivreSpecification.livreIdEqual(pret.getLivre().getId())).stream()
+					.map(ecritureLivre -> ecritureLivre.getAuteur().getPrenomNom()).collect(Collectors.toList());
+			EmpruntsResultatDto empruntsResultatDto = new EmpruntsResultatDto();
+			empruntsResultatDto.setBibliotheque(pret.getLivre().getBibliotheque().getNom());
+			empruntsResultatDto.setTitre(pret.getLivre().getTitre());
+			empruntsResultatDto.setAuteursPrenomNom(auteursPrenomNom);
+			;
+			empruntsResultatDto.setDateRetour(pret.getDatePret().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+			empruntsResultatDto.setProlongations(pret.getNbProlongations());
+			empruntsResultatDto.setRelances(pret.getNbRelances());
+			return empruntsResultatDto;
+		}).collect(Collectors.toList());
+		return emprunts == null || emprunts.isEmpty() ? ResponseEntity.notFound().build()
+				: ResponseEntity.ok(Flux.fromIterable(emprunts));
+	}
+
+	/**
+	 * Méthode exécutée à l'appel de l'URI GET "/usager/current".
+	 * 
+	 * @return CurrentUsagerDto authentifié.
+	 */
+	@GetMapping("/current")
+	public ResponseEntity<Mono<CurrentUsagerDto>> readCurrent() {
+		UsagerDto usagerDto = usagerMapper.mapToDto(usagerService.findAuthenticateUsager());
+		IdentifiantDto identifiantDto = identifiantMapper
+				.mapToDto(identifiantService.findById(usagerDto.getIdentifiantId()));
+		AdresseDto adresseDto = adresseMapper.mapToDto(adresseService.findById(usagerDto.getAdresseId()));
+		LieuDto lieuDto = lieuMapper.mapToDto(lieuService.findById(adresseDto.getLieuId()));
+
+		CurrentUsagerDto currentUsagerDto = new CurrentUsagerDto();
+		currentUsagerDto.setUsagerId(usagerDto.getId());
+		currentUsagerDto.setPrenom(usagerDto.getPrenom());
+		currentUsagerDto.setNom(usagerDto.getNom());
+		currentUsagerDto.setDateNaissance(usagerDto.getDateNaissance());
+		currentUsagerDto.setIdentifiantId(identifiantDto.getId());
+		currentUsagerDto.setEmail(identifiantDto.getEmail());
+		currentUsagerDto.setIsActif(identifiantDto.getIsActif());
+		currentUsagerDto.setAdresseId(adresseDto.getId());
+		currentUsagerDto.setNumeroRue(adresseDto.getNumeroRue());
+		currentUsagerDto.setRue(adresseDto.getRue());
+		currentUsagerDto.setLieuId(lieuDto.getId());
+		currentUsagerDto.setRegion(lieuDto.getRegion());
+		currentUsagerDto.setDepartement(lieuDto.getDepartement());
+		currentUsagerDto.setCodePostal(lieuDto.getCodePostal());
+		currentUsagerDto.setVille(lieuDto.getVille());
+
+		return usagerDto == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(Mono.just(currentUsagerDto));
 	}
 }

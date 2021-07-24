@@ -1,6 +1,9 @@
 package com.dsi.bibliosys.biblioback.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +31,10 @@ public class EcritureLivreService implements CrudService<EcritureLivre, Integer>
 	@Override
 	public EcritureLivre create() {
 		return new EcritureLivre();
+	}
+	
+	public List<EcritureLivre> findAll(Specification<EcritureLivre> spec){
+		return ecritureLivreRepository.findAll(spec);
 	}
 
 }

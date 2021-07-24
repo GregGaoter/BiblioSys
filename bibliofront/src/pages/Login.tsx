@@ -4,10 +4,13 @@ import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useAppDispatch } from "../app/store/hooks";
 import logo from "../ressources/images/logo-128-128.png";
+import { getEntity as getCurrentUsagerEntity } from "../app/store/slice/CurrentUsagerSlice";
 
 const Login = () => {
   const history = useHistory();
+  const dispatch = useAppDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +21,7 @@ const Login = () => {
 
     axios.post(endpoint, credentials).then((reponse) => {
       localStorage.setItem("BIBLIOSYS-AUTHORIZATION", reponse.data.token);
+      dispatch(getCurrentUsagerEntity());
       history.push("/accueil");
     });
   };

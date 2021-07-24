@@ -4,6 +4,7 @@ import {
   faChartLine,
   faCogs,
   faDragon,
+  faEye,
   faGamepad,
   faGlobeEurope,
   faGraduationCap,
@@ -19,8 +20,8 @@ import {
   faUserFriends,
   faUtensils,
   faYinYang,
-  faEye,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
 import { TieredMenu } from "primereact/tieredmenu";
@@ -28,19 +29,21 @@ import React, { useEffect, useRef } from "react";
 import { useHistory } from "react-router";
 import { Switch } from "react-router-dom";
 import "./App.css";
+import Constants from "./app/Constants";
 import { IGenre } from "./app/model/GenreModel";
 import { useAppDispatch, useAppSelector } from "./app/store/hooks";
 import { entities as genreEntities, getEntities as getGenreEntities } from "./app/store/slice/GenreSlice";
+import { getEntitiesByGenreId as getLivreResultatEntitiesByGenreId } from "./app/store/slice/LivreResultatSlice";
 import { entities as rayonEntities, getEntities as getRayonEntities } from "./app/store/slice/RayonSlice";
 import { Accueil } from "./components/Accueil";
 import { Bibliotheques } from "./components/Bibliotheques";
+import { Compte } from "./components/Compte";
+import { Emprunts } from "./components/Emprunts";
 import { Livres } from "./components/Livres";
 import { LivresResultat } from "./components/LivresResultat";
 import { PrivateRoute } from "./PrivateRoute";
 import logo32 from "./ressources/images/logo-32-32.png";
 import logo48 from "./ressources/images/logo-48-48.png";
-import { getEntitiesByGenreId as getLivreResultatEntitiesByGenreId } from "./app/store/slice/LivreResultatSlice";
-import Constants from "./app/Constants";
 
 library.add(
   faTheaterMasks,
@@ -62,7 +65,7 @@ library.add(
   faLaptopCode,
   faChartLine,
   faGraduationCap,
-  faEye,
+  faEye
 );
 
 export const ROOT_PATH = "/";
@@ -70,6 +73,8 @@ export const ACCUEIL_PATH = "/accueil";
 export const BIBLIOTHEQUES_PATH = "/bibliotheques";
 export const LIVRES_PATH = "/livres";
 export const LIVRES_RESULTAT_PATH = "/livres/resultat";
+export const COMPTE_PATH = "/compte";
+export const EMPRUNTS_PATH = "/emprunts";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -90,6 +95,8 @@ function App() {
     { path: BIBLIOTHEQUES_PATH, component: Bibliotheques, exact: true },
     { path: LIVRES_PATH, component: Livres, exact: true },
     { path: LIVRES_RESULTAT_PATH, component: LivresResultat, exact: true },
+    { path: COMPTE_PATH, component: Compte, exact: true },
+    { path: EMPRUNTS_PATH, component: Emprunts, exact: true },
   ];
 
   const goToPath = (path: string): void => {
@@ -167,8 +174,20 @@ function App() {
   ];
 
   const avatarMenuItems = [
-    { label: "Mon compte", icon: "pi pi-user" },
-    { label: "Mes emprunts", icon: "pi pi-book" },
+    {
+      label: "Mon compte",
+      icon: "pi pi-user",
+      command: () => {
+        goToPath(COMPTE_PATH);
+      },
+    },
+    {
+      label: "Mes emprunts",
+      icon: "pi pi-book",
+      command: () => {
+        goToPath(EMPRUNTS_PATH);
+      },
+    },
     { separator: true },
     {
       label: "Se déconnecter",
@@ -218,7 +237,7 @@ function App() {
                 />
                 <div>Biblillonie</div>
               </div>
-              <div>© DSI - 2021</div>
+              <div>{`© DSI - ${new Date().getFullYear()}`}</div>
             </div>
           </div>
         </div>

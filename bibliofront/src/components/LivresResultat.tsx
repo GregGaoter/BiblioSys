@@ -226,10 +226,10 @@ interface ICBadge {
 const CBadge: FC<ICBadge> = ({ nbExemplaires }) => {
   switch (nbExemplaires) {
     case 0:
-      return <Badge value="Indisponible" severity="danger"></Badge>;
+      return <Badge value={`${nbExemplaires} exemplaires`} severity="danger"></Badge>;
     case 1:
-      return <Badge value="1 exemplaire" severity="warning"></Badge>;
+      return <Badge value={`${nbExemplaires} exemplaire`} severity="warning"></Badge>;
     default:
-      return <Badge value="Disponible" severity="success"></Badge>;
+      return <Badge value={`${nbExemplaires} exemplaires`} severity="success"></Badge>;
   }
 };
