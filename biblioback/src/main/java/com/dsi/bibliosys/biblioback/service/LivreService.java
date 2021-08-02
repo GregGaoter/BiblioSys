@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -61,6 +63,10 @@ public class LivreService implements CrudService<Livre, Integer> {
 
 	public List<Livre> findAll(Specification<Livre> spec) {
 		return livreRepository.findAll(spec);
+	}
+
+	public Page<Livre> findAll(Specification<Livre> spec, Pageable pageable) {
+		return livreRepository.findAll(spec, pageable);
 	}
 
 	public List<Livre> findByRayonId(Integer id) {

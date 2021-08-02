@@ -4,6 +4,7 @@ import { Card } from "primereact/card";
 import { DataView, DataViewLayoutOptions } from "primereact/dataview";
 import { Dialog } from "primereact/dialog";
 import { Dropdown } from "primereact/dropdown";
+import { Paginator } from "primereact/paginator";
 import React, { FC, useState } from "react";
 import Constants from "../app/Constants";
 import { LivreResultatFilter } from "../app/model/enumeration/LivreResultatFilter";
@@ -33,6 +34,8 @@ export const LivresResultat = () => {
   const [showResume, setShowResume] = useState<boolean>(false);
   const [showUnavailableFeature, setShowUnavailableFeature] = useState<boolean>(false);
   const [resume, setResume] = useState<string | undefined>(undefined);
+  const [first, setFirst] = useState<number>(0);
+  const [page, setPage] = useState<number>(0);
 
   const sortOptions = [
     { label: "Croissant", value: "titre" },
@@ -65,7 +68,6 @@ export const LivresResultat = () => {
           <Button className="p-button-rounded p-button-help" onClick={() => handleShowResume(data.livre?.resume)}>
             <i className="pi pi-eye" style={{ fontSize: "1.5em" }} />
           </Button>
-          <Button icon="pi pi-book" label="Emprunter" disabled={data.livre?.nbExemplaires === 0} />
         </div>
       </div>
     </div>
@@ -75,15 +77,11 @@ export const LivresResultat = () => {
     <div className="p-col-4">
       <Card className="p-m-2">
         <div className="p-d-flex p-flex-column">
-          <div className="p-d-flex p-jc-between p-mb-4">
-            <div className="p-d-flex p-flex-column">
-              <div className="p-mt-auto">{`EAN13 : ${data.livre?.ean13}`}</div>
-              <div>{`Parution : ${dateToMonthNameYear(data.livre?.dateParution)}`}</div>
-            </div>
-            <div className="p-d-flex p-flex-column p-ai-end">
-              <CBadge nbExemplaires={data.livre?.nbExemplaires}></CBadge>
-              <div>{`${data.livre?.nbPages} pages`}</div>
-            </div>
+          <div className="p-d-flex p-jc-between p-ai-center p-mb-4">
+            <Button className="p-button-rounded p-button-help" onClick={() => handleShowResume(data.livre?.resume)}>
+              <i className="pi pi-eye" style={{ fontSize: "1.5em" }} />
+            </Button>
+            <CBadge nbExemplaires={data.livre?.nbExemplaires}></CBadge>
           </div>
           <img
             className="p-shadow-6 p-as-center p-mb-3"
@@ -98,11 +96,12 @@ export const LivresResultat = () => {
           <h4 className="p-mb-2 p-as-center">{data.livre?.titre}</h4>
           <h5 className="p-mb-2 p-as-center">{data.auteur?.prenomNom}</h5>
           <h6 className="p-mb-4 p-as-center">{data.editeur?.nom}</h6>
-          <div className="p-d-flex p-jc-between">
-            <Button className="p-button-rounded p-button-help" onClick={() => handleShowResume(data.livre?.resume)}>
-              <i className="pi pi-eye" style={{ fontSize: "1.5em" }} />
-            </Button>
-            <Button icon="pi pi-book" label="Emprunter" disabled={data.livre?.nbExemplaires === 0} />
+          <div className="p-d-flex p-jc-between p-ai-end">
+            <div className="p-d-flex p-flex-column">
+              <div className="p-mt-auto">{`EAN13 : ${data.livre?.ean13}`}</div>
+              <div>{`Parution : ${dateToMonthNameYear(data.livre?.dateParution)}`}</div>
+            </div>
+            <div>{`${data.livre?.nbPages} pages`}</div>
           </div>
         </div>
       </Card>
@@ -133,24 +132,24 @@ export const LivresResultat = () => {
   const filter = useAppSelector(livreResultatFilter);
   const filterData = useAppSelector(livreResultatFilterData);
 
-  const handlePage = (event: any) => {
-    // setFirst(event.first);
+  const handlePageChange = (event: any) => {
+    setFirst(event.first);
     switch (filter) {
       case LivreResultatFilter.BY_RAYON_ID:
         dispatch(
-          getLivreResultatEntitiesByRayonId(filterData as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
+          getLivreResultatEntitiesByRayonId(filterData as number, event.page, Constants.LIVRES_RESULTAT_PAGE_SIZE)
         );
         break;
       case LivreResultatFilter.BY_GENRE_ID:
         dispatch(
-          getLivreResultatEntitiesByGenreId(filterData as number, event.first, Constants.LIVRES_RESULTAT_PAGE_SIZE)
+          getLivreResultatEntitiesByGenreId(filterData as number, event.page, Constants.LIVRES_RESULTAT_PAGE_SIZE)
         );
         break;
       case LivreResultatFilter.BY_SEARCH_CRITERIAS:
         dispatch(
           getLivreResultatEntitiesBySearchCriterias(
             filterData as ILivreCriteresRecherche,
-            event.first,
+            event.page,
             Constants.LIVRES_RESULTAT_PAGE_SIZE
           )
         );
@@ -187,14 +186,17 @@ export const LivresResultat = () => {
             layout={layout}
             header={header}
             itemTemplate={itemTemplate}
-            paginator
-            rows={Constants.LIVRES_RESULTAT_PAGE_SIZE}
-            // first={first}
-            totalRecords={useAppSelector(livreResultatTotalItems)}
-            onPage={handlePage}
             sortOrder={sortOrder}
             sortField={sortField}
           />
+          <Paginator
+            first={first}
+            rows={Constants.LIVRES_RESULTAT_PAGE_SIZE}
+            totalRecords={useAppSelector(livreResultatTotalItems)}
+            template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport"
+            currentPageReportTemplate="{first} - {last} sur {totalRecords}"
+            onPageChange={handlePageChange}
+          ></Paginator>
         </div>
       </div>
       <Dialog

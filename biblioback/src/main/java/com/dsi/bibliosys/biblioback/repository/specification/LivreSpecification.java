@@ -21,7 +21,7 @@ import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.data.entity.Rayon;
 
 public class LivreSpecification {
-
+	
 	public static Specification<Livre> bibliothequeIdEqual(Integer id) {
 		return (root, query, builder) -> {
 			return id == null ? null : builder.equal(root.get(Livre.BIBLIOTHEQUE), id);
@@ -54,11 +54,11 @@ public class LivreSpecification {
 			Subquery<Integer> subqueryRayon = query.subquery(Integer.class);
 			Root<Rayon> rootRayon = subqueryRayon.from(Rayon.class);
 			Subquery<Integer> subqueryGenre = query.subquery(Integer.class);
-			Root<Genre> rootGenre = subqueryRayon.from(Genre.class);
+			Root<Genre> rootGenre = subqueryGenre.from(Genre.class);
 
 			subqueryRayon.select(rootRayon.get(Rayon.ID))
 					.where(RayonSpecification.idEqual(id).toPredicate(rootRayon, query, builder));
-			subqueryGenre.select(rootGenre.get(Genre.RAYON)).where(rootGenre.get(Genre.RAYON).in(subqueryRayon));
+			subqueryGenre.select(rootGenre.get(Genre.ID)).where(rootGenre.get(Genre.RAYON).in(subqueryRayon));
 			query.where(root.get(Livre.GENRE).in(subqueryGenre));
 
 			return query.getRestriction();
@@ -78,7 +78,7 @@ public class LivreSpecification {
 
 			subqueryRayon.select(rootRayon.get(Rayon.ID))
 					.where(RayonSpecification.nomEqual(rayonNom).toPredicate(rootRayon, query, builder));
-			subqueryGenre.select(rootGenre.get(Genre.RAYON)).where(rootGenre.get(Genre.RAYON).in(subqueryRayon));
+			subqueryGenre.select(rootGenre.get(Genre.ID)).where(rootGenre.get(Genre.RAYON).in(subqueryRayon));
 			query.where(root.get(Livre.GENRE).in(subqueryGenre));
 
 			return query.getRestriction();

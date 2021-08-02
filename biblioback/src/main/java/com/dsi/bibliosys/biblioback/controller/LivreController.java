@@ -1,9 +1,15 @@
 package com.dsi.bibliosys.biblioback.controller;
 
+import static com.dsi.bibliosys.biblioback.repository.specification.LivreSpecification.genreIdEqual;
+import static com.dsi.bibliosys.biblioback.repository.specification.LivreSpecification.rayonIdEqual;
+import static com.dsi.bibliosys.biblioback.repository.specification.LivreSpecification.searchCriteriasEqual;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +28,6 @@ import com.dsi.bibliosys.biblioback.data.dto.LivreResultatDto;
 import com.dsi.bibliosys.biblioback.data.dto.LivreSearchCriteriasDto;
 import com.dsi.bibliosys.biblioback.data.entity.Livre;
 import com.dsi.bibliosys.biblioback.mapper.LivreMapper;
-import com.dsi.bibliosys.biblioback.repository.specification.LivreSpecification;
 import com.dsi.bibliosys.biblioback.service.LivreService;
 
 import reactor.core.publisher.Flux;
@@ -183,10 +188,10 @@ public class LivreController {
 	 * @return Tous les LivreDto du rayon spécifié.
 	 */
 	@GetMapping("/rayon/{id}")
-	public ResponseEntity<Flux<LivreDto>> readByRayonId(@PathVariable Integer id, @RequestParam Integer first,
+	public ResponseEntity<Flux<LivreDto>> readByRayonId(@PathVariable Integer id, @RequestParam Integer page,
 			@RequestParam Integer size) {
-		List<LivreDto> livresDto = livreService.findByRayonId(id).stream().map(livreMapper::mapToDto)
-				.collect(Collectors.toList());
+		Page<Livre> pageLivre = livreService.findAll(rayonIdEqual(id), PageRequest.of(page, size));
+		List<LivreDto> livresDto = pageLivre.get().map(livreMapper::mapToDto).collect(Collectors.toList());
 		return livresDto == null || livresDto.isEmpty() ? ResponseEntity.notFound().build()
 				: ResponseEntity.ok(Flux.fromIterable(livresDto));
 	}
@@ -198,15 +203,13 @@ public class LivreController {
 	 */
 	@GetMapping("/resultat/rayon/{id}")
 	public ResponseEntity<Flux<LivreResultatDto>> readResultByRayonId(@PathVariable Integer id,
-			@RequestParam Integer first, @RequestParam Integer size) {
-		List<LivreDto> livresDto = livreService.findByRayonId(id).stream().map(livreMapper::mapToDto)
-				.collect(Collectors.toList());
+			@RequestParam Integer page, @RequestParam Integer size) {
+		Page<Livre> pageLivre = livreService.findAll(rayonIdEqual(id), PageRequest.of(page, size));
+		List<LivreDto> livresDto = pageLivre.get().map(livreMapper::mapToDto).collect(Collectors.toList());
 		List<LivreResultatDto> livreResultatsDto = livreService.getLivreResultatsDto(livresDto);
 		return livreResultatsDto == null || livreResultatsDto.isEmpty() ? ResponseEntity.notFound().build()
-				: ResponseEntity.ok().headers(Utils.getTotalCountFilterIdHeaders(livreResultatsDto.size(), id))
-						.body(Flux.fromIterable(livreResultatsDto.subList(first,
-								first + size > livreResultatsDto.size() - 1 ? livreResultatsDto.size() - 1
-										: first + size)));
+				: ResponseEntity.ok().headers(Utils.getTotalCountFilterIdHeaders(pageLivre.getTotalElements(), id))
+						.body(Flux.fromIterable(livreResultatsDto));
 	}
 
 	/**
@@ -215,9 +218,10 @@ public class LivreController {
 	 * @return Tous les LivreDto du genre spécifié.
 	 */
 	@GetMapping("/genre/{id}")
-	public ResponseEntity<Flux<LivreDto>> readByGenreId(@PathVariable Integer id) {
-		List<LivreDto> livresDto = livreService.findByGenreId(id).stream().map(livreMapper::mapToDto)
-				.collect(Collectors.toList());
+	public ResponseEntity<Flux<LivreDto>> readByGenreId(@PathVariable Integer id, @RequestParam Integer page,
+			@RequestParam Integer size) {
+		Page<Livre> pageLivre = livreService.findAll(genreIdEqual(id), PageRequest.of(page, size));
+		List<LivreDto> livresDto = pageLivre.get().map(livreMapper::mapToDto).collect(Collectors.toList());
 		return livresDto == null || livresDto.isEmpty() ? ResponseEntity.notFound().build()
 				: ResponseEntity.ok(Flux.fromIterable(livresDto));
 	}
@@ -229,15 +233,13 @@ public class LivreController {
 	 */
 	@GetMapping("/resultat/genre/{id}")
 	public ResponseEntity<Flux<LivreResultatDto>> readResultByGenreId(@PathVariable Integer id,
-			@RequestParam Integer first, @RequestParam Integer size) {
-		List<LivreDto> livresDto = livreService.findByGenreId(id).stream().map(livreMapper::mapToDto)
-				.collect(Collectors.toList());
+			@RequestParam Integer page, @RequestParam Integer size) {
+		Page<Livre> pageLivre = livreService.findAll(genreIdEqual(id), PageRequest.of(page, size));
+		List<LivreDto> livresDto = pageLivre.get().map(livreMapper::mapToDto).collect(Collectors.toList());
 		List<LivreResultatDto> livreResultatsDto = livreService.getLivreResultatsDto(livresDto);
 		return livreResultatsDto == null || livreResultatsDto.isEmpty() ? ResponseEntity.notFound().build()
-				: ResponseEntity.ok().headers(Utils.getTotalCountFilterIdHeaders(livreResultatsDto.size(), id))
-						.body(Flux.fromIterable(livreResultatsDto.subList(first,
-								first + size > livreResultatsDto.size() - 1 ? livreResultatsDto.size() - 1
-										: first + size)));
+				: ResponseEntity.ok().headers(Utils.getTotalCountFilterIdHeaders(pageLivre.getTotalElements(), id))
+						.body(Flux.fromIterable(livreResultatsDto));
 	}
 
 	/**
@@ -247,17 +249,15 @@ public class LivreController {
 	 */
 	@PostMapping("/resultat/search-criterias")
 	public ResponseEntity<Flux<LivreResultatDto>> readResultBySearchCriterias(
-			@RequestBody LivreSearchCriteriasDto livreSearchCriteriasDto, @RequestParam Integer first,
+			@RequestBody LivreSearchCriteriasDto livreSearchCriteriasDto, @RequestParam Integer page,
 			@RequestParam Integer size) {
-		List<LivreDto> livresDto = livreService
-				.findAll(LivreSpecification.searchCriteriasEqual(livreSearchCriteriasDto)).stream()
-				.map(livreMapper::mapToDto).collect(Collectors.toList());
+		Page<Livre> pageLivre = livreService.findAll(searchCriteriasEqual(livreSearchCriteriasDto),
+				PageRequest.of(page, size));
+		List<LivreDto> livresDto = pageLivre.get().map(livreMapper::mapToDto).collect(Collectors.toList());
 		List<LivreResultatDto> livreResultatsDto = livreService.getLivreResultatsDto(livresDto);
 		return livreResultatsDto == null || livreResultatsDto.isEmpty() ? ResponseEntity.notFound().build()
 				: ResponseEntity.ok()
-						.headers(Utils.getSearchCriteriasHeaders(livreResultatsDto.size(), livreSearchCriteriasDto))
-						.body(Flux.fromIterable(livreResultatsDto.subList(first,
-								first + size > livreResultatsDto.size() - 1 ? livreResultatsDto.size() - 1
-										: first + size)));
+						.headers(Utils.getSearchCriteriasHeaders(pageLivre.getTotalElements(), livreSearchCriteriasDto))
+						.body(Flux.fromIterable(livreResultatsDto));
 	}
 }

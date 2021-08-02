@@ -136,12 +136,12 @@ export const getEntities = (): AppThunk => async (dispatch: any) => {
 };
 
 export const getEntitiesByRayonId =
-  (id: number, first: number, size: number): AppThunk =>
+  (id: number, page: number, size: number): AppThunk =>
   async (dispatch: any) => {
     dispatch(requestGetEntityEntities);
     try {
       await axios
-        .get<ILivreResultat>(`${baseUrl}/rayon/${id}?first=${first}&size=${size}`)
+        .get<ILivreResultat>(`${baseUrl}/rayon/${id}?page=${page}&size=${size}`)
         .then((response) => dispatch(successGetEntitiesByRayonId(response)));
     } catch (e) {
       dispatch(failure(e.message));
@@ -149,12 +149,12 @@ export const getEntitiesByRayonId =
   };
 
 export const getEntitiesByGenreId =
-  (id: number, first: number, size: number): AppThunk =>
+  (id: number, page: number, size: number): AppThunk =>
   async (dispatch: any) => {
     dispatch(requestGetEntityEntities);
     try {
       await axios
-        .get<ILivreResultat>(`${baseUrl}/genre/${id}?first=${first}&size=${size}`)
+        .get<ILivreResultat>(`${baseUrl}/genre/${id}?page=${page}&size=${size}`)
         .then((response) => dispatch(successGetEntitiesByGenreId(response)));
     } catch (e) {
       dispatch(failure(e.message));
@@ -162,12 +162,12 @@ export const getEntitiesByGenreId =
   };
 
 export const getEntitiesBySearchCriterias =
-  (data: ILivreCriteresRecherche, first: number, size: number): AppThunk =>
+  (data: ILivreCriteresRecherche, page: number, size: number): AppThunk =>
   async (dispatch: any) => {
     dispatch(requestGetEntityEntities);
     try {
       await axios
-        .post<ILivreResultat>(`${baseUrl}/search-criterias?first=${first}&size=${size}`, data)
+        .post<ILivreResultat>(`${baseUrl}/search-criterias?page=${page}&size=${size}`, data)
         .then((response) => dispatch(successGetEntitiesBySearchCriterias(response)));
     } catch (e) {
       dispatch(failure(e.message));

@@ -54,7 +54,7 @@ public abstract class Utils {
 	 * @param totalCount
 	 * @return Le header "x-total-count"
 	 */
-	public static final HttpHeaders getTotalCountFilterIdHeaders(int totalCount, int filterId) {
+	public static final HttpHeaders getTotalCountFilterIdHeaders(long totalCount, int filterId) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Access-Control-Expose-Headers", "x-total-count, x-filter-id");
 		headers.add("x-total-count", String.valueOf(totalCount));
@@ -62,7 +62,7 @@ public abstract class Utils {
 		return headers;
 	}
 
-	public static final HttpHeaders getSearchCriteriasHeaders(int totalCount,
+	public static final HttpHeaders getSearchCriteriasHeaders(long totalCount,
 			LivreSearchCriteriasDto livreSearchCriteriasDto) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Access-Control-Expose-Headers",
