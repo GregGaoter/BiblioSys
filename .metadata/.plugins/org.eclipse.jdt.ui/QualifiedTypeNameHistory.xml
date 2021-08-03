@@ -10,7 +10,6 @@
     <fullyQualifiedTypeName name="javax.persistence.criteria.Root"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Rayon"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Genre"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.app.Utils"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.util.Objects"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Bibliotheque"/>
@@ -33,7 +32,6 @@
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Usager"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.PretService"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.PretSpecification"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Pret"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.IdentifiantDto"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.IdentifiantService"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.AdresseService"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
     <fullyQualifiedTypeName name="java.util.stream.Stream"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Pret"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.app.Utils"/>
 </qualifiedTypeNameHistroy>

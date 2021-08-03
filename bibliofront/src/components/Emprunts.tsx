@@ -6,19 +6,33 @@ import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
 import React, { useEffect, useState } from "react";
 import { IEmpruntResultat } from "../app/model/EmpruntResultatModel";
-import './Emprunts.css';
+import { useAppDispatch, useAppSelector } from "../app/store/hooks";
+import { entity, getEntity, updateEntity } from "../app/store/slice/PretSlice";
+import "./Emprunts.css";
 
 export const Emprunts = () => {
+  const dispatch = useAppDispatch();
+
   const [emprunts, setEmprunts] = useState<IEmpruntResultat[]>();
 
   useEffect(() => {
-    axios.get<IEmpruntResultat[]>("/usager/emprunts").then((response) => setEmprunts(response.data));
+    getEmprunts();
   }, []);
+
+  const getEmprunts = () => {
+    axios.get<IEmpruntResultat[]>("/usager/emprunts").then((response) => setEmprunts(response.data));
+  };
 
   const rowClass = (rowData: IEmpruntResultat) => {
     return {
       "row-relances": rowData.relances > 0,
     };
+  };
+
+  const handleProlongation = (pretId: number): void => {
+    dispatch(getEntity(pretId));
+    dispatch(updateEntity(pretId, { ...useAppSelector(entity), nbProlongations: 1 }));
+    getEmprunts();
   };
 
   return (
@@ -53,7 +67,12 @@ export const Emprunts = () => {
             <Column
               header=""
               body={(rowData: IEmpruntResultat) => (
-                <Button label="Prolonger" className="p-button-sm" disabled={rowData.prolongations === 1} />
+                <Button
+                  label="Prolonger"
+                  className="p-button-sm"
+                  disabled={rowData.prolongations === 1}
+                  onClick={() => handleProlongation(rowData.pretId)}
+                />
               )}
               style={{ width: "110px" }}
             ></Column>

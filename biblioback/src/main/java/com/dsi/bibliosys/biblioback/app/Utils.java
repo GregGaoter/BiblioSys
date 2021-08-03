@@ -1,10 +1,16 @@
 package com.dsi.bibliosys.biblioback.app;
 
+import static com.dsi.bibliosys.biblioback.app.Constant.DATE_FORMAT_PATTERN;
+import static com.dsi.bibliosys.biblioback.app.Constant.PERIODE_PRET_SEMAINES;
+
+import java.time.format.DateTimeFormatter;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 
 import com.dsi.bibliosys.biblioback.app.exception.IllegalStringArgumentException;
 import com.dsi.bibliosys.biblioback.data.dto.LivreSearchCriteriasDto;
+import com.dsi.bibliosys.biblioback.data.entity.Pret;
 
 import lombok.NonNull;
 
@@ -78,6 +84,11 @@ public abstract class Utils {
 		headers.add("x-livre-date-parution-end", livreSearchCriteriasDto.getLivreDateParution().length == 0 ? null
 				: String.valueOf(livreSearchCriteriasDto.getLivreDateParution()[1]));
 		return headers;
+	}
+
+	public static final String getDateRetourPret(Pret pret) {
+		return pret.getDatePret().plusWeeks(PERIODE_PRET_SEMAINES * (1 + pret.getNbProlongations()))
+				.format(DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN));
 	}
 
 }

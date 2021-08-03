@@ -5,10 +5,11 @@ import bibliothequeReducer from "../store/slice/BibliothequeSlice";
 import collectionReducer from "../store/slice/CollectionSlice";
 import currentUsagerReducer from "../store/slice/CurrentUsagerSlice";
 import genreReducer from "../store/slice/GenreSlice";
+import lieuReducer from "../store/slice/LieuSlice";
 import livreResultatReducer from "../store/slice/LivreResultatSlice";
 import livreReducer from "../store/slice/LivreSlice";
+import pretReducer from "../store/slice/PretSlice";
 import rayonReducer from "../store/slice/RayonSlice";
-import lieuReducer from "../store/slice/LieuSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     currentUsager: currentUsagerReducer,
     adresse: adresseReducer,
     lieu: lieuReducer,
+    pret: pretReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 });

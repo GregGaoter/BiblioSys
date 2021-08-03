@@ -1,4 +1,5 @@
 export interface IEmpruntResultat {
+  pretId: number;
   bibliotheque: string;
   titre: string;
   auteursPrenomNom: string[];

@@ -1,6 +1,5 @@
 package com.dsi.bibliosys.biblioback.controller;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dsi.bibliosys.biblioback.app.Utils;
 import com.dsi.bibliosys.biblioback.data.dto.AdresseDto;
 import com.dsi.bibliosys.biblioback.data.dto.CurrentUsagerDto;
 import com.dsi.bibliosys.biblioback.data.dto.EmpruntsResultatDto;
@@ -214,11 +214,11 @@ public class UsagerController {
 					.findAll(EcritureLivreSpecification.livreIdEqual(pret.getLivre().getId())).stream()
 					.map(ecritureLivre -> ecritureLivre.getAuteur().getPrenomNom()).collect(Collectors.toList());
 			EmpruntsResultatDto empruntsResultatDto = new EmpruntsResultatDto();
+			empruntsResultatDto.setPretId(pret.getId());
 			empruntsResultatDto.setBibliotheque(pret.getLivre().getBibliotheque().getNom());
 			empruntsResultatDto.setTitre(pret.getLivre().getTitre());
 			empruntsResultatDto.setAuteursPrenomNom(auteursPrenomNom);
-			;
-			empruntsResultatDto.setDateRetour(pret.getDatePret().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+			empruntsResultatDto.setDateRetour(Utils.getDateRetourPret(pret));
 			empruntsResultatDto.setProlongations(pret.getNbProlongations());
 			empruntsResultatDto.setRelances(pret.getNbRelances());
 			return empruntsResultatDto;
