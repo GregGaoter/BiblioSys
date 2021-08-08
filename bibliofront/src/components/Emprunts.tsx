@@ -13,11 +13,23 @@ import "./Emprunts.css";
 export const Emprunts = () => {
   const dispatch = useAppDispatch();
 
+  const pretEntity = useAppSelector(entity);
+
+  const useEntity = () => useAppSelector(entity);
+
   const [emprunts, setEmprunts] = useState<IEmpruntResultat[]>();
+  const [pretId, setPretId] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     getEmprunts();
   }, []);
+
+  useEffect(() => {
+    if (pretId) {
+      dispatch(updateEntity(pretId as number, { ...pretEntity, nbProlongations: 1 }));
+      getEmprunts();
+    }
+  }, [pretId, pretEntity]);
 
   const getEmprunts = () => {
     axios.get<IEmpruntResultat[]>("/usager/emprunts").then((response) => setEmprunts(response.data));
@@ -30,9 +42,8 @@ export const Emprunts = () => {
   };
 
   const handleProlongation = (pretId: number): void => {
-    dispatch(getEntity(pretId));
-    dispatch(updateEntity(pretId, { ...useAppSelector(entity), nbProlongations: 1 }));
-    getEmprunts();
+    dispatch(getEntity(pretId as number));
+    setPretId(pretId);
   };
 
   return (

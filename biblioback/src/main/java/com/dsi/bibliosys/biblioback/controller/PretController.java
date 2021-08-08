@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -111,6 +112,7 @@ public class PretController {
 	 *         l'Pret à mettre à jour n'est pas trouvé ou si son id est null, sinon
 	 *         renvoie le code "200 OK" avec un corps de réponse null.
 	 */
+	@CrossOrigin
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> update(@RequestBody PretDto pretDtoSource, @PathVariable Integer id) {
 		Pret pretSource = pretMapper.mapToEntity(pretDtoSource);
