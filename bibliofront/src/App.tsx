@@ -20,8 +20,10 @@ import {
   faUserFriends,
   faUtensils,
   faYinYang,
+  faList,
+  faSignInAlt,
+  faUserPlus
 } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";
 import { TieredMenu } from "primereact/tieredmenu";
@@ -65,10 +67,14 @@ library.add(
   faLaptopCode,
   faChartLine,
   faGraduationCap,
-  faEye
+  faEye,
+  faList,
+  faSignInAlt,
+  faUserPlus
 );
 
 export const ROOT_PATH = "/";
+export const LOGIN_PATH = "/login";
 export const ACCUEIL_PATH = "/accueil";
 export const BIBLIOTHEQUES_PATH = "/bibliotheques";
 export const LIVRES_PATH = "/livres";

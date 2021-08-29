@@ -1,0 +1,8 @@
+.background-image {
+  background-image: url("../../src/ressources/images/library-landing.jpg");
+  background-clip: border-box;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

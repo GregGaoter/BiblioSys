@@ -1,31 +1,20 @@
-import React, { FC } from "react";
-import { IHeader } from "../app/model/HeaderModel";
+import { Button } from "primereact/button";
+import React from "react";
+import "./Header.css";
 
-interface HeaderProps {
-  data: IHeader;
-}
-
-export const Header: FC<HeaderProps> = ({ data }) => {
-  return (
-    <header id="header">
-      <div className="intro">
-        <div className="overlay">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-8 col-md-offset-2 intro-text">
-                <h1>
-                  {data.title}
-                  <span></span>
-                </h1>
-                <p>{data.paragraph}</p>
-                <a href="#features" className="btn btn-custom btn-lg page-scroll">
-                  En savoir plus
-                </a>{" "}
-              </div>
-            </div>
-          </div>
-        </div>
+export const Header = () => (
+  <div className="p-d-flex p-flex-column p-jc-center p-ai-center background-image" style={{ height: "850px" }}>
+    <div
+      className="p-d-flex p-flex-column p-jc-center p-ai-center p-mb-6"
+      style={{ backgroundColor: "rgba(255, 255, 255, 0.5)", width: "100%" }}
+    >
+      <div className="p-d-flex p-flex-column p-jc-center p-ai-center">
+        <h1 className="p-text-uppercase p-text-bold p-mb-2" style={{ fontSize: "75px" }}>
+          Réseau Biblionie
+        </h1>
+        <h2 className="p-mb-6">Bibliothèques publiques et scolaires de la ville de Panoît</h2>
+        <Button className="p-button-raised p-button-rounded p-button-help p-button-lg p-mb-3" label="En savoir plus" />
       </div>
-    </header>
-  );
-};
+    </div>
+  </div>
+);
