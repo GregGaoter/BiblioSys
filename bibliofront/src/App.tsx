@@ -10,19 +10,19 @@ import {
   faGraduationCap,
   faLaptopCode,
   faLeaf,
+  faList,
   faMonument,
   faPalette,
   faPaw,
   faPrayingHands,
   faRobot,
   faRunning,
+  faSignInAlt,
   faTheaterMasks,
   faUserFriends,
+  faUserPlus,
   faUtensils,
   faYinYang,
-  faList,
-  faSignInAlt,
-  faUserPlus
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "primereact/button";
 import { Menu } from "primereact/menu";

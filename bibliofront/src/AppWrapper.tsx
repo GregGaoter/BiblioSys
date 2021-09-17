@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { Route, useHistory, useLocation, withRouter } from "react-router-dom";
+import { Route, Switch, useLocation, withRouter } from "react-router-dom";
 import App from "./App";
+import { Bibliotheques } from "./components/Bibliotheques";
+import { Header } from "./components/Header";
+import { Navigation } from "./components/Navigation";
 import Access from "./pages/Access";
 import Error from "./pages/Error";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import Landing from "./pages/Landing";
-import { Bibliotheques } from "./components/Bibliotheques";
 
 const AppWrapper = () => {
   let location = useLocation();
@@ -15,22 +16,37 @@ const AppWrapper = () => {
     window.scrollTo(0, 0);
   }, [location]);
 
-  switch (location.pathname) {
-    case "/":
-      return <Route path="/" component={Landing} />;
-    case "/":
-      return <Route path="/bibliotheques" component={Bibliotheques} />;
-    case "/login":
-      return <Route path="/login" component={Login} />;
-    case "/error":
-      return <Route path="/error" component={Error} />;
-    case "/notfound":
-      return <Route path="/notfound" component={NotFound} />;
-    case "/access":
-      return <Route path="/access" component={Access} />;
-    default:
-      return <App />;
-  }
+  return (
+    <div className="p-d-flex p-flex-column">
+      <Navigation />
+      <Switch>
+        <Route exact path="/" component={Header} />
+        <Route exact path="/bibliotheques" component={Bibliotheques} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/error" component={Error} />
+        <Route exact path="/notfound" component={NotFound} />
+        <Route exact path="/access" component={Access} />
+        <Route component={App} />
+      </Switch>
+    </div>
+  );
+
+  // switch (location.pathname) {
+  //   case "/":
+  //     return <Route path="/" component={Header} />;
+  //   case "/bibliotheques":
+  //     return <Route path="/bibliotheques" component={Bibliotheques} />;
+  //   case "/login":
+  //     return <Route path="/login" component={Login} />;
+  //   case "/error":
+  //     return <Route path="/error" component={Error} />;
+  //   case "/notfound":
+  //     return <Route path="/notfound" component={NotFound} />;
+  //   case "/access":
+  //     return <Route path="/access" component={Access} />;
+  //   default:
+  //     return <App />;
+  // }
 };
 
 export default withRouter(AppWrapper);
