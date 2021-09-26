@@ -13,6 +13,7 @@ import {
   getEntities as getLivreEntities,
   loading as livreLoading,
 } from "../app/store/slice/LivreSlice";
+import divider from "../ressources/images/divider.png";
 
 export const Bibliotheques = () => {
   const dispatch = useAppDispatch();
@@ -48,9 +49,8 @@ export const Bibliotheques = () => {
 
   return (
     <div className="p-d-flex p-flex-column p-jc-center p-ai-center">
-      <h2 className="p-text-uppercase p-text-bold p-mt-4 p-mb-2">Nos bibliothèques</h2>
-      <hr style={{height: 55, color: '#000000', backgroundColor: '#000000'}}/>
-      <div style={{ borderTop: "20px solid #fff ", marginLeft: 20, marginRight: 20 }}></div>
+      <h2 className="p-text-uppercase p-text-bold p-mt-4">Nos bibliothèques</h2>
+      <img className="p-mb-4" alt="divider" src={divider} />
       <div className="p-grid">
         {useAppSelector(bibliothequeEntities).map((bibliotheque) => {
           const { id, nom, description, imageFileName } = bibliotheque;

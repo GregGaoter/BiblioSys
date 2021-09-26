@@ -1,134 +1,28 @@
 import React from "react";
+import divider from "../ressources/images/divider.png";
+import galery01 from "../ressources/images/galery01.jpg";
+import galery02 from "../ressources/images/galery02.jpg";
+import galery03 from "../ressources/images/galery03.jpg";
+import galery04 from "../ressources/images/galery04.jpg";
+import galery05 from "../ressources/images/galery05.jpg";
+import galery06 from "../ressources/images/galery06.jpg";
+import galery07 from "../ressources/images/galery07.jpg";
+import galery08 from "../ressources/images/galery08.jpg";
+import galery09 from "../ressources/images/galery09.jpg";
 
 export const Gallery = () => {
+  const gallery = [galery01, galery02, galery03, galery04, galery05, galery06, galery07, galery08, galery09];
+
   return (
-    <div id="portfolio" className="text-center">
-      <div className="container">
-        <div className="section-title">
-          <h2>Gallery</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.</p>
-        </div>
-        <div className="row">
-          <div className="portfolio-items">
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/01-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Lorem Ipsum</h4>
-                    </div>
-                    <img src="images/portfolio/01-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/02-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Adipiscing Elit</h4>
-                    </div>
-                    <img src="images/portfolio/02-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/03-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Lorem Ipsum</h4>
-                    </div>
-                    <img src="images/portfolio/03-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/04-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Lorem Ipsum</h4>
-                    </div>
-                    <img src="images/portfolio/04-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/05-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Adipiscing Elit</h4>
-                    </div>
-                    <img src="images/portfolio/05-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/06-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Dolor Sit</h4>
-                    </div>
-                    <img src="images/portfolio/06-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/07-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Dolor Sit</h4>
-                    </div>
-                    <img src="images/portfolio/07-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/08-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Lorem Ipsum</h4>
-                    </div>
-                    <img src="images/portfolio/08-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-4">
-              <div className="portfolio-item">
-                <div className="hover-bg">
-                  {" "}
-                  <a href="images/portfolio/09-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-                    <div className="hover-text">
-                      <h4>Adipiscing Elit</h4>
-                    </div>
-                    <img src="images/portfolio/09-small.jpg" className="img-responsive" alt="Project Title" />{" "}
-                  </a>{" "}
-                </div>
-              </div>
-            </div>
+    <div className="p-d-flex p-flex-column p-jc-center p-ai-center">
+      <h2 className="p-text-uppercase p-text-bold p-mt-4">Notre gallerie</h2>
+      <img className="p-mb-4" alt="divider" src={divider} />
+      <div className="p-grid p-justify-center">
+        {gallery.map((image, index) => (
+          <div className="p-col-4" key={index}>
+            <img alt={`gallery${index}`} src={image} className="p-mx-2" style={{ cursor: 'pointer' }} />
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import {
   faChartLine,
   faCogs,
   faDragon,
+  faExchangeAlt,
   faEye,
   faGamepad,
   faGlobeEurope,
@@ -17,6 +18,7 @@ import {
   faPrayingHands,
   faRobot,
   faRunning,
+  faSearch,
   faSignInAlt,
   faTheaterMasks,
   faUserFriends,
@@ -70,13 +72,18 @@ library.add(
   faEye,
   faList,
   faSignInAlt,
-  faUserPlus
+  faUserPlus,
+  faSearch,
+  faExchangeAlt
 );
 
 export const ROOT_PATH = "/";
 export const LOGIN_PATH = "/login";
 export const ACCUEIL_PATH = "/accueil";
 export const BIBLIOTHEQUES_PATH = "/bibliotheques";
+export const SERVICES_PATH = "/services";
+export const GALLERIE_PATH = "/gallerie";
+export const EQUIPE_PATH = "/equipe";
 export const LIVRES_PATH = "/livres";
 export const LIVRES_RESULTAT_PATH = "/livres/resultat";
 export const COMPTE_PATH = "/compte";

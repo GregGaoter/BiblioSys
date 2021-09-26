@@ -2,7 +2,7 @@ import { Button } from "primereact/button";
 import { Menubar } from "primereact/menubar";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { BIBLIOTHEQUES_PATH, ROOT_PATH } from "../App";
+import { BIBLIOTHEQUES_PATH, EQUIPE_PATH, GALLERIE_PATH, ROOT_PATH, SERVICES_PATH } from "../App";
 import logo48 from "../ressources/images/logo-48-48.png";
 
 export const Navigation = () => {
@@ -19,9 +19,24 @@ export const Navigation = () => {
         goToPath(BIBLIOTHEQUES_PATH);
       },
     },
-    { label: "SERVICES" },
-    { label: "GALLERIE" },
-    { label: "ÉQUIPE" },
+    {
+      label: "SERVICES",
+      command: () => {
+        goToPath(SERVICES_PATH);
+      },
+    },
+    {
+      label: "GALLERIE",
+      command: () => {
+        goToPath(GALLERIE_PATH);
+      },
+    },
+    {
+      label: "ÉQUIPE",
+      command: () => {
+        goToPath(EQUIPE_PATH);
+      },
+    },
     { label: "HORAIRES" },
     { label: "CONTACT" },
   ];

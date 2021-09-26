@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { Route, Switch, useLocation, withRouter } from "react-router-dom";
 import App from "./App";
 import { Bibliotheques } from "./components/Bibliotheques";
+import { Gallery } from "./components/Gallery";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
+import { Services } from "./components/Services";
+import { Team } from "./components/Team";
 import Access from "./pages/Access";
 import Error from "./pages/Error";
 import Login from "./pages/Login";
@@ -22,6 +25,9 @@ const AppWrapper = () => {
       <Switch>
         <Route exact path="/" component={Header} />
         <Route exact path="/bibliotheques" component={Bibliotheques} />
+        <Route exact path="/services" component={Services} />
+        <Route exact path="/gallerie" component={Gallery} />
+        <Route exact path="/equipe" component={Team} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/error" component={Error} />
         <Route exact path="/notfound" component={NotFound} />
