@@ -84,6 +84,8 @@ export const BIBLIOTHEQUES_PATH = "/bibliotheques";
 export const SERVICES_PATH = "/services";
 export const GALLERIE_PATH = "/gallerie";
 export const EQUIPE_PATH = "/equipe";
+export const HORAIRES_PATH = "/horaires";
+export const CONTACT_PATH = "/contact";
 export const LIVRES_PATH = "/livres";
 export const LIVRES_RESULTAT_PATH = "/livres/resultat";
 export const COMPTE_PATH = "/compte";
@@ -161,20 +163,20 @@ function App() {
       },
     },
     { separator: true },
-    {
-      label: "Accueil",
-      icon: "pi pi-home",
-      command: () => {
-        goToPath(ACCUEIL_PATH);
-      },
-    },
-    {
-      label: "Nos bibliothèques",
-      icon: "pi pi-map",
-      command: () => {
-        goToPath(BIBLIOTHEQUES_PATH);
-      },
-    },
+    // {
+    //   label: "Accueil",
+    //   icon: "pi pi-home",
+    //   command: () => {
+    //     goToPath(ACCUEIL_PATH);
+    //   },
+    // },
+    // {
+    //   label: "Nos bibliothèques",
+    //   icon: "pi pi-map",
+    //   command: () => {
+    //     goToPath(BIBLIOTHEQUES_PATH);
+    //   },
+    // },
     {
       label: "Nos Livres",
       icon: "pi pi-book",

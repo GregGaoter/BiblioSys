@@ -1,147 +1,37 @@
-import React, { FC, useState } from "react";
-import { IContact } from "../app/model/ContactModel";
+import { InputText } from "primereact/inputtext";
+import React from "react";
+import divider from "../ressources/images/divider.png";
+import { InputTextarea } from "primereact/inputtextarea";
+import { Button } from "primereact/button";
 
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
-};
-
-interface ContactProps {
-  data: IContact;
-}
-
-export const Contact: FC<ContactProps> = ({ data }) => {
-  const [{ name, email, message }, setState] = useState(initialState);
-
-  const handleChange = (e: any) => {};
-  const clearState = () => setState({ ...initialState });
-
-  const handleSubmit = (e: any) => {};
-  return (
-    <div>
-      <div id="contact">
-        <div className="container">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="section-title">
-                <h2>Get In Touch</h2>
-                <p>
-                  Please fill out the form below to send us an email and we will get back to you as soon as possible.
-                </p>
-              </div>
-              <form name="sentMessage" noValidate onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="form-control"
-                        placeholder="Name"
-                        required
-                        onChange={handleChange}
-                      />
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email"
-                        required
-                        onChange={handleChange}
-                      />
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    id="message"
-                    className="form-control"
-                    rows={4}
-                    placeholder="Message"
-                    required
-                    onChange={handleChange}
-                  ></textarea>
-                  <p className="help-block text-danger"></p>
-                </div>
-                <div id="success"></div>
-                <button type="submit" className="btn btn-custom btn-lg">
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-          <div className="col-md-3 col-md-offset-1 contact-info">
-            <div className="contact-item">
-              <h3>Contact Info</h3>
-              <p>
-                <span>
-                  <i className="fa fa-map-marker"></i> Address
-                </span>
-                {data ? data.address : "loading"}
-              </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-phone"></i> Phone
-                </span>{" "}
-                {data ? data.phone : "loading"}
-              </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-envelope-o"></i> Email
-                </span>{" "}
-                {data ? data.email : "loading"}
-              </p>
-            </div>
-          </div>
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a href={data ? data.facebook : "/"}>
-                      <i className="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={data ? data.twitter : "/"}>
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={data ? data.youtube : "/"}>
-                      <i className="fa fa-youtube"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="footer">
-        <div className="container text-center">
-          <p>
-            &copy; 2020 Issaaf Kattan React Land Page Template. Design by{" "}
-            <a href="http://www.templatewire.com" rel="nofollow">
-              TemplateWire
-            </a>
+export const Contact = () => (
+  <div className="p-d-flex p-flex-column p-jc-center p-ai-center">
+    <h2 className="p-text-uppercase p-text-bold p-mt-4">Contactez-nous</h2>
+    <img className="p-mb-4" alt="divider" src={divider} />
+    <div className="p-grid">
+      <div className="p-col">
+        <div className="p-d-flex p-flex-column">
+          <p className="p-mb-6">
+            Veuillez remplir le formulaire ci-dessous pour nous envoyer un courriel et nous vous répondrons dans les
+            plus brefs délais.
           </p>
+          <div className="p-fluid p-formgrid p-grid">
+            <div className="p-field p-col-12 p-md-6">
+              <label htmlFor="nom">Nom</label>
+              <InputText id="nom" type="text" />
+            </div>
+            <div className="p-field p-col-12 p-md-6">
+              <label htmlFor="email">Email</label>
+              <InputText id="email" type="text" />
+            </div>
+            <div className="p-field p-col-12">
+              <label htmlFor="message">Message</label>
+              <InputTextarea id="message" type="text" rows={4} />
+            </div>
+          </div>
+          <Button label="Envoyer" className="p-button-rounded p-button-lg" icon="pi pi-send" style={{width: "150px"}} />
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+);

@@ -22,7 +22,7 @@ const Login = () => {
     axios.post(endpoint, credentials).then((reponse) => {
       localStorage.setItem("BIBLIOSYS-AUTHORIZATION", reponse.data.token);
       dispatch(getCurrentUsagerEntity());
-      history.push("/accueil");
+      history.push("/livres");
     });
   };
 
