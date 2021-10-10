@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-    <fullyQualifiedTypeName name="org.springframework.scheduling.annotation.EnableScheduling"/>
-    <fullyQualifiedTypeName name="org.springframework.scheduling.annotation.Scheduled"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
-    <fullyQualifiedTypeName name="javax.persistence.criteria.Subquery"/>
-    <fullyQualifiedTypeName name="javax.persistence.criteria.Root"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Rayon"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Genre"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-    <fullyQualifiedTypeName name="java.util.Objects"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Bibliotheque"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.BibliothequeRepository"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.LivreSearchCriteriasDto"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.LivreSpecification"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.context.SecurityContextHolder"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.AuthentificationService"/>
@@ -47,7 +30,6 @@
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.EcritureLivreSpecification"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.EcritureLivre"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Auteur"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="org.springframework.data.rest.core.annotation.RepositoryRestResource"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
@@ -60,4 +42,22 @@
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Pret"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.app.Utils"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.apache.hc.client5.http.impl.classic.CloseableHttpClient"/>
+    <fullyQualifiedTypeName name="org.apache.hc.client5.http.impl.classic.HttpClients"/>
+    <fullyQualifiedTypeName name="org.apache.hc.client5.http.classic.methods.HttpGet"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.bibliobatch.data.dto.PretDto"/>
+    <fullyQualifiedTypeName name="org.apache.hc.core5.http.io.HttpClientResponseHandler"/>
+    <fullyQualifiedTypeName name="org.apache.hc.core5.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.apache.hc.core5.http.HttpEntity"/>
+    <fullyQualifiedTypeName name="org.apache.hc.core5.http.io.entity.EntityUtils"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.bibliobatch.data.dto.BibliothequeDto"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.core.type.TypeReference"/>
+    <fullyQualifiedTypeName name="org.apache.hc.core5.http.ParseException"/>
+    <fullyQualifiedTypeName name="org.apache.hc.client5.http.ClientProtocolException"/>
 </qualifiedTypeNameHistroy>

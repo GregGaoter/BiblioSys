@@ -4902,3 +4902,248 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.vaadin.designer2 1 0 2021-10-03 19:42:41.844
 !MESSAGE Removed all models from server.
+!SESSION 2021-10-10 13:28:11.340 -----------------------------------------------
+eclipse.buildId=4.16.0.I20200604-0540
+java.version=14.0.2
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_CH
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2021-10-10 13:29:00.554
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-10-10 13:29:00.554
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5de32e00,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@219ec4b6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:20.141
+!MESSAGE Schedule fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:20.147
+!MESSAGE Schedule version update jobs
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:20.824
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:20.825
+!MESSAGE Requesting user info (notification settings URL)
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-10-10 13:29:21.223
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\gregg'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:21.734
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:21.790
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:21.791
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:21.796
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:22.210
+!MESSAGE BrowserCore initialized.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2021-10-10 13:29:22.773
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2021-10-10 13:29:22.785
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:23.122
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 13:29:53.277
+!MESSAGE All vaadin 7+ projects : []
+
+!ENTRY org.eclipse.jface.text 4 0 2021-10-10 16:31:47.718
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.checkYieldUsage(TypeReference.java:366)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.internalResolveType(TypeReference.java:518)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:638)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:634)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:293)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:270)
+	at org.eclipse.jdt.internal.codeassist.select.SelectionOnLocalName.resolve(SelectionOnLocalName.java:32)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine$1Visitor.visit(SelectionEngine.java:1440)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.traverse(LocalDeclaration.java:495)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.traverse(TypeDeclaration.java:1742)
+	at org.eclipse.jdt.internal.compiler.ast.QualifiedAllocationExpression.traverse(QualifiedAllocationExpression.java:693)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.selectLocalDeclaration(SelectionEngine.java:1516)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.select(SelectionEngine.java:1078)
+	at org.eclipse.jdt.internal.core.Openable.codeSelect(Openable.java:168)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:388)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:381)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getJavaElementsAt(AbstractJavaEditorTextHover.java:124)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:674)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:670)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jface.text 4 0 2021-10-10 16:32:56.524
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.checkYieldUsage(TypeReference.java:366)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.internalResolveType(TypeReference.java:518)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:638)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:634)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:293)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:270)
+	at org.eclipse.jdt.internal.codeassist.select.SelectionOnLocalName.resolve(SelectionOnLocalName.java:32)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine$1Visitor.visit(SelectionEngine.java:1440)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.traverse(LocalDeclaration.java:495)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.traverse(TypeDeclaration.java:1742)
+	at org.eclipse.jdt.internal.compiler.ast.QualifiedAllocationExpression.traverse(QualifiedAllocationExpression.java:693)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.selectLocalDeclaration(SelectionEngine.java:1516)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.select(SelectionEngine.java:1078)
+	at org.eclipse.jdt.internal.core.Openable.codeSelect(Openable.java:168)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:388)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:381)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getJavaElementsAt(AbstractJavaEditorTextHover.java:124)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:674)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:670)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 17:29:23.242
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 17:29:23.246
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 17:29:24.261
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 17:29:24.262
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 17:29:24.264
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY org.eclipse.jface.text 4 0 2021-10-10 19:11:54.294
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.checkYieldUsage(TypeReference.java:366)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.internalResolveType(TypeReference.java:518)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:638)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:634)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:293)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:270)
+	at org.eclipse.jdt.internal.codeassist.select.SelectionOnLocalName.resolve(SelectionOnLocalName.java:32)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine$1Visitor.visit(SelectionEngine.java:1440)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.traverse(LocalDeclaration.java:495)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.traverse(TypeDeclaration.java:1742)
+	at org.eclipse.jdt.internal.compiler.ast.QualifiedAllocationExpression.traverse(QualifiedAllocationExpression.java:693)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.selectLocalDeclaration(SelectionEngine.java:1516)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.select(SelectionEngine.java:1078)
+	at org.eclipse.jdt.internal.core.Openable.codeSelect(Openable.java:168)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:388)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:381)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getJavaElementsAt(AbstractJavaEditorTextHover.java:124)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:674)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:670)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jface.text 4 0 2021-10-10 19:15:20.311
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.checkYieldUsage(TypeReference.java:366)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.internalResolveType(TypeReference.java:518)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:638)
+	at org.eclipse.jdt.internal.compiler.ast.TypeReference.resolveType(TypeReference.java:634)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:293)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:270)
+	at org.eclipse.jdt.internal.codeassist.select.SelectionOnLocalName.resolve(SelectionOnLocalName.java:32)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine$1Visitor.visit(SelectionEngine.java:1440)
+	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.traverse(LocalDeclaration.java:495)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.traverse(TypeDeclaration.java:1742)
+	at org.eclipse.jdt.internal.compiler.ast.QualifiedAllocationExpression.traverse(QualifiedAllocationExpression.java:693)
+	at org.eclipse.jdt.internal.compiler.ast.Block.traverse(Block.java:154)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:410)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.selectLocalDeclaration(SelectionEngine.java:1516)
+	at org.eclipse.jdt.internal.codeassist.SelectionEngine.select(SelectionEngine.java:1078)
+	at org.eclipse.jdt.internal.core.Openable.codeSelect(Openable.java:168)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:388)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:381)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getJavaElementsAt(AbstractJavaEditorTextHover.java:124)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:674)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:670)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:29:23.246
+!MESSAGE Schedule fetching new notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:29:23.248
+!MESSAGE Fetching all notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:29:24.041
+!MESSAGE HTTP Response code :200
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:29:24.042
+!MESSAGE Parse notifications
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:29:24.047
+!MESSAGE Save JSON notifications content to cache file C:\Users\gregg\Documents\openclassrooms\developpeur_applications_java\07_developper_systeme_bibliotheque\bibliosys\.metadata\.plugins\com.vaadin.integration.eclipse\notifications-cache.json
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:36:58.563
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:36:58.565
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:36:58.566
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-10-10 21:36:58.566
+!MESSAGE Removed all models from server.

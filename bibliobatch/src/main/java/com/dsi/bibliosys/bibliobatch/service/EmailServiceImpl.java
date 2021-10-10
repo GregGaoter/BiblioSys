@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service("EmailService")
@@ -25,11 +24,6 @@ public class EmailServiceImpl implements EmailService {
 		message.setText(text);
 		emailSender.send(message);
 		return message;
-	}
-	
-	@Scheduled(fixedRate = 2000)
-	public void scheduleFixedRateTask() {
-		sendSimpleMessage("someone@localhost", "Test email", "Texte de l'email");
 	}
 
 }
