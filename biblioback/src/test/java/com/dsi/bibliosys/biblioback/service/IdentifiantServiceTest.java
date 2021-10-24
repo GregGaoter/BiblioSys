@@ -67,7 +67,7 @@ public class IdentifiantServiceTest {
 
 		given(identifiantRepository.saveAndFlush(identifiant)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Identifiant identifiantSaved = identifiantService.save(identifiant);
+		final Identifiant identifiantSaved = identifiantService.saveAndFlush(identifiant);
 
 		verify(identifiantRepository).saveAndFlush(identifiant);
 		assertThat(identifiantSaved).isNotNull();
@@ -75,7 +75,7 @@ public class IdentifiantServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> identifiantService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> identifiantService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

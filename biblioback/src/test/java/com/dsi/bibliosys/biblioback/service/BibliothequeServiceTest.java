@@ -68,7 +68,7 @@ public class BibliothequeServiceTest {
 
 		given(bibliothequeRepository.saveAndFlush(bibliotheque)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Bibliotheque bibliothequeSaved = bibliothequeService.save(bibliotheque);
+		final Bibliotheque bibliothequeSaved = bibliothequeService.saveAndFlush(bibliotheque);
 
 		verify(bibliothequeRepository).saveAndFlush(bibliotheque);
 		assertThat(bibliothequeSaved).isNotNull();
@@ -76,7 +76,7 @@ public class BibliothequeServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> bibliothequeService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> bibliothequeService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

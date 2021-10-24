@@ -96,7 +96,7 @@ public class ProfilController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody ProfilDto profilDto) {
 		Profil profil = profilMapper.mapToEntity(profilDto);
-		profilService.save(profil);
+		profilService.saveAndFlush(profil);
 		return profil == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

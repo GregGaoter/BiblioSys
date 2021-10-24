@@ -69,7 +69,7 @@ public class EcritureLivreServiceTest {
 
 		given(ecritureLivreRepository.saveAndFlush(ecritureLivre)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final EcritureLivre ecritureLivreSaved = ecritureLivreService.save(ecritureLivre);
+		final EcritureLivre ecritureLivreSaved = ecritureLivreService.saveAndFlush(ecritureLivre);
 
 		verify(ecritureLivreRepository).saveAndFlush(ecritureLivre);
 		assertThat(ecritureLivreSaved).isNotNull();
@@ -77,7 +77,7 @@ public class EcritureLivreServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> ecritureLivreService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> ecritureLivreService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

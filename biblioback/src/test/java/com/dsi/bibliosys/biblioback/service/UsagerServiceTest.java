@@ -70,7 +70,7 @@ public class UsagerServiceTest {
 
 		given(usagerRepository.saveAndFlush(usager)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Usager usagerSaved = usagerService.save(usager);
+		final Usager usagerSaved = usagerService.saveAndFlush(usager);
 
 		verify(usagerRepository).saveAndFlush(usager);
 		assertThat(usagerSaved).isNotNull();
@@ -78,7 +78,7 @@ public class UsagerServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> usagerService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> usagerService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

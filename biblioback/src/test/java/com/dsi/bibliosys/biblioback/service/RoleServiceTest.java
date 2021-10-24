@@ -67,7 +67,7 @@ public class RoleServiceTest {
 
 		given(roleRepository.saveAndFlush(role)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Role roleSaved = roleService.save(role);
+		final Role roleSaved = roleService.saveAndFlush(role);
 
 		verify(roleRepository).saveAndFlush(role);
 		assertThat(roleSaved).isNotNull();
@@ -75,7 +75,7 @@ public class RoleServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> roleService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> roleService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

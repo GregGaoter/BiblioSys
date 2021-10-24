@@ -77,7 +77,7 @@ public class AdresseServiceIT {
 		adresseExcpected.setRue("Rue 4");
 		adresseExcpected.setLieu(lieu);
 
-		final Adresse adresseSaved = adresseService.save(adresseExcpected);
+		final Adresse adresseSaved = adresseService.saveAndFlush(adresseExcpected);
 		final Adresse adresseFind = adresseService.findById(adresseSaved.getId());
 
 		assertThat(adresseFind).extracting(Adresse::getNumeroRue, Adresse::getRue, adresse -> adresse.getLieu().getId())
@@ -86,7 +86,7 @@ public class AdresseServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> adresseService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> adresseService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

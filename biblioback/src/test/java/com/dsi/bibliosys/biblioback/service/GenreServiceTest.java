@@ -67,7 +67,7 @@ public class GenreServiceTest {
 
 		given(genreRepository.saveAndFlush(genre)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Genre genreSaved = genreService.save(genre);
+		final Genre genreSaved = genreService.saveAndFlush(genre);
 
 		verify(genreRepository).saveAndFlush(genre);
 		assertThat(genreSaved).isNotNull();
@@ -75,7 +75,7 @@ public class GenreServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> genreService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> genreService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

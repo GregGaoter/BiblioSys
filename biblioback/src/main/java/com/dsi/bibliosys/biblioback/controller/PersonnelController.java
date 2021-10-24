@@ -96,7 +96,7 @@ public class PersonnelController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody PersonnelDto personnelDto) {
 		Personnel personnel = personnelMapper.mapToEntity(personnelDto);
-		personnelService.save(personnel);
+		personnelService.saveAndFlush(personnel);
 		return personnel == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

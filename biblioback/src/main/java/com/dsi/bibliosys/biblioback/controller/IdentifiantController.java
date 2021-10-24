@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dsi.bibliosys.biblioback.data.dto.IdentifiantDto;
 import com.dsi.bibliosys.biblioback.data.entity.Identifiant;
+import com.dsi.bibliosys.biblioback.data.entity.Pret;
 import com.dsi.bibliosys.biblioback.mapper.IdentifiantMapper;
 import com.dsi.bibliosys.biblioback.service.IdentifiantService;
+import com.dsi.bibliosys.biblioback.service.PretService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -26,6 +29,7 @@ import reactor.core.publisher.Mono;
  * Contrôleur REST de l'entité business Identifiant.
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/identifiant")
 public class IdentifiantController {
 
@@ -40,6 +44,12 @@ public class IdentifiantController {
 	 */
 	@Autowired
 	private IdentifiantMapper identifiantMapper;
+
+	/**
+	 * Service de l'entité business Pret.
+	 */
+	@Autowired
+	private PretService pretService;
 
 	// =====================================
 	// --- GET
@@ -97,7 +107,7 @@ public class IdentifiantController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody IdentifiantDto identifiantDto) {
 		Identifiant identifiant = identifiantMapper.mapToEntity(identifiantDto);
-		identifiantService.save(identifiant);
+		identifiantService.saveAndFlush(identifiant);
 		return identifiant == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 
@@ -135,4 +145,21 @@ public class IdentifiantController {
 		identifiantService.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
+
+	// =====================================
+	// --- Endpoints spécifiques
+	// =====================================
+	/**
+	 * Méthode exécutée à l'appel de l'URI GET "/identifiant/pretExpired".
+	 * 
+	 * @return La liste des emails qui ont des prêts expirés
+	 */
+	@GetMapping("/pretExpired")
+	public List<String> getEmailPretExpired() {
+		List<Pret> pretsExpired = pretService.findAllExpired();
+		List<String> emails = pretsExpired.stream().map(pret -> pret.getUsager().getIdentifiant().getEmail())
+				.collect(Collectors.toList());
+		return emails;
+	}
+
 }

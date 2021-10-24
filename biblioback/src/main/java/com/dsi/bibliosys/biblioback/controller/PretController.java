@@ -27,6 +27,7 @@ import reactor.core.publisher.Mono;
  * Contrôleur REST de l'entité business Pret.
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/pret")
 public class PretController {
 
@@ -96,7 +97,7 @@ public class PretController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody PretDto pretDto) {
 		Pret pret = pretMapper.mapToEntity(pretDto);
-		pretService.save(pret);
+		pretService.saveAndFlush(pret);
 		return pret == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 
@@ -134,5 +135,28 @@ public class PretController {
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		pretService.deleteById(id);
 		return ResponseEntity.ok().build();
+	}
+
+	// =====================================
+	// --- Endpoints spécifiques
+	// =====================================
+	/**
+	 * Méthode exécutée à l'appel de l'URI GET "/pret/update".
+	 * 
+	 * @return true si les prets ont été mis à jour avec succès, false sinon.
+	 */
+	@GetMapping("/update")
+	public Boolean update() {
+		try {
+			List<Pret> pretsExpired = pretService.findAllExpired();
+			pretsExpired.forEach(pret -> {
+				pret.setNbRelances(pret.getNbRelances() + 1);
+				pretService.save(pret);
+			});
+			pretService.flush();
+		} catch (RuntimeException e) {
+			return false;
+		}
+		return true;
 	}
 }

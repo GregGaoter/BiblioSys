@@ -6,7 +6,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-@Service("EmailService")
+@Service
+//@Service("EmailService")
 public class EmailServiceImpl implements EmailService {
 	
 	@Autowired
@@ -16,12 +17,12 @@ public class EmailServiceImpl implements EmailService {
 	private String from;
 
 	@Override
-	public SimpleMailMessage sendSimpleMessage(String to, String subject, String text) {
+	public SimpleMailMessage sendReminderEmail(String to) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom(from);
 		message.setTo(to);
-		message.setSubject(subject);
-		message.setText(text);
+		message.setSubject("Sujet");
+		message.setText("Message");
 		emailSender.send(message);
 		return message;
 	}

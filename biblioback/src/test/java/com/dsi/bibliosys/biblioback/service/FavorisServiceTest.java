@@ -69,7 +69,7 @@ public class FavorisServiceTest {
 
 		given(favorisRepository.saveAndFlush(favoris)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Favoris favorisSaved = favorisService.save(favoris);
+		final Favoris favorisSaved = favorisService.saveAndFlush(favoris);
 
 		verify(favorisRepository).saveAndFlush(favoris);
 		assertThat(favorisSaved).isNotNull();
@@ -77,7 +77,7 @@ public class FavorisServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> favorisService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> favorisService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

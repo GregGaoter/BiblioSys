@@ -69,7 +69,7 @@ public class AuteurServiceIT {
 		final Auteur auteurExcpected = new Auteur();
 		auteurExcpected.setPrenomNom("Prénom Nom");
 
-		final Auteur auteurSaved = auteurService.save(auteurExcpected);
+		final Auteur auteurSaved = auteurService.saveAndFlush(auteurExcpected);
 		final Auteur auteurFind = auteurService.findById(auteurSaved.getId());
 
 		assertThat(auteurFind.getPrenomNom()).isEqualTo(auteurExcpected.getPrenomNom());
@@ -77,7 +77,7 @@ public class AuteurServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> auteurService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> auteurService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

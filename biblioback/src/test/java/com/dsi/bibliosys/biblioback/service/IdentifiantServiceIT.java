@@ -72,7 +72,7 @@ public class IdentifiantServiceIT {
 		identifiantExcpected.setMotDePasse("mdp4");
 		identifiantExcpected.setIsActif(false);
 
-		final Identifiant identifiantSaved = identifiantService.save(identifiantExcpected);
+		final Identifiant identifiantSaved = identifiantService.saveAndFlush(identifiantExcpected);
 		final Identifiant identifiantFind = identifiantService.findById(identifiantSaved.getId());
 
 		assertThat(identifiantFind)
@@ -83,7 +83,7 @@ public class IdentifiantServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> identifiantService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> identifiantService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

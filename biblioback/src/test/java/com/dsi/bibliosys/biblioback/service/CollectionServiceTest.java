@@ -67,7 +67,7 @@ public class CollectionServiceTest {
 
 		given(collectionRepository.saveAndFlush(collection)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Collection collectionSaved = collectionService.save(collection);
+		final Collection collectionSaved = collectionService.saveAndFlush(collection);
 
 		verify(collectionRepository).saveAndFlush(collection);
 		assertThat(collectionSaved).isNotNull();
@@ -75,7 +75,7 @@ public class CollectionServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> collectionService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> collectionService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

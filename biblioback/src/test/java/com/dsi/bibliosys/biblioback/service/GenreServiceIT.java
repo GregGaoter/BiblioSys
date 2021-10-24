@@ -69,7 +69,7 @@ public class GenreServiceIT {
 		final Genre genreExcpected = new Genre();
 		genreExcpected.setNom("Nom");
 
-		final Genre genreSaved = genreService.save(genreExcpected);
+		final Genre genreSaved = genreService.saveAndFlush(genreExcpected);
 		final Genre genreFind = genreService.findById(genreSaved.getId());
 
 		assertThat(genreFind.getNom()).isEqualTo(genreExcpected.getNom());
@@ -77,7 +77,7 @@ public class GenreServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> genreService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> genreService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

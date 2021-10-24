@@ -139,7 +139,7 @@ public class LivreController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody LivreDto livreDto) {
 		Livre livre = livreMapper.mapToEntity(livreDto);
-		livreService.save(livre);
+		livreService.saveAndFlush(livre);
 		return livre == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

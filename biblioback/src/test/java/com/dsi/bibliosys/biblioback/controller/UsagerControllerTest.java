@@ -129,11 +129,11 @@ public class UsagerControllerTest {
 	@MethodSource
 	public void create_usagerGiven_returnHttpStatus(Integer id, HttpStatus httpStatus) {
 		ReflectionTestUtils.setField(usagerGiven, Usager.ID, id);
-		given(usagerService.save(any(Usager.class))).willReturn(usagerGiven);
+		given(usagerService.saveAndFlush(any(Usager.class))).willReturn(usagerGiven);
 
 		ResponseSpec rs = wtc.post().uri("/usager").bodyValue(usagerGiven).exchange();
 
-		verify(usagerService).save(usagerGiven);
+		verify(usagerService).saveAndFlush(usagerGiven);
 		rs.expectStatus().isEqualTo(httpStatus);
 	}
 

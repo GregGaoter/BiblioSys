@@ -38,6 +38,17 @@ public interface CrudService<E, I> extends HasLogger {
 	public E create();
 
 	/**
+	 * Enregistre une entité business.
+	 * 
+	 * @param entity L'entité business à enregistrer.
+	 * @return L'entité business enregistrée.
+	 */
+	@Transactional
+	public default E save(@NonNull E entity) {
+		return getRepository().save(entity);
+	}
+	
+	/**
 	 * Enregistre une entité business et synchronise instantanément les
 	 * modifications dans la base de données.
 	 * 
@@ -45,7 +56,7 @@ public interface CrudService<E, I> extends HasLogger {
 	 * @return L'entité business enregistrée.
 	 */
 	@Transactional
-	public default E save(@NonNull E entity) {
+	public default E saveAndFlush(@NonNull E entity) {
 		return getRepository().saveAndFlush(entity);
 	}
 
@@ -61,7 +72,7 @@ public interface CrudService<E, I> extends HasLogger {
 	public default E update(@NonNull E entitySource, @NonNull I id) {
 		E entityTarget = load(id);
 		BeanUtils.copyProperties(entitySource, entityTarget, "id");
-		return save(entityTarget);
+		return saveAndFlush(entityTarget);
 	}
 
 	/**
@@ -126,6 +137,13 @@ public interface CrudService<E, I> extends HasLogger {
 	 */
 	public default List<E> findAll() {
 		return getRepository().findAll();
+	}
+	
+	/**
+	 * Flush toutes les modifications en attente dans la base de données.
+	 */
+	public default void flush() {
+		getRepository().flush();
 	}
 
 }

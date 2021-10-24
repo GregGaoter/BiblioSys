@@ -71,7 +71,7 @@ public class PersonnelServiceTest {
 
 		given(personnelRepository.saveAndFlush(personnel)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Personnel personnelSaved = personnelService.save(personnel);
+		final Personnel personnelSaved = personnelService.saveAndFlush(personnel);
 
 		verify(personnelRepository).saveAndFlush(personnel);
 		assertThat(personnelSaved).isNotNull();
@@ -79,7 +79,7 @@ public class PersonnelServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> personnelService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> personnelService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

@@ -67,7 +67,7 @@ public class AuteurServiceTest {
 
 		given(auteurRepository.saveAndFlush(auteur)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Auteur auteurSaved = auteurService.save(auteur);
+		final Auteur auteurSaved = auteurService.saveAndFlush(auteur);
 
 		verify(auteurRepository).saveAndFlush(auteur);
 		assertThat(auteurSaved).isNotNull();
@@ -75,7 +75,7 @@ public class AuteurServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> auteurService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> auteurService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

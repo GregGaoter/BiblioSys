@@ -69,7 +69,7 @@ public class ProfilServiceTest {
 
 		given(profilRepository.saveAndFlush(profil)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Profil profilSaved = profilService.save(profil);
+		final Profil profilSaved = profilService.saveAndFlush(profil);
 
 		verify(profilRepository).saveAndFlush(profil);
 		assertThat(profilSaved).isNotNull();
@@ -77,7 +77,7 @@ public class ProfilServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> profilService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> profilService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

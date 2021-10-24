@@ -96,7 +96,7 @@ public class EditeurController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody EditeurDto editeurDto) {
 		Editeur editeur = editeurMapper.mapToEntity(editeurDto);
-		editeurService.save(editeur);
+		editeurService.saveAndFlush(editeur);
 		return editeur == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

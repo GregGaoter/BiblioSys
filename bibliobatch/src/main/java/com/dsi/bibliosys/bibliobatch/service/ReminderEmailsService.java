@@ -3,54 +3,49 @@ package com.dsi.bibliosys.bibliobatch.service;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.hc.client5.http.ClientProtocolException;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
-import org.apache.hc.core5.http.ClassicHttpResponse;
-import org.apache.hc.core5.http.HttpEntity;
-import org.apache.hc.core5.http.HttpStatus;
 import org.apache.hc.core5.http.io.HttpClientResponseHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.dsi.bibliosys.bibliobatch.data.dto.PretDto;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.dsi.bibliosys.bibliobatch.service.responseHandler.SendReminderEmailsResponseHandler;
+import com.dsi.bibliosys.bibliobatch.service.responseHandler.UpdatePretsResponseHandler;
 
 @Service
 public class ReminderEmailsService {
 
+	@Value("${bibliosys.base-url}")
+	private String baseUrl;
+
+	@Autowired
+	private EmailServiceImpl emailServiceImpl;
+
 	public void processSendingReminderEmails() throws IOException {
-		ObjectMapper mapper = new ObjectMapper();
+		Boolean isPretsUpdated = updatePrets();
+		if (isPretsUpdated) {
+			List<String> emails = sendReminderEmails();
+			emails.forEach(email -> emailServiceImpl.sendReminderEmail(email));
+		}
+	}
 
+	private Boolean updatePrets() throws IOException {
 		try (final CloseableHttpClient httpClient = HttpClients.createDefault()) {
+			final HttpGet httpGet = new HttpGet(baseUrl.concat("/pret/update"));
+			final HttpClientResponseHandler<Boolean> responseHandler = UpdatePretsResponseHandler.create();
+			Boolean isPretsUpdated = httpClient.execute(httpGet, responseHandler);
+			return isPretsUpdated;
+		}
+	}
 
-			final HttpGet pretHttpGet = new HttpGet("http://localhost:8080/pret/all");
-			final HttpGet bibliothequeHttpGet = new HttpGet("http://localhost:8080/bibliotheque/all");
-
-			final HttpClientResponseHandler<List<PretDto>> pretResponseHandler = new HttpClientResponseHandler<>() {
-
-				@Override
-				public List<PretDto> handleResponse(ClassicHttpResponse response)
-						throws JsonProcessingException, ClientProtocolException {
-					final int status = response.getCode();
-					if (status >= HttpStatus.SC_SUCCESS && status < HttpStatus.SC_REDIRECTION) {
-						final HttpEntity pretEntity = response.getEntity();
-						if (pretEntity != null) {
-							String pretsJsonArray = mapper.writeValueAsString(response.getEntity());
-							return mapper.readValue(pretsJsonArray, new TypeReference<List<PretDto>>() {
-							});
-						} else {
-							return null;
-						}
-					} else {
-						throw new ClientProtocolException("Statut de réponse inattendu: " + status);
-					}
-				}
-			};
-			
-			List<PretDto> prets = httpClient.execute(bibliothequeHttpGet, pretResponseHandler);
+	private List<String> sendReminderEmails() throws IOException {
+		try (final CloseableHttpClient httpClient = HttpClients.createDefault()) {
+			final HttpGet httpGet = new HttpGet(baseUrl.concat("/identifiant/pretExpired"));
+			final HttpClientResponseHandler<List<String>> responseHandler = SendReminderEmailsResponseHandler.create();
+			List<String> emails = httpClient.execute(httpGet, responseHandler);
+			return emails;
 		}
 	}
 

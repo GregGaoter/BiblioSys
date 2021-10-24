@@ -69,7 +69,7 @@ public class CollectionServiceIT {
 		final Collection collectionExcpected = new Collection();
 		collectionExcpected.setNom("Nom");
 
-		final Collection collectionSaved = collectionService.save(collectionExcpected);
+		final Collection collectionSaved = collectionService.saveAndFlush(collectionExcpected);
 		final Collection collectionFind = collectionService.findById(collectionSaved.getId());
 
 		assertThat(collectionFind.getNom()).isEqualTo(collectionExcpected.getNom());
@@ -77,7 +77,7 @@ public class CollectionServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> collectionService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> collectionService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

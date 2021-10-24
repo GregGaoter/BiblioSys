@@ -97,7 +97,7 @@ public class BibliothequeController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody BibliothequeDto bibliothequeDto) {
 		Bibliotheque bibliotheque = bibliothequeMapper.mapToEntity(bibliothequeDto);
-		bibliothequeService.save(bibliotheque);
+		bibliothequeService.saveAndFlush(bibliotheque);
 		return bibliotheque == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

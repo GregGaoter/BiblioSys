@@ -96,7 +96,7 @@ public class AuteurController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody AuteurDto auteurDto) {
 		Auteur auteur = auteurMapper.mapToEntity(auteurDto);
-		auteurService.save(auteur);
+		auteurService.saveAndFlush(auteur);
 		return auteur == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

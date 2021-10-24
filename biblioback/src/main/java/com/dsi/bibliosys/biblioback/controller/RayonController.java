@@ -96,7 +96,7 @@ public class RayonController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody RayonDto rayonDto) {
 		Rayon rayon = rayonMapper.mapToEntity(rayonDto);
-		rayonService.save(rayon);
+		rayonService.saveAndFlush(rayon);
 		return rayon == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

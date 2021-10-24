@@ -96,7 +96,7 @@ public class FavorisController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody FavorisDto favorisDto) {
 		Favoris favoris = favorisMapper.mapToEntity(favorisDto);
-		favorisService.save(favoris);
+		favorisService.saveAndFlush(favoris);
 		return favoris == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

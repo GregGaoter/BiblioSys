@@ -81,7 +81,7 @@ public class FavorisServiceIT {
 		favorisExcpected.setLivre(livre);
 		favorisExcpected.setUsager(usager);
 
-		final Favoris favorisSaved = favorisService.save(favorisExcpected);
+		final Favoris favorisSaved = favorisService.saveAndFlush(favorisExcpected);
 		final Favoris favorisFind = favorisService.findById(favorisSaved.getId());
 
 		assertThat(favorisFind)
@@ -91,7 +91,7 @@ public class FavorisServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> favorisService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> favorisService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

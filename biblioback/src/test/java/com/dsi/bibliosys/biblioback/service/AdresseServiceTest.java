@@ -68,7 +68,7 @@ public class AdresseServiceTest {
 
 		given(adresseRepository.saveAndFlush(adresse)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Adresse adresseSaved = adresseService.save(adresse);
+		final Adresse adresseSaved = adresseService.saveAndFlush(adresse);
 
 		verify(adresseRepository).saveAndFlush(adresse);
 		assertThat(adresseSaved).isNotNull();
@@ -76,7 +76,7 @@ public class AdresseServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> adresseService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> adresseService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

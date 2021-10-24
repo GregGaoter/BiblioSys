@@ -67,7 +67,7 @@ public class EditeurServiceTest {
 
 		given(editeurRepository.saveAndFlush(editeur)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Editeur editeurSaved = editeurService.save(editeur);
+		final Editeur editeurSaved = editeurService.saveAndFlush(editeur);
 
 		verify(editeurRepository).saveAndFlush(editeur);
 		assertThat(editeurSaved).isNotNull();
@@ -75,7 +75,7 @@ public class EditeurServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> editeurService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> editeurService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

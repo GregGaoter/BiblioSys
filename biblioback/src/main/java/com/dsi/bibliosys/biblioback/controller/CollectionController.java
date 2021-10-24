@@ -96,7 +96,7 @@ public class CollectionController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody CollectionDto collectionDto) {
 		Collection collection = collectionMapper.mapToEntity(collectionDto);
-		collectionService.save(collection);
+		collectionService.saveAndFlush(collection);
 		return collection == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

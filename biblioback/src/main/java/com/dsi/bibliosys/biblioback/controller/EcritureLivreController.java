@@ -98,7 +98,7 @@ public class EcritureLivreController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody EcritureLivreDto ecritureLivreDto) {
 		EcritureLivre ecritureLivre = ecritureLivreMapper.mapToEntity(ecritureLivreDto);
-		ecritureLivreService.save(ecritureLivre);
+		ecritureLivreService.saveAndFlush(ecritureLivre);
 		return ecritureLivre == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

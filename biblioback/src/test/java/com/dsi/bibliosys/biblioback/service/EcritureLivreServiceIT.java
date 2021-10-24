@@ -81,7 +81,7 @@ public class EcritureLivreServiceIT {
 		ecritureLivreExcpected.setLivre(livre);
 		ecritureLivreExcpected.setAuteur(auteur);
 
-		final EcritureLivre ecritureLivreSaved = ecritureLivreService.save(ecritureLivreExcpected);
+		final EcritureLivre ecritureLivreSaved = ecritureLivreService.saveAndFlush(ecritureLivreExcpected);
 		final EcritureLivre ecritureLivreFind = ecritureLivreService.findById(ecritureLivreSaved.getId());
 
 		assertThat(ecritureLivreFind).extracting(ecritureLivre -> ecritureLivre.getLivre().getId(),
@@ -90,7 +90,7 @@ public class EcritureLivreServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> ecritureLivreService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> ecritureLivreService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

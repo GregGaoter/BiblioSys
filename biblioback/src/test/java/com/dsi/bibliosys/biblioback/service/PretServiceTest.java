@@ -70,7 +70,7 @@ public class PretServiceTest {
 
 		given(pretRepository.saveAndFlush(pret)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Pret pretSaved = pretService.save(pret);
+		final Pret pretSaved = pretService.saveAndFlush(pret);
 
 		verify(pretRepository).saveAndFlush(pret);
 		assertThat(pretSaved).isNotNull();
@@ -78,7 +78,7 @@ public class PretServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> pretService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> pretService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

@@ -96,7 +96,7 @@ public class GenreController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody GenreDto genreDto) {
 		Genre genre = genreMapper.mapToEntity(genreDto);
-		genreService.save(genre);
+		genreService.saveAndFlush(genre);
 		return genre == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

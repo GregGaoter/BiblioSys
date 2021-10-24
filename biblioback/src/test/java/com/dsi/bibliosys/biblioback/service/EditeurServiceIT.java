@@ -69,7 +69,7 @@ public class EditeurServiceIT {
 		final Editeur editeurExcpected = new Editeur();
 		editeurExcpected.setNom("Nom");
 
-		final Editeur editeurSaved = editeurService.save(editeurExcpected);
+		final Editeur editeurSaved = editeurService.saveAndFlush(editeurExcpected);
 		final Editeur editeurFind = editeurService.findById(editeurSaved.getId());
 
 		assertThat(editeurFind.getNom()).isEqualTo(editeurExcpected.getNom());
@@ -77,7 +77,7 @@ public class EditeurServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> editeurService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> editeurService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

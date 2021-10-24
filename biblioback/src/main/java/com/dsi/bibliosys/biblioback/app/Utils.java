@@ -3,6 +3,7 @@ package com.dsi.bibliosys.biblioback.app;
 import static com.dsi.bibliosys.biblioback.app.Constant.DATE_FORMAT_PATTERN;
 import static com.dsi.bibliosys.biblioback.app.Constant.PERIODE_PRET_SEMAINES;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.lang3.StringUtils;
@@ -86,9 +87,12 @@ public abstract class Utils {
 		return headers;
 	}
 
-	public static final String getDateRetourPret(Pret pret) {
-		return pret.getDatePret().plusWeeks(PERIODE_PRET_SEMAINES * (1 + pret.getNbProlongations()))
-				.format(DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN));
+	public static final LocalDateTime getDateRetourPret(Pret pret) {
+		return pret.getDatePret().plusWeeks(PERIODE_PRET_SEMAINES * (1 + pret.getNbProlongations()));
+	}
+
+	public static final String getDateRetourPretFormat(Pret pret) {
+		return getDateRetourPret(pret).format(DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN));
 	}
 
 }

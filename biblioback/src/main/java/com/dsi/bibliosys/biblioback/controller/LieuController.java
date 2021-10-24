@@ -95,7 +95,7 @@ public class LieuController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody LieuDto lieuDto) {
 		Lieu lieu = lieuMapper.mapToEntity(lieuDto);
-		lieuService.save(lieu);
+		lieuService.saveAndFlush(lieu);
 		return lieu == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

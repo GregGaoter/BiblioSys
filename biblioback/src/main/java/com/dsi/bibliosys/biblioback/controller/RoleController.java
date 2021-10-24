@@ -95,7 +95,7 @@ public class RoleController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody RoleDto roleDto) {
 		Role role = roleMapper.mapToEntity(roleDto);
-		roleService.save(role);
+		roleService.saveAndFlush(role);
 		return role == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 

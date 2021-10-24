@@ -161,7 +161,7 @@ public class UsagerController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody UsagerDto usagerDto) {
 		Usager usager = usagerMapper.mapToEntity(usagerDto);
-		usagerService.save(usager);
+		usagerService.saveAndFlush(usager);
 		return usager == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 
@@ -218,7 +218,7 @@ public class UsagerController {
 			empruntsResultatDto.setBibliotheque(pret.getLivre().getBibliotheque().getNom());
 			empruntsResultatDto.setTitre(pret.getLivre().getTitre());
 			empruntsResultatDto.setAuteursPrenomNom(auteursPrenomNom);
-			empruntsResultatDto.setDateRetour(Utils.getDateRetourPret(pret));
+			empruntsResultatDto.setDateRetour(Utils.getDateRetourPretFormat(pret));
 			empruntsResultatDto.setProlongations(pret.getNbProlongations());
 			empruntsResultatDto.setRelances(pret.getNbRelances());
 			return empruntsResultatDto;

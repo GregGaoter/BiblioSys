@@ -76,7 +76,7 @@ public class BibliothequeServiceIT {
 		bibliothequeExcpected.setNom("Bibliothèque 1");
 		bibliothequeExcpected.setAdresse(adresse);
 
-		final Bibliotheque bibliothequeSaved = bibliothequeService.save(bibliothequeExcpected);
+		final Bibliotheque bibliothequeSaved = bibliothequeService.saveAndFlush(bibliothequeExcpected);
 		final Bibliotheque bibliothequeFind = bibliothequeService.findById(bibliothequeSaved.getId());
 
 		assertThat(bibliothequeFind).extracting(Bibliotheque::getNom, bibliotheque -> bibliotheque.getAdresse().getId())
@@ -85,7 +85,7 @@ public class BibliothequeServiceIT {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> bibliothequeService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> bibliothequeService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

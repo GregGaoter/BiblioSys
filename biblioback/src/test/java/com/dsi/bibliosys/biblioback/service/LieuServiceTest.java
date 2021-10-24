@@ -67,7 +67,7 @@ public class LieuServiceTest {
 
 		given(lieuRepository.saveAndFlush(lieu)).willAnswer(invocation -> invocation.getArgument(0));
 
-		final Lieu lieuSaved = lieuService.save(lieu);
+		final Lieu lieuSaved = lieuService.saveAndFlush(lieu);
 
 		verify(lieuRepository).saveAndFlush(lieu);
 		assertThat(lieuSaved).isNotNull();
@@ -75,7 +75,7 @@ public class LieuServiceTest {
 
 	@Test
 	public void save_null() {
-		final Exception exception = assertThrows(NullPointerException.class, () -> lieuService.save(null));
+		final Exception exception = assertThrows(NullPointerException.class, () -> lieuService.saveAndFlush(null));
 
 		assertThat(exception.getMessage().contains("entity")).isTrue();
 	}

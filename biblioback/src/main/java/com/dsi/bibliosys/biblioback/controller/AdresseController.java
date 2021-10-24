@@ -96,7 +96,7 @@ public class AdresseController {
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody AdresseDto adresseDto) {
 		Adresse adresse = adresseMapper.mapToEntity(adresseDto);
-		adresseService.save(adresse);
+		adresseService.saveAndFlush(adresse);
 		return adresse == null ? ResponseEntity.noContent().build() : ResponseEntity.ok().build();
 	}
 
