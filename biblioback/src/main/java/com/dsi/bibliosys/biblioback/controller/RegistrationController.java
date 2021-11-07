@@ -3,6 +3,7 @@ package com.dsi.bibliosys.biblioback.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,20 +28,22 @@ public class RegistrationController {
 	private LieuService lieuService;
 	private AdresseService adresseService;
 	private UsagerService usagerService;
+	private PasswordEncoder passwordEncoder;
 
 	private RegistrationController(IdentifiantService identifiantService, LieuService lieuService,
-			AdresseService adresseService, UsagerService usagerService) {
+			AdresseService adresseService, UsagerService usagerService, PasswordEncoder passwordEncoder) {
 		this.identifiantService = identifiantService;
 		this.lieuService = lieuService;
 		this.adresseService = adresseService;
 		this.usagerService = usagerService;
+		this.passwordEncoder = passwordEncoder;
 	}
 
 	@PostMapping("/registration")
 	public ResponseEntity<Void> signUp(@RequestBody RegistrationDto registrationDto) {
 		Identifiant identifiant = new Identifiant();
 		identifiant.setEmail(registrationDto.getUsername());
-		identifiant.setMotDePasse(registrationDto.getPassword());
+		identifiant.setMotDePasse(passwordEncoder.encode(registrationDto.getPassword()));
 		identifiant.setIsActif(true);
 		identifiantService.saveAndFlush(identifiant);
 

@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Usager"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.PretService"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.PretSpecification"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.IdentifiantDto"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.IdentifiantService"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.AdresseService"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.LieuService"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.IdentifiantMapper"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.AdresseMapper"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.mapper.LieuMapper"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.AdresseDto"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.LieuDto"/>
-    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.BibliothequeService"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.EcritureLivreService"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.domain.Specification"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.repository.specification.EcritureLivreSpecification"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.EcritureLivre"/>
-    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Auteur"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="org.springframework.data.rest.core.annotation.RepositoryRestResource"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
@@ -26,7 +7,6 @@
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.model.Client"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
-    <fullyQualifiedTypeName name="java.util.stream.Stream"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Pret"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
@@ -46,7 +26,6 @@
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.app.Utils"/>
     <fullyQualifiedTypeName name="java.time.Instant"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
@@ -60,4 +39,25 @@
     <fullyQualifiedTypeName name="org.apache.hc.core5.http.ParseException"/>
     <fullyQualifiedTypeName name="com.dsi.bibliosys.bibliobatch.service.responseHandler.SendReminderEmailsResponseHandler"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.dto.RegistrationDto"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Identifiant"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.IdentifiantService"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Lieu"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.LieuService"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Adresse"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.AdresseService"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.data.entity.Usager"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="com.dsi.bibliosys.biblioback.service.UsagerService"/>
+    <fullyQualifiedTypeName name="java.time.ZonedDateTime"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.util.stream.Stream"/>
+    <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
 </qualifiedTypeNameHistroy>

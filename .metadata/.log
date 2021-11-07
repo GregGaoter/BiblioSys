@@ -5525,3 +5525,15 @@ org.eclipse.swt.SWTException: Unsupported or unrecognized format
 	at com.vaadin.integration.eclipse.notifications.model.NotificationsService.downloadImages(NotificationsService.java:157)
 	at com.vaadin.integration.eclipse.notifications.jobs.FetchNotificationsJob.run(FetchNotificationsJob.java:80)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vaadin.designer2 1 0 2021-11-07 19:32:32.294
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-11-07 19:32:32.295
+!MESSAGE Removed all models from server.
+
+!ENTRY com.vaadin.designer2 1 0 2021-11-07 19:32:32.296
+!MESSAGE Jetty stopped at http://null:0
+
+!ENTRY com.vaadin.designer2 1 0 2021-11-07 19:32:32.296
+!MESSAGE Removed all models from server.
