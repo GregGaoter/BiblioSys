@@ -79,6 +79,7 @@ library.add(
 
 export const ROOT_PATH = "/";
 export const LOGIN_PATH = "/login";
+export const REGISTRATION_PATH = "/registration";
 export const ACCUEIL_PATH = "/accueil";
 export const BIBLIOTHEQUES_PATH = "/bibliotheques";
 export const SERVICES_PATH = "/services";
@@ -252,7 +253,7 @@ function App() {
                 />
                 <div>Biblillonie</div>
               </div>
-              <div>{`© DSI - ${new Date().getFullYear()}`}</div>
+              <div>{`©DSI - ${new Date().getFullYear()}`}</div>
             </div>
           </div>
         </div>

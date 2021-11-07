@@ -12,9 +12,8 @@ public class ScheduledTasks {
 	@Autowired
 	private ReminderEmailsService reminderEmailsService;
 	
-	@Scheduled(cron = "00 45 19 * * ?")
+	@Scheduled(cron = "00 27 12 * * ?")
 	public void sendReminderEmails() throws IOException {
-		System.out.println("Démarrage CRON...");
 		reminderEmailsService.processSendingReminderEmails();
 	}
 

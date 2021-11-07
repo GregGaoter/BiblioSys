@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import divider from "../ressources/images/divider.png";
 import team01 from "../ressources/images/team01.jpg";
 import team02 from "../ressources/images/team02.jpg";

@@ -1,7 +1,6 @@
 import { Column } from "primereact/column";
 import { ColumnGroup } from "primereact/columngroup";
 import { DataTable } from "primereact/datatable";
-import { Row } from "primereact/row";
 import React from "react";
 import divider from "../ressources/images/divider.png";
 

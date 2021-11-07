@@ -13,6 +13,7 @@ import Access from "./pages/Access";
 import Error from "./pages/Error";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import Registration from "./pages/Registration";
 
 const AppWrapper = () => {
   let location = useLocation();
@@ -94,6 +95,7 @@ const AppWrapper = () => {
         )}
       />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/registration" component={Registration} />
       <Route exact path="/error" component={Error} />
       <Route exact path="/notfound" component={NotFound} />
       <Route exact path="/access" component={Access} />

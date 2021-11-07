@@ -9,6 +9,7 @@ import {
   GALLERIE_PATH,
   HORAIRES_PATH,
   LOGIN_PATH,
+  REGISTRATION_PATH,
   ROOT_PATH,
   SERVICES_PATH,
 } from "../App";
@@ -82,6 +83,7 @@ export const Navigation = () => {
         className="p-button-outlined p-button-raised p-button-rounded p-button-secondary"
         label="Créer un compte"
         icon="pi pi-user-plus"
+        onClick={() => goToPath(REGISTRATION_PATH)}
       />
     </div>
   );

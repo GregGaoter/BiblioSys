@@ -15,8 +15,6 @@ export const Emprunts = () => {
 
   const pretEntity = useAppSelector(entity);
 
-  const useEntity = () => useAppSelector(entity);
-
   const [emprunts, setEmprunts] = useState<IEmpruntResultat[]>();
   const [pretId, setPretId] = useState<number | undefined>(undefined);
 
@@ -29,7 +27,7 @@ export const Emprunts = () => {
       dispatch(updateEntity(pretId as number, { ...pretEntity, nbProlongations: 1 }));
       getEmprunts();
     }
-  }, [pretId, pretEntity]);
+  }, [pretId, pretEntity, dispatch]);
 
   const getEmprunts = () => {
     axios.get<IEmpruntResultat[]>("/usager/emprunts").then((response) => setEmprunts(response.data));

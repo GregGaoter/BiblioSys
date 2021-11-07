@@ -35,7 +35,7 @@ export const LivresResultat = () => {
   const [showUnavailableFeature, setShowUnavailableFeature] = useState<boolean>(false);
   const [resume, setResume] = useState<string | undefined>(undefined);
   const [first, setFirst] = useState<number>(0);
-  const [page, setPage] = useState<number>(0);
+  // const [page, setPage] = useState<number>(0);
 
   const sortOptions = [
     { label: "Croissant", value: "titre" },

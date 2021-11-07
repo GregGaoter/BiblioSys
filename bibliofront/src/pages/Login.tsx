@@ -53,28 +53,37 @@ const Login = () => {
 
   return (
     <div className="p-d-flex p-jc-center p-mt-6">
-      <Card className="p-shadow-6" title={title} header={header} footer={footer} style={{ width: "500px" }}>
-        <div className="p-fluid">
-          <div className="p-field">
-            <label htmlFor="email">E-mail</label>
-            <InputText
-              id="email"
-              type="email"
-              placeholder="Entrer votre e-mail"
-              onChange={(e) => setEmail(e.currentTarget.value)}
-            />
+      <div className="p-d-flex p-flex-column p-ai-center">
+        <Card className="p-shadow-6 p-mb-4" title={title} header={header} footer={footer} style={{ width: "500px" }}>
+          <div className="p-fluid">
+            <div className="p-field">
+              <label htmlFor="email">E-mail</label>
+              <InputText
+                id="email"
+                type="email"
+                placeholder="Entrer votre e-mail"
+                onChange={(e) => setEmail(e.currentTarget.value)}
+              />
+            </div>
+            <div className="p-field">
+              <label htmlFor="password">Mot de passe</label>
+              <InputText
+                id="password"
+                type="password"
+                placeholder="Entrer votre mot de passe"
+                onChange={(e) => setPassword(e.currentTarget.value)}
+              />
+            </div>
           </div>
-          <div className="p-field">
-            <label htmlFor="password">Mot de passe</label>
-            <InputText
-              id="password"
-              type="password"
-              placeholder="Entrer votre mot de passe"
-              onChange={(e) => setPassword(e.currentTarget.value)}
-            />
-          </div>
-        </div>
-      </Card>
+        </Card>
+        <Button
+          label="Revenir à la page d'accueil"
+          icon="pi pi-arrow-left"
+          className="p-button-secondary"
+          style={{ display: "inline", width: "260px" }}
+          onClick={() => history.push("/")}
+        />
+      </div>
     </div>
   );
 };
