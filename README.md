@@ -76,11 +76,6 @@ Nginx fournit à l'application les images des couvertures des livres.
 
 ### Prérequis
 
-Activer le profile `dev` de l'application :
-1.  Ouvrir le fichier `application.properties` à la racine de `src/main/resources`.
-2.  La propriété `spring.profiles.active=dev` doit être active.  
-    La propriété `#spring.profiles.active=prod` doit être en commentaire.
-
 Lancer `Nginx` :
 1.  Aller dans le répertoire d'installation de `Nginx`.
 2.  Lancer `nginx.exe`.
@@ -115,16 +110,13 @@ Lancer `Nginx` :
 1.  Depuis un navigateur Web, accéder à la page d'accueil :  
     `localhost:8080/`
 
-## Exécution pour la production
+## Comptes utilisateurs
 
-### Comptes utilisateurs
-
-Les comptes utilisateurs suivants sont fournis pour tester l'application avec différents rôles :
+Le compte utilisateur suivant est fourni pour tester l'application :
 
 | Adresse email | Mot de passe | Rôle |
 | --- | --- | --- |
-| fabien.poulin52@protonmail.fr | ZnkVRvZVe | Ami |
-| segolene.deniau6@lycos.fr | dIcgxCy59CNVEsLW | Administrateur |
+| amargerison0@toplist.cz | PPnU2y2S5A | USAGER |
 
 
 
