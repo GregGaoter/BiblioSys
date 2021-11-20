@@ -116,7 +116,7 @@ export const Livres = () => {
         <Card title="Rayons">
           <div className="p-grid p-nogutter">
             {useAppSelector(rayonEntities).map((rayon) => (
-              <div className="p-col-4" key={rayon.id}>
+              <div className="p-col p-sm-12 p-md-6" key={rayon.id}>
                 <Button
                   className="p-button-text p-button-plain"
                   label={rayon.nom}
@@ -132,7 +132,7 @@ export const Livres = () => {
         <Card title="Recherche avancée">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="p-fluid p-formgrid p-grid">
-              <div className="p-field p-col-4">
+              <div className="p-field p-col-12 p-md-6">
                 <label htmlFor="bibliothequeNom">Bibliothèque</label>
                 <Controller
                   name="bibliothequeNom"
@@ -141,7 +141,7 @@ export const Livres = () => {
                   render={({ field }) => <Dropdown {...field} options={bibliothequeOptions} optionLabel="label" />}
                 />
               </div>
-              <div className="p-field p-col-4">
+              <div className="p-field p-col-12 p-md-6">
                 <label htmlFor="rayon">Rayon</label>
                 <Controller
                   name="rayonNom"
@@ -152,7 +152,7 @@ export const Livres = () => {
                   )}
                 />
               </div>
-              <div className="p-field p-col-4">
+              <div className="p-field p-col-12 p-md-6">
                 <label htmlFor="genre">Genre</label>
                 <Controller
                   name="genreNom"
@@ -163,7 +163,7 @@ export const Livres = () => {
                   )}
                 />
               </div>
-              <div className="p-field p-col-4">
+              <div className="p-field p-col-12 p-md-6">
                 <label htmlFor="titre">Titre</label>
                 <Controller
                   name="livreTitre"
@@ -172,7 +172,7 @@ export const Livres = () => {
                   render={({ field }) => <InputText {...field} />}
                 />
               </div>
-              <div className="p-field p-col-4">
+              <div className="p-field p-col-12 p-md-6">
                 <label htmlFor="rayon">Auteur</label>
                 <Controller
                   name="livreAuteur"
@@ -183,7 +183,7 @@ export const Livres = () => {
                   )}
                 />
               </div>
-              <div className="p-field p-col-4">
+              <div className="p-field p-col-12 p-md-6">
                 <label htmlFor="genre">Date de parution</label>
                 <Calendar
                   id="livreDateParution"

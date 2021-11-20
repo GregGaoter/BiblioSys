@@ -74,7 +74,7 @@ export const LivresResultat = () => {
   );
 
   const renderGridItem = (data: ILivreResultat) => (
-    <div className="p-col-4">
+    <div className="p-col-12 p-md-6">
       <Card className="p-m-2">
         <div className="p-d-flex p-flex-column">
           <div className="p-d-flex p-jc-between p-ai-center p-mb-4">

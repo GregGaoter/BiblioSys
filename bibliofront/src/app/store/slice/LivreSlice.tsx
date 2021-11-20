@@ -93,7 +93,7 @@ export const getEntity =
     dispatch(requestGetEntityEntities);
     try {
       await axios.get<ILivre>(`${baseUrl}/${id}`).then((response) => dispatch(successGetEntity(response)));
-    } catch (e) {
+    } catch (e: any) {
       dispatch(failure(e.message));
     }
   };
@@ -102,7 +102,7 @@ export const getEntities = (): AppThunk => async (dispatch: any) => {
   dispatch(requestGetEntityEntities);
   try {
     await axios.get<ILivre>(`${baseUrl}/all`).then((response) => dispatch(successGetEntities(response)));
-  } catch (e) {
+  } catch (e: any) {
     dispatch(failure(e.message));
   }
 };
@@ -113,7 +113,7 @@ export const getEntitiesByRayonId =
     dispatch(requestGetEntityEntities);
     try {
       await axios.get<ILivre>(`${baseUrl}/rayon/${id}`).then((response) => dispatch(successGetEntities(response)));
-    } catch (e) {
+    } catch (e: any) {
       dispatch(failure(e.message));
     }
   };
@@ -124,7 +124,7 @@ export const getEntitiesByGenreId =
     dispatch(requestGetEntityEntities);
     try {
       await axios.get<ILivre>(`${baseUrl}/genre/${id}`).then((response) => dispatch(successGetEntities(response)));
-    } catch (e) {
+    } catch (e: any) {
       dispatch(failure(e.message));
     }
   };
@@ -138,7 +138,7 @@ export const createEntity =
       dispatch(successCreateUpdateEntity(response));
       await dispatch(getEntities());
       return response;
-    } catch (e) {
+    } catch (e: any) {
       dispatch(failure(e.message));
     }
   };
@@ -151,7 +151,7 @@ export const updateEntity =
       await axios
         .put<ILivre>(`${baseUrl}/${id}`, entity)
         .then((response) => dispatch(successCreateUpdateEntity(response)));
-    } catch (e) {
+    } catch (e: any) {
       dispatch(failure(e.message));
     }
   };
@@ -165,7 +165,7 @@ export const deleteEntity =
       dispatch(successDeleteEntity);
       await dispatch(getEntities());
       return response;
-    } catch (e) {
+    } catch (e: any) {
       dispatch(failure(e.message));
     }
   };

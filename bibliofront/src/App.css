@@ -15,3 +15,26 @@
 /* .p-button {
   padding: 1rem 1rem !important;
 } */
+
+.p-menu {
+  padding: 0.25rem 0;
+  background: none;
+  color: #495057;
+  border: none;
+  border-radius: 3px;
+  width: 12.5rem;
+}
+
+.p-scrollpanel.custombar1 .p-scrollpanel-wrapper {
+  border-right: 10px solid var(--surface-b);
+}
+
+.p-scrollpanel.custombar1 .p-scrollpanel-bar {
+  background-color: var(--primary-color);
+  opacity: 1;
+  transition: background-color .2s;
+}
+
+.p-scrollpanel.custombar1 .p-scrollpanel-bar:hover {
+  background-color: #007ad9;
+}

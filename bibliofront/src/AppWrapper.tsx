@@ -102,23 +102,6 @@ const AppWrapper = () => {
       <Route component={App} />
     </Switch>
   );
-
-  // switch (location.pathname) {
-  //   case "/":
-  //     return <Route path="/" component={Header} />;
-  //   case "/bibliotheques":
-  //     return <Route path="/bibliotheques" component={Bibliotheques} />;
-  //   case "/login":
-  //     return <Route path="/login" component={Login} />;
-  //   case "/error":
-  //     return <Route path="/error" component={Error} />;
-  //   case "/notfound":
-  //     return <Route path="/notfound" component={NotFound} />;
-  //   case "/access":
-  //     return <Route path="/access" component={Access} />;
-  //   default:
-  //     return <App />;
-  // }
 };
 
 export default withRouter(AppWrapper);
