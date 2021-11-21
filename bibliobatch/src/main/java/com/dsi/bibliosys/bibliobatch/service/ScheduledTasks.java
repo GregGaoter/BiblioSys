@@ -12,7 +12,7 @@ public class ScheduledTasks {
 	@Autowired
 	private ReminderEmailsService reminderEmailsService;
 	
-	@Scheduled(cron = "00 10 19 * * ?")
+	@Scheduled(cron = "${batch.execution.time.reminderemails}")
 	public void sendReminderEmails() throws IOException {
 		reminderEmailsService.processSendingReminderEmails();
 	}

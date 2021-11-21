@@ -43,7 +43,7 @@ public class PretService implements CrudService<Pret, Integer> {
 	public List<Pret> findAllExpired() {
 		List<Pret> prets = pretRepository.findAll();
 		List<Pret> pretsExpired = prets.stream()
-				.filter(pret -> Utils.getDateRetourPret(pret).isAfter(LocalDateTime.now()))
+				.filter(pret -> Utils.getDateRetourPret(pret).isBefore(LocalDateTime.now()))
 				.collect(Collectors.toList());
 		return pretsExpired;
 	}
